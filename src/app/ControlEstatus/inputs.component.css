@@ -1,0 +1,27 @@
+span.spanOne {
+  border-style: solid;
+  background-color: whitesmoke;
+  border-color: #02735E;
+  border-width: 2px;
+}
+
+label.labelOne {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: initial;
+  color: black;
+}
+
+input.inputOne {
+  border-style: solid;
+  background-color: white;
+  border-color: #02735E;
+  border-width: 3px;
+  font-family: sans-serif;
+  font-size: large;
+}
+
+input:focus {
+  background-color: rgb(228, 240, 244);
+  border-color: rgb(0, 162, 255);
+}

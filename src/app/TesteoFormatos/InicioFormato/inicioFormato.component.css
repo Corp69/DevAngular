@@ -1,0 +1,87 @@
+/*
+.A-warm-and-cosy-campfire-in-the-wilderness-with-forest-trees-silhouetted-in-the-background-and-the-stars-and-Northern-Lights-(Aurora-Borealis)-lighting-up-the-night-sky.-Photo-composite.-1-hex { color: #014040; }
+.A-warm-and-cosy-campfire-in-the-wilderness-with-forest-trees-silhouetted-in-the-background-and-the-stars-and-Northern-Lights-(Aurora-Borealis)-lighting-up-the-night-sky.-Photo-composite.-2-hex { color: #02735E; }
+.A-warm-and-cosy-campfire-in-the-wilderness-with-forest-trees-silhouetted-in-the-background-and-the-stars-and-Northern-Lights-(Aurora-Borealis)-lighting-up-the-night-sky.-Photo-composite.-3-hex { color: #03A678; }
+.A-warm-and-cosy-campfire-in-the-wilderness-with-forest-trees-silhouetted-in-the-background-and-the-stars-and-Northern-Lights-(Aurora-Borealis)-lighting-up-the-night-sky.-Photo-composite.-4-hex { color: #F27405; }
+.A-warm-and-cosy-campfire-in-the-wilderness-with-forest-trees-silhouetted-in-the-background-and-the-stars-and-Northern-Lights-(Aurora-Borealis)-lighting-up-the-night-sky.-Photo-composite.-5-hex { color: #731702; }
+*/
+
+mat-sidenav-container{
+  background-color: whitesmoke;
+}
+mat-sidenav-container .container{    
+  padding: 10px; 
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #014040;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: #F2AE30;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #F2AE30;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+span.spanOne {
+  border-style: solid;
+  background-color: whitesmoke;
+  border-color: #02735E;
+  border-width: 2px;
+}
+
+input.inputOne {
+  border-style: solid;
+  background-color: white;
+  border-color: #02735E;
+  border-width: 2px;
+  font-family: sans-serif;
+  font-size: large;
+}
+
+input:focus {
+  background-color: rgb(228, 240, 244);
+  border-color: rgb(0, 162, 255);
+}

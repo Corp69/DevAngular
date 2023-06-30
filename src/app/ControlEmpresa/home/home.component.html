@@ -1,0 +1,57 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push" style="background-color: rgb(161, 192, 194);">
+        <mat-toolbar color="primary" style="background-color: rgb(3, 3, 3);">
+            <span>Menú</span>
+            <button mat-icon-button style="background-color: blueviolet;" (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list style="background-color: rgb(185, 235, 142);">
+            <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon style="background-color: yellow;">label</mat-icon>
+                <span>Listado de Pacientes</span>
+            </a>
+
+            <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon style="background-color: yellow;">add</mat-icon>
+                <span>Añadir</span>
+            </a>
+
+            <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon style="background-color: yellow;">search</mat-icon>
+                <span>Búscar</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar style="background-color: aquamarine;">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon style="background-color: rgb(212, 255, 127);">menu</mat-icon>
+        </button>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid ">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#" style="font-weight: bold;">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     Modulos
+                    </a>
+                    <ul class="dropdown-menu" style="background-color: burlywood;">
+                      <li><a class="dropdown-item" href="#" style="font-weight: bold;" >Action</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit" style="background-color: rgb(46, 87, 84);">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </mat-toolbar>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

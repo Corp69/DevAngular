@@ -1,0 +1,18 @@
+<div class="container" style="background-color: #dee4db">
+  <h3 class="text-center">
+    Iniciar Session
+    <small class="text-body-secondary">Listo...</small>
+  </h3>
+  <form formGroup="myForm" class="row g-3">
+   
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" name="USUARIO" placeholder="USUARIO" aria-label="Username">
+      <span class="input-group-text">@</span>
+      <input type="text" class="form-control" name="PASSS" placeholder="PASSS" aria-label="Server">
+    </div>
+
+    <div class="text-center">
+      <button (click)="onSave()" type="button" class="btn btn-outline-success">Success</button>
+    </div>
+  </form>
+</div>
