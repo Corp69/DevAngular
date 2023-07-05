@@ -11,8 +11,8 @@ import { AuthService } from './services/auth.service';
 export class LoginComponent {
 
   public myForm: FormGroup = this.fb.group({
-    USUARIO: ['eli',  [],[] ],
-    PASSS:    ['123',  [],[] ]
+    USUARIO: ['',  [],[] ],
+    PASSS:    ['',  [],[] ]
   });
 
   constructor( 
@@ -27,6 +27,6 @@ export class LoginComponent {
       localStorage.setItem('Usuario', resp.data.user.usuario! );
       localStorage.setItem('token', resp.data.token! );
     });
-    this.router.navigate(['./ControlMedico/Principal']);
+    this.router.navigate(['./Control/inicio']);
   }
 }

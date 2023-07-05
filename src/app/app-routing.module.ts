@@ -20,6 +20,12 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
   },
   {
+    path: 'Control',
+    loadChildren: () => import('./ControlPrincipal/principal.module').then( m => m.PrincipalModule ),
+    canActivate:[ AuthGuard ],
+    canMatch:[ AuthGuard] 
+  },
+  {
     path: 'ControlEscolar',
     loadChildren: () => import('./ControlEscolar/ControlEscolar.module').then( m => m.ControlEscolarModule ),
     canActivate:[ AuthGuard ],
