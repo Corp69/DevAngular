@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { MaterialModule } from '../material/material.module';
 import { PrincipalModuleRoutingModule } from './principal-module-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,6 +16,7 @@ import { PrincipalModuleRoutingModule } from './principal-module-routing.module'
   imports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule,
     PrincipalModuleRoutingModule
   ]
 })
