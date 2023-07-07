@@ -1,9 +1,10 @@
 <div class="card" style="width: 100%;">
-  <mat-form-field fxFlex="100%">
-    <input matInput type="text" (keyup)="doFilter($event)" placeholder="Buscar ">
-  </mat-form-field>
+  <h1 style="text-align: center;"><b>Adeudos</b></h1>
   <div class="card-body">
-    <h1 style="text-align: center;"><b>Adeudos</b></h1>
+    <mat-form-field fxFlex="100%">
+      <input matInput type="text" (keyup)="doFilter($event)" placeholder="Buscar ">
+    </mat-form-field>
+    
     <table fxFlex="100%" mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
       <!-- Position Column -->
       <ng-container matColumnDef="position">
