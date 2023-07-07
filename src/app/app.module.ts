@@ -20,10 +20,7 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
     ReactiveFormsModule
   ],
   providers: [],
