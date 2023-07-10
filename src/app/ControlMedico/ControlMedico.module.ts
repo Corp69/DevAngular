@@ -6,6 +6,9 @@ import { ControlMedicoRoutingModule } from './ControlMedico-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { PrincipalComponent } from './principal/principal.component';
 import { MatTableModule } from '@angular/material/table';
+import { NutridatosBasicosComponent } from './nutridatosbasicos/nutridatosbasicos.component';
+import { NutripacientediametrosComponent } from './nutripacientediametros/nutripacientediametros.component';
+import { NutripacienteplieguesComponent } from './nutripacientepliegues/nutripacientepliegues.component';
 
 
 
@@ -13,7 +16,10 @@ import { MatTableModule } from '@angular/material/table';
   declarations: [
     HomeComponent,
     PacienteComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    NutridatosBasicosComponent,
+    NutripacientediametrosComponent,
+    NutripacienteplieguesComponent
   ],
   imports: [
     CommonModule,
