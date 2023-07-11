@@ -17,8 +17,6 @@ export class LoginComponent  implements OnInit {
     PASSS: [0, [ Validators.required, Validators.min(0) ] ]
   });
 
-USUARIO: any;
-  
   constructor( 
     private fb: FormBuilder,
     private servicio: AuthService,
