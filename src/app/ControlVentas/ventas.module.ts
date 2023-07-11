@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { ControlVentasRoutingModule } from './ControlInventarios-routing.module';
 import { PrincipalComponent } from './principal/principal.component';
@@ -14,7 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 //========================================
 
 
@@ -39,6 +39,10 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatPaginatorModule,
     ReactiveFormsModule,
     ControlVentasRoutingModule
+  ],
+  providers: [
+    DatePipe,
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
   ]
 })
 export class VentasModule { }

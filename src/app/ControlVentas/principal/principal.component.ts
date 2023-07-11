@@ -1,22 +1,23 @@
 import {LiveAnnouncer} from '@angular/cdk/a11y';
-import {AfterViewInit, Component, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import { Component, OnInit,  ViewChild} from '@angular/core';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
-  styleUrls: ['./principal.component.scss']
+  styleUrls: ['./principal.component.scss'],
 })
-export class PrincipalComponent implements OnInit, OnChanges {
+export class PrincipalComponent implements OnInit {
 
 
 
   public myForm: FormGroup = this.fb.group({
-    fecha1: [new Date(), [] ],
-    fecha12: [new Date(), [] ], 
+    fecha1: [ this.datePipe.transform(new Date(), 'dd-MM-yyyy'), [] ],
+    fecha12:[ this.datePipe.transform(new Date(), 'dd-MM-yyyy'), [] ], 
     id_estatus: [0, [ Validators.required, Validators.min(0) ] ]
   });
   
@@ -41,32 +42,35 @@ export class PrincipalComponent implements OnInit, OnChanges {
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private datePipe: DatePipe
     ) {}
   
     ngOnInit() {
       this.myForm = this.fb.group({
-        fecha1: new Date(),
-        fecha12: new Date(),
+        fecha1: this.datePipe.transform(new Date(), 'dd-MM-yyyy'),
+        fecha12: this.datePipe.transform(new Date(), 'dd-MM-yyyy'),
         id_estatus: -1
       });
     }
 
-    ngOnChanges( Args: any): void {
-      
-      console.log( Args );
-
-
-    }
-
-
 
     public onSave() {
+     
+     this.myForm.controls['fecha1'].setValue(this.datePipe.transform(this.myForm.value.fecha1, 'dd-MM-yyyy'));
+     this.myForm.controls['fecha12'].setValue(this.datePipe.transform(this.myForm.value.fecha12, 'dd-MM-yyyy'));
      console.log(this.myForm.value);
-    
+     
     }
 
-
+    public seleccionarFecha1( _fecha: any ) {
+     this.myForm.controls['fecha1'].setValue(_fecha.value);
+     //this.myForm.controls['fecha1'].setValue(this.datePipe.transform(_fecha.value, 'dd-MM-yyyy'));        
+    }
+    public seleccionarFecha2( _fecha: any ) {
+      this.myForm.controls['fecha12'].setValue(_fecha.value);        
+    //  this.myForm.controls['fecha12'].setValue(this.datePipe.transform(_fecha.value, 'dd-MM-yyyy'));        
+    }
 
   @ViewChild(MatSort)sort!: MatSort;
   @ViewChild(MatPaginator)paginator!: MatPaginator;
