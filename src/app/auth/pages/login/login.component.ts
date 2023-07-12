@@ -36,11 +36,22 @@ export class LoginComponent  implements OnInit {
 
   public onSave() {
     this.servicio.inicioSesion3(this.myForm.value).subscribe(resp => {
-      localStorage.setItem('id', resp.data.user.id! );
-      localStorage.setItem('Usuario', resp.data.user.usuario! );
-      localStorage.setItem('token', resp.data.token! );
+      switch (resp.data) {
+        case undefined:
+          Swal.fire({  
+            icon: 'error',  
+            title:  resp.Ttitulo,  
+            text:   resp.Detalle
+          })  
+          break;
+        default:
+          localStorage.setItem('id', resp.data.user.id! );
+          localStorage.setItem('Usuario', resp.data.user.usuario! );
+          localStorage.setItem('token', resp.data.token! );
+            this.router.navigate(['./ControlVentas/inicio']);
+          break;
+      }
     });
-    this.router.navigate(['./Control/inicio']);
   }
 
 

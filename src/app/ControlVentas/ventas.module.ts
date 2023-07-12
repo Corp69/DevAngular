@@ -4,9 +4,6 @@ import { MaterialModule } from '../material/material.module';
 import { ControlVentasRoutingModule } from './ControlInventarios-routing.module';
 import { PrincipalComponent } from './principal/principal.component';
 import { HomeComponent } from './home/home.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 //========================================
@@ -34,9 +31,6 @@ import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
     CommonModule,
     MatCardModule,
     MaterialModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
     ReactiveFormsModule,
     ControlVentasRoutingModule
   ],

@@ -1,17 +1,12 @@
 <mat-card>
     <mat-card-content>
         <h1 style="text-align: center;">Listado de Ventas</h1>
-
         <form [formGroup]="myForm" autocomplete="off">
-
             <div class="row">
                 <div class="col-sm-4">
                     <mat-form-field color="accent">
-                      
-                        <input (dateInput)="seleccionarFecha1($event.target)"
-                         formControlName="fecha1"
-                            placeholder="Seleccionar Fecha"
-                             matInput [matDatepicker]="picker1">
+                        <input (dateInput)="seleccionarFecha1($event.target)" formControlName="fecha1"
+                            placeholder="Seleccionar Fecha" matInput [matDatepicker]="picker1">
                         <mat-hint>Fecha Inicio</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
                         <mat-datepicker #picker1></mat-datepicker>
@@ -19,10 +14,8 @@
                 </div>
                 <div class="col-sm-4">
                     <mat-form-field color="accent">
-                        <input (dateInput)="seleccionarFecha2($event.target)" 
-                        placeholder="Seleccionar Fecha"
-                        formControlName="fecha12" matInput
-                            [matDatepicker]="picker2">
+                        <input (dateInput)="seleccionarFecha2($event.target)" placeholder="Seleccionar Fecha"
+                            formControlName="fecha12" matInput [matDatepicker]="picker2">
                         <mat-hint>Fecha Final</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2 color="primary"></mat-datepicker>
@@ -32,79 +25,68 @@
                     <mat-form-field>
                         <mat-label>Listado:</mat-label>
                         <mat-select formControlName="id_estatus">
-                            <mat-option value="primary">Primary</mat-option>
-                            <mat-option value="accent">Accent</mat-option>
-                            <mat-option value="warn">Warn</mat-option>
+                            <mat-option *ngFor="let estatus of lstEstatus" [value]="estatus.id">
+                                {{ estatus.descripcion }}
+                            </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
             </div>
 
-
-
-
             <div class="text-center">
-                <button (click)="onSave()" type="button" class="btn btn-outline-success">Success</button>
+                <button (click)="btnBuscarVentas()" [disabled]="BtnSpinner" type="button"
+                    class="btn btn-outline-success" title="Realizar Busqueda">Buscar Ventas
+                    <span *ngIf="BtnSpinner" class="spinner-border spinner-border-sm" role="status"></span>
+                </button>
             </div>
         </form>
 
     </mat-card-content>
 </mat-card>
 <mat-card>
-    <mat-card-content>
+    <mat-card-content *ngIf="tbDocVenta != null">
         <div class="card" style="width: 100%;">
             <h1 style="text-align: center;"><b>Adeudos</b></h1>
             <div class="card-body">
-                <mat-form-field fxFlex="100%">
-                    <input matInput type="text" (keyup)="doFilter($event)" placeholder="Buscar ">
-                </mat-form-field>
-
-                <table fxFlex="100%" mat-table [dataSource]="dataSource" matSort
-                    (matSortChange)="announceSortChange($event)">
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="position">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
-                            No.
-                        </th>
-                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                    </ng-container>
-
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
-                            Name
-                        </th>
-                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                    </ng-container>
-
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="weight">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
-                            Weight
-                        </th>
-                        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-                    </ng-container>
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="symbol">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-                            Symbol
-                        </th>
-                        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="axx">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-                            AXX
-                        </th>
-                        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-                    </ng-container>
-
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <!-- <th scope="col" *ngFor="let column of tbDocVenta_columns">{{ column }}</th> -->
+                            <th scope="col">ID</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Estatus</th>
+                            <th scope="col">Dias</th>
+                            <th scope="col">Fecha Creacion</th>
+                            <th scope="col">Fecha Limite</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Impuesto</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Moneda</th>
+                            <th scope="col">Simbolo</th>
+                            <th scope="col">Observaciones</th>
+                            <th scope="col">Empleado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dato of tbDocVenta">
+                            <th scope="row">{{ dato.id }}</th>
+                            <td>{{ dato.cliente }}</td>
+                            <td>{{ dato.tipo }}</td>
+                            <td>{{ dato.estado }}</td>
+                            <td>{{ dato.dias }}</td>
+                            <td>{{ dato.fecha }}</td>
+                            <td>{{ dato.fechalimite }}</td>
+                            <td>{{ dato.subtotal }}</td>
+                            <td>{{ dato.impuesto }}</td>
+                            <td>{{ dato.total }}</td>
+                            <td>{{ dato.moneda }}</td>
+                            <td>{{ dato.simbolo }}</td>
+                            <td>{{ dato.observaciones }}</td>
+                            <td>{{ dato.empleado }}</td>
+                        </tr>
+                    </tbody>
                 </table>
-
-                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-                </mat-paginator>
 
             </div>
         </div>
