@@ -49,7 +49,6 @@
             <h1 style="text-align: center;">
                 <b>Adeudos</b>
             </h1>
-
             <style>
                 table {
                     border-collapse: collapse;
@@ -71,14 +70,13 @@
                     background-color: coral;
                 }
             </style>
-
             <div class="card-body">
                 <div style="overflow-x: scroll;">
                     <table class="table table-striped table-bordered table-hover table-sm">
                         <thead class="thead-light">
                             <tr>
                                 <!-- <th scope="col" *ngFor="let column of tbDocVenta_columns">{{ column }}</th> -->
-                                <th scope="col">ID</th>
+                                <th scope="col">Accion</th>
                                 <th scope="col">Cliente</th>
                                 <th scope="col">Tipo</th>
                                 <th scope="col">Estatus</th>
@@ -96,7 +94,19 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let dato of tbDocVenta">
-                                <th scope="row">{{ dato.id }}</th>
+                                <th scope="row">
+                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                        <button type="button" class="btn btn-outline-danger">
+                                                 <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-info">
+                                            <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success">
+                                            <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
+                                        </button>
+                                      </div>
+                                </th>
                                 <td style="margin-left: 15px;">{{ dato.cliente }}</td>
                                 <td style="margin-left: 15px;">{{ dato.tipo }}</td>
                                 <td style="margin-left: 15px;">{{ dato.estado }}</td>

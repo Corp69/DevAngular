@@ -13,13 +13,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { DocventaComponent } from './docventa/docventa.component';
 //========================================
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    DocventaComponent
   ],
   imports: [
     MatIconModule,
