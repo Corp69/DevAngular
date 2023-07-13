@@ -67,13 +67,6 @@ export class PrincipalComponent implements OnInit {
     }, 1000);
    }
 
-
-
-
-
-
-   
-
     public seleccionarFecha1( _fecha: any ) {
      this.myForm.controls['fecha1'].setValue(_fecha.value);
      //this.myForm.controls['fecha1'].setValue(this.datePipe.transform(_fecha.value, 'dd-MM-yyyy'));        
@@ -85,7 +78,5 @@ export class PrincipalComponent implements OnInit {
 
     public doFilter = (value: any) => {
       this.tbDocVenta = value.target.value.trim().toLocaleLowerCase();
-    }
-   
-
+    }   
 }
