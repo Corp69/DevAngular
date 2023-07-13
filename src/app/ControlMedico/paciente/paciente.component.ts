@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MdlPaciente } from './Models/MdlPaciente';
 
 
 @Component({
@@ -7,30 +8,86 @@ import {MatTableModule} from '@angular/material/table';
   templateUrl: './paciente.component.html',
   styleUrls: ['./paciente.component.css']
 })
-export class PacienteComponent {
- 
+export class PacienteComponent implements OnInit {
+  public BtnSpinner: boolean = false;
+  public lstSexo: any;
 
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
+  public MdlPaciente: MdlPaciente = new MdlPaciente();
+  public frmPaciente: FormGroup = this.fb.group({
+    id: [-1],
+    curp: [, [Validators.required, Validators.min(0)]],
+    nombre: [, [Validators.required, Validators.min(0)]],
+    paterno: [, [Validators.required, Validators.min(0)]],
+    materno: [, [Validators.required, Validators.min(0)]],
+    tipo_sanguineo: [, [Validators.required, Validators.min(0)]],
+    numero: [, [Validators.required, Validators.min(0)]],
+    ficha: [, [Validators.required, Validators.min(0)]],
+    discapacidad: [, [Validators.required, Validators.min(0)]],
+    paciente: [, [Validators.required, Validators.min(0)]],
+    telefono: [, [Validators.required, Validators.min(0)]],
+    id_cg_sexo: [-1],
+    calle: [, [Validators.required, Validators.min(0)]],
+    fechanaci: [new Date()],
+    numeroext: [, [Validators.required, Validators.min(0)]],
+    cp: [, [Validators.required, Validators.min(0)]],
+    ocupacion: [, [Validators.required, Validators.min(0)]],
+    correo: [, [Validators.required, Validators.min(0)]],
+    medicacion: [, [Validators.required, Validators.min(0)]],
+    notas: [, [Validators.required, Validators.min(0)]],
+    id_cliente: [-1]
+  });
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+
+  constructor(
+    private fb: FormBuilder,
+    //private datePipe: DatePipe,
+    //private servicio: VentasService
+  ) {
+    
+  }
+
+  public btnAlmacenar() {
+
+  }
+
+  ngOnInit() {
+    //? ======================================================
+    // seteamos los valores al formulario
+    this.frmPaciente.setValue(this.MdlPaciente);
+    //=================================
+    //carga del listado
+    //this.servicio.lstEstatus().subscribe(resp => {this.lstEstatus = resp.Detalle._listado_filtro_estatus;});
+  }
 
 
-  dataSource  = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  ];
+  public btnBuscarVentas() {
+    this.BtnSpinner = true;
+    // this.myForm.controls['fecha1'].setValue(this.datePipe.transform(this.myForm.value.fecha1, 'dd-MM-yyyy'));
+    // this.myForm.controls['fecha12'].setValue(this.datePipe.transform(this.myForm.value.fecha12, 'dd-MM-yyyy'));
+    setTimeout(() => {
+      //===============================
+      //  this.servicio.BuscarVentasXfiltro(this.myForm.value).subscribe(resp => {
+      //    switch (resp.Detalle.tb_ventas_por_fecha_limite) {
+      //      case  null:
+      //        Swal.fire(resp.Mensaje,'0 registros','warning');
+      //        break;
+      //      default:
+      //        this.tbDocVenta = resp.Detalle.tb_ventas_por_fecha_limite;
+      //        this.tbDocVenta_columns = Object.keys(this.tbDocVenta[0]);
+      //        console.log(this.tbDocVenta_columns);
+      //      break;
+      //    }  
+      //  });
+      //===============================
+      this.BtnSpinner = false;
+    }, 1000);
+  }
+
+
+
+
+
+
 
 
 }
