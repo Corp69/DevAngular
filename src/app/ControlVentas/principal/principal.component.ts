@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { VentasService } from './services/Ventas.service';
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+import Swal from 'sweetalert2';
 import { MdlBuscarVentas } from './models/mdlBuscarVentas';
 
 @Component({
