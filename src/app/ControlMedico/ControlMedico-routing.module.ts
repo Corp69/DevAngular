@@ -19,9 +19,9 @@ const routes: Routes = [
       { path: 'paciente/:id', component: PacienteComponent },
       //=====================================================================================
       //? Nutricion
-      { path: 'nutricionBasicos',   component: NutridatosBasicosComponent },
-      { path: 'nutricionDiametros', component: NutripacientediametrosComponent },
-      { path: 'nutricionPligues',   component: NutripacienteplieguesComponent },
+      { path: 'infoBasicos',   component: NutridatosBasicosComponent },
+      { path: 'infoDiametros', component: NutripacientediametrosComponent },
+      { path: 'infoPligues',   component: NutripacienteplieguesComponent },
       //=====================================================================================
       { path: 'Principal',component: PrincipalComponent },
       { path: '**', redirectTo: 'pacientes' }
