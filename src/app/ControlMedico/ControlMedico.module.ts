@@ -16,6 +16,7 @@ import { TbpacientesComponent } from './tbpacientes/tbpacientes.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { GraficosResultadosComponent } from './GraficosResultados/GraficosResultados.component';
 
 
 
@@ -27,7 +28,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     NutridatosBasicosComponent,
     NutripacientediametrosComponent,
     NutripacienteplieguesComponent,
-    TbpacientesComponent
+    TbpacientesComponent,
+    GraficosResultadosComponent
   ],
   imports: [
     //========================================

@@ -7,15 +7,15 @@ import { NutridatosBasicosComponent } from './nutridatosbasicos/nutridatosbasico
 import { NutripacientediametrosComponent } from './nutripacientediametros/nutripacientediametros.component';
 import { NutripacienteplieguesComponent } from './nutripacientepliegues/nutripacientepliegues.component';
 import { TbpacientesComponent } from './tbpacientes/tbpacientes.component';
-
-
+import { GraficosResultadosComponent } from './GraficosResultados/GraficosResultados.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
-      { path: 'pacientes', component: TbpacientesComponent },
+      //=====================================================================================
+      { path: 'pacientes',    component: TbpacientesComponent },
       { path: 'paciente/:id', component: PacienteComponent },
       //=====================================================================================
       //? Nutricion
@@ -23,7 +23,10 @@ const routes: Routes = [
       { path: 'infoDiametros', component: NutripacientediametrosComponent },
       { path: 'infoPligues',   component: NutripacienteplieguesComponent },
       //=====================================================================================
-      { path: 'Principal',component: PrincipalComponent },
+      { path: 'Principal',     component: PrincipalComponent },
+      //=====================================================================================
+      //? Nutricion
+      { path: 'resultados/:id',component: GraficosResultadosComponent },
       { path: '**', redirectTo: 'pacientes' }
     ]
   }
