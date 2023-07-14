@@ -3,7 +3,7 @@
         <h1 style="text-align: center;">Pacientes:</h1>
         <form [formGroup]="myForm" autocomplete="off">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <mat-form-field color="accent">
                         <input (dateInput)="seleccionarFecha1($event.target)" formControlName="fecha1"
                             placeholder="Seleccionar Fecha" matInput [matDatepicker]="picker1">
@@ -12,7 +12,7 @@
                         <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <mat-form-field color="accent">
                         <input (dateInput)="seleccionarFecha2($event.target)" placeholder="Seleccionar Fecha"
                             formControlName="fecha12" matInput [matDatepicker]="picker2">
@@ -21,21 +21,11 @@
                         <mat-datepicker #picker2 color="primary"></mat-datepicker>
                     </mat-form-field>
                 </div>
-                <div class="col-sm-4">
-                    <mat-form-field>
-                        <mat-label>Listado:</mat-label>
-                        <mat-select formControlName="id_estatus">
-                            <mat-option *ngFor="let estatus of lstEstatus" [value]="estatus.id">
-                                {{ estatus.descripcion }}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
             </div>
 
             <div class="text-center">
-                <button (click)="btnBuscarVentas()" [disabled]="BtnSpinner" type="button"
-                    class="btn btn-outline-success" title="Realizar Busqueda">Buscar Ventas
+                <button (click)="btnBuscarPacientes()" [disabled]="BtnSpinner" type="button"
+                    class="btn btn-outline-success" title="Realizar Busqueda">Buscar Pacientes
                     <span *ngIf="BtnSpinner" class="spinner-border spinner-border-sm" role="status"></span>
                 </button>
             </div>
@@ -77,51 +67,26 @@
                             <tr>
                                 <!-- <th scope="col" *ngFor="let column of tbDocVenta_columns">{{ column }}</th> -->
                                 <th scope="col">Accion</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Paciente</th>
+                                <th scope="col">Ficha</th>
+                                <th scope="col">Numero</th>
+                                <th scope="col">Edad</th>
+                                <th scope="col">Curp</th>
                                 <th scope="col">Cliente</th>
-                                <th scope="col">Tipo</th>
-                                <th scope="col">Estatus</th>
-                                <th scope="col">Dias</th>
-                                <th scope="col">Fecha Creacion</th>
-                                <th scope="col">Fecha Limite</th>
-                                <th scope="col">Subtotal</th>
-                                <th scope="col">Impuesto</th>
-                                <th scope="col">Total</th>
-                                <th scope="col">Moneda</th>
-                                <th scope="col">Simbolo</th>
-                                <th scope="col">Observaciones</th>
-                                <th scope="col">Empleado</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let dato of tbDocVenta">
-                                <th scope="row">
-                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                        <button type="button" class="btn btn-outline-danger">
-                                                 <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
-                                        </button>
-                                        <button type="button" class="btn btn-outline-info">
-                                            <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
-                                        </button>
-                                        <button type="button" class="btn btn-outline-success">
-                                            <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
-                                            <a [routerLink]="['/ControlVentas/venta', dato.id]">Redireccionar</a>
-                                        </button>
-                                      </div>
-                                </th>
+                                <td style="margin-left: 15px;">{{ dato.id }}</td>
+                                <td style="margin-left: 15px;">{{ dato.fechacreacion }}</td>
+                                <td style="margin-left: 15px;">{{ dato.paciente }}</td>
+                                <td style="margin-left: 15px;">{{ dato.ficha }}</td>
+                                <td style="margin-left: 15px;">{{ dato.numero }}</td>
+                                <td style="margin-left: 15px;">{{ dato.edad }}</td>
+                                <td style="margin-left: 15px;">{{ dato.curp }}</td>
                                 <td style="margin-left: 15px;">{{ dato.cliente }}</td>
-                                <td style="margin-left: 15px;">{{ dato.tipo }}</td>
-                                <td style="margin-left: 15px;">{{ dato.estado }}</td>
-                                <td style="margin-left: 15px;">{{ dato.dias }}</td>
-                                <td style="margin-left: 15px;">{{ dato.fecha }}</td>
-                                <td style="margin-left: 15px;">{{ dato.fechalimite }}</td>
-                                <td style="margin-left: 15px;">{{ dato.subtotal }}</td>
-                                <td style="margin-left: 15px;">{{ dato.impuesto }}</td>
-                                <td style="margin-left: 15px;">{{ dato.total }}</td>
-                                <td style="margin-left: 15px;">{{ dato.moneda }}</td>
-                                <td style="margin-left: 15px;">{{ dato.simbolo }}</td>
-                                <td style="margin-left: 15px;">{{ dato.observaciones }}</td>
-                                <td style="margin-left: 15px;">{{ dato.empleado }}</td>
-                            </tr>
+                              </tr>
                         </tbody>
                     </table>
 

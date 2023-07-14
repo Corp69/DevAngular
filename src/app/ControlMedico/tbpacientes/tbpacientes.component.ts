@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MdlBuscarPacientes } from './Models/MdlBuscarVentas';
+import { MdlBuscarPacientes } from './Models/MdlBuscarPacientes';
 import { PacientesService } from './Services/Pacientes.service';
 import Swal from 'sweetalert2';
 
@@ -21,8 +21,7 @@ export class TbpacientesComponent {
 
   public myForm: FormGroup = this.fb.group({
     fecha1: [ new Date()],
-    fecha12:[ new Date()], 
-    id_estatus: [0, [ Validators.required, Validators.min(0) ] ]
+    fecha12:[ new Date()]
   });
 
   constructor(
@@ -41,19 +40,19 @@ export class TbpacientesComponent {
      }
 
 
-     public btnBuscarVentas() {
+     public btnBuscarPacientes() {
       this.BtnSpinner = true;
       this.myForm.controls['fecha1'].setValue(this.datePipe.transform(this.myForm.value.fecha1, 'dd-MM-yyyy'));
       this.myForm.controls['fecha12'].setValue(this.datePipe.transform(this.myForm.value.fecha12, 'dd-MM-yyyy'));
       setTimeout(() => {
        //===============================
-       this.servicio.BuscarVentasXfiltro(this.myForm.value).subscribe(resp => {
-         switch (resp.Detalle.tb_ventas_por_fecha_limite) {
+       this.servicio.PacientesXFecha(this.myForm.value).subscribe(resp => {
+         switch (resp.Detalle.tb_pacientes_por_fecha_limite) {
            case  null:
              Swal.fire(resp.Mensaje,'0 registros','warning');
              break;
            default:
-             this.tbDocVenta = resp.Detalle.tb_ventas_por_fecha_limite;
+             this.tbDocVenta = resp.Detalle.tb_pacientes_por_fecha_limite;
              this.tbDocVenta_columns = Object.keys(this.tbDocVenta[0]);
              console.log(this.tbDocVenta_columns);
            break;
