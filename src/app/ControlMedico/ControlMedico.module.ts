@@ -17,7 +17,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { GraficosResultadosComponent } from './GraficosResultados/GraficosResultados.component';
-
+//========================================
+//Angular Graficos
+import { NgChartsConfiguration, NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -32,6 +34,9 @@ import { GraficosResultadosComponent } from './GraficosResultados/GraficosResult
     GraficosResultadosComponent
   ],
   imports: [
+    //========================================
+    //Angular Graficos
+    NgChartsModule,
     //========================================
     //Fechas: Angular Material
     MatFormFieldModule,
@@ -50,7 +55,8 @@ import { GraficosResultadosComponent } from './GraficosResultados/GraficosResult
   ],
   providers: [
     DatePipe,
-    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    { provide: NgChartsConfiguration, useValue: { generateColors: false }}
   ]
 })
 export class ControlMedicoModule { }
