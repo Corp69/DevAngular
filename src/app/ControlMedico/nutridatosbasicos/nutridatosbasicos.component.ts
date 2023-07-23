@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MdlBasico } from './Models/MdlBasico';
+import { BasicosService } from './Services/Basicos.service';
 
 @Component({
   selector: 'app-nutridatos-basicos',
@@ -26,8 +27,8 @@ export class NutridatosBasicosComponent  implements OnInit {
   
   constructor(
     private fb: FormBuilder,
+    private servicio: BasicosService
     //private datePipe: DatePipe,
-    //private servicio: VentasService
   ) {
     
   }
@@ -39,6 +40,7 @@ export class NutridatosBasicosComponent  implements OnInit {
     //=================================
     //carga del listado
     //this.servicio.lstEstatus().subscribe(resp => {this.lstEstatus = resp.Detalle._listado_filtro_estatus;});
+  
   }
 
   public btnAlmacenar() {
