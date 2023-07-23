@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AuthService } from './services/auth.service';
 @Component({
   selector: 'app-login',
@@ -17,8 +18,6 @@ export class LoginComponent  implements OnInit {
     PASSS: [0, [ Validators.required, Validators.min(0) ] ]
   });
 
-USUARIO: any;
-  
   constructor( 
     private fb: FormBuilder,
     private servicio: AuthService,
@@ -37,10 +36,83 @@ USUARIO: any;
 
   public onSave() {
     this.servicio.inicioSesion3(this.myForm.value).subscribe(resp => {
-      localStorage.setItem('id', resp.data.user.id! );
-      localStorage.setItem('Usuario', resp.data.user.usuario! );
-      localStorage.setItem('token', resp.data.token! );
+      switch (resp.data) {
+        case undefined:
+          Swal.fire({  
+            icon: 'error',  
+            title:  resp.Ttitulo,  
+            text:   resp.Detalle
+          })  
+          break;
+        default:
+          localStorage.setItem('id', resp.data.user.id! );
+          localStorage.setItem('Usuario', resp.data.user.usuario! );
+          localStorage.setItem('token', resp.data.token! );
+            this.router.navigate(['./ControlVentas/inicio']);
+          break;
+      }
     });
-    this.router.navigate(['./Control/inicio']);
   }
+
+
+
+  simpleAlert(){  
+    Swal.fire('Hello Angular');  
+  }  
+    
+  alertWithSuccess(){  
+    Swal.fire('Thank you...', 'You submitted succesfully!', 'success')  
+  }  
+  erroalert()  
+  {  
+    Swal.fire({  
+      icon: 'error',  
+      title: 'Oops...',  
+      text: 'Something went wrong!',  
+      footer: '<a href>Why do I have this issue?</a>'  
+    })  
+  }  
+  topend()  
+  {  
+    Swal.fire({  
+      position: 'top-end',  
+      icon: 'success',  
+      title: 'Your work has been saved',  
+      showConfirmButton: false,  
+      timer: 1500  
+    })  
+  }  
+  confirmBox(){  
+    Swal.fire({  
+      title: 'Are you sure want to remove?',  
+      text: 'You will not be able to recover this file!',  
+      icon: 'warning',  
+      showCancelButton: true,  
+      confirmButtonText: 'Yes, delete it!',  
+      cancelButtonText: 'No, keep it'  
+    }).then((result) => {  
+      if (result.value) {  
+        Swal.fire(  
+          'Deleted!',  
+          'Your imaginary file has been deleted.',  
+          'success'  
+        )  
+      } else if (result.dismiss === Swal.DismissReason.cancel) {  
+        Swal.fire(  
+          'Cancelled',  
+          'Your imaginary file is safe :)',  
+          'error'  
+        )  
+      }  
+    })  
+  }  
+
+
+
+
+
+
+
+
+
 }

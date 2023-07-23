@@ -1,1 +1,135 @@
-<h1>hola</h1>
+<mat-card>
+    <mat-card-content>
+        <h1 style="text-align: center;">Datos Del Paciente</h1>
+        <form [formGroup]="frmPaciente" autocomplete="off">
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>Nombre:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Apellido Paterno:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Apellido Materno:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Curp:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>id_cliente:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>Tipo Sanguineo:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Numero:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Ficha:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Discapacidad:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>Paciente:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>telefono:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Sexo:</b></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                      </select>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Calle:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>Fecha De Nacimiento:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Codigo Postal:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>ocupacion:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="col-sm-3">
+                    <label><b>correo:</b></label>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label><b>Notas:</b></label>
+                    <textarea class="form-control" placeholder="Escribe Tus Notas" id="floatingTextarea2" style="height: 100px"></textarea>
+ 
+                </div>
+                <div class="col-sm-6">
+                    <label><b>Medicacion:</b></label>
+                    <textarea class="form-control" placeholder="Escribir Medicacion" id="floatingTextarea2" style="height: 100px"></textarea>
+                </div>
+            </div>
+            <hr>
+            <div class="text-left">
+                <button (click)="btnAlmacenar()" [disabled]="BtnSpinner" type="button" class="btn btn-outline-primary"
+                    title="Guardar Datos">Guardar
+                    <span *ngIf="BtnSpinner" class="spinner-border spinner-border-sm" role="status"></span>
+                </button>
+            </div>
+        </form>
+
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-content>
+        <div class="card" style="width: 100%;">
+            <h1 style="text-align: center;">
+                <b>Paciente</b>
+            </h1>
+        </div>
+
+    </mat-card-content>
+</mat-card>
+
+<div class="container-fluid">
+    <div class="row pt-4">
+        <div class="col-md-12 text-center mb-2" style="text-align: center;">
+            <small> ©2022 CopyRight
+                <span class="text-secondary font-weight-bold">Elizandro Dev. </span>
+            </small>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,127 @@
-<p>nutripacientepliegues works!</p>
+<mat-card>
+    <mat-card-content>
+        <h1 style="text-align: center;"><b>Pliegues Paciente:</b></h1>
+        <form [formGroup]="frmPliegues" autocomplete="off">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">subescapular</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Tricipital</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Bicipital</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Cresta Ileaca</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Supraespinal</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Abdominal</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Muslo</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Pantorrilla</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Pectoral</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Axilar</span>
+                        <span class="input-group-text">Medida en mm</span>
+                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">Paciente:</span>
+                        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                      </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">Sexo:</span>
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="1">Hombre</option>
+                            <option value="2">Mujer</option>
+                          </select> 
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-left">
+                <button (click)="btnAlmacenar()" [disabled]="BtnSpinner" type="button" class="btn btn-outline-primary"
+                    title="Guardar Datos">Guardar
+                    <span *ngIf="BtnSpinner" class="spinner-border spinner-border-sm" role="status"></span>
+                </button>
+            </div>
+        </form>
+
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-content>
+        <!-- En caso de haber tabla Agregar Aqui -->
+    </mat-card-content>
+</mat-card>
+
+<div class="container-fluid">
+    <div class="row pt-4">
+        <div class="col-md-12 text-center mb-2" style="text-align: center;">
+            <small> ©2022 CopyRight
+                <span class="text-secondary font-weight-bold">Elizandro Dev. </span>
+            </small>
+        </div>
+    </div>
+</div>

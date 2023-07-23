@@ -1,0 +1,143 @@
+<mat-card>
+    <mat-card-content>
+        <h1 style="text-align: center;">Listado de Ventas</h1>
+        <form [formGroup]="myForm" autocomplete="off">
+            <div class="row">
+                <div class="col-sm-4">
+                    <mat-form-field color="accent">
+                        <input (dateInput)="seleccionarFecha1($event.target)" formControlName="fecha1"
+                            placeholder="Seleccionar Fecha" matInput [matDatepicker]="picker1">
+                        <mat-hint>Fecha Inicio</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field color="accent">
+                        <input (dateInput)="seleccionarFecha2($event.target)" placeholder="Seleccionar Fecha"
+                            formControlName="fecha12" matInput [matDatepicker]="picker2">
+                        <mat-hint>Fecha Final</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-4">
+                    <mat-form-field>
+                        <mat-label>Listado:</mat-label>
+                        <mat-select formControlName="id_estatus">
+                            <mat-option *ngFor="let estatus of lstEstatus" [value]="estatus.id">
+                                {{ estatus.descripcion }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button (click)="btnBuscarVentas()" [disabled]="BtnSpinner" type="button"
+                    class="btn btn-outline-success" title="Realizar Busqueda">Buscar Ventas
+                    <span *ngIf="BtnSpinner" class="spinner-border spinner-border-sm" role="status"></span>
+                </button>
+            </div>
+        </form>
+
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-content *ngIf="tbDocVenta != null">
+        <div class="card" style="width: 100%;">
+            <h1 style="text-align: center;">
+                <b>Adeudos</b>
+            </h1>
+            <style>
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+
+                th,
+                td {
+                    padding: 8px;
+                    text-align: left;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                td:hover {
+                    background-color: coral;
+                }
+            </style>
+            <div class="card-body">
+                <div style="overflow-x: scroll;">
+                    <table class="table table-striped table-bordered table-hover table-sm">
+                        <thead class="thead-light">
+                            <tr>
+                                <!-- <th scope="col" *ngFor="let column of tbDocVenta_columns">{{ column }}</th> -->
+                                <th scope="col">Accion</th>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Estatus</th>
+                                <th scope="col">Dias</th>
+                                <th scope="col">Fecha Creacion</th>
+                                <th scope="col">Fecha Limite</th>
+                                <th scope="col">Subtotal</th>
+                                <th scope="col">Impuesto</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Moneda</th>
+                                <th scope="col">Simbolo</th>
+                                <th scope="col">Observaciones</th>
+                                <th scope="col">Empleado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dato of tbDocVenta">
+                                <th scope="row">
+                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                        <button type="button" class="btn btn-outline-danger">
+                                                 <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-info">
+                                            <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-success">
+                                            <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
+                                            <a [routerLink]="['/ControlVentas/venta', dato.id]">Redireccionar</a>
+                                        </button>
+                                      </div>
+                                </th>
+                                <td style="margin-left: 15px;">{{ dato.cliente }}</td>
+                                <td style="margin-left: 15px;">{{ dato.tipo }}</td>
+                                <td style="margin-left: 15px;">{{ dato.estado }}</td>
+                                <td style="margin-left: 15px;">{{ dato.dias }}</td>
+                                <td style="margin-left: 15px;">{{ dato.fecha }}</td>
+                                <td style="margin-left: 15px;">{{ dato.fechalimite }}</td>
+                                <td style="margin-left: 15px;">{{ dato.subtotal }}</td>
+                                <td style="margin-left: 15px;">{{ dato.impuesto }}</td>
+                                <td style="margin-left: 15px;">{{ dato.total }}</td>
+                                <td style="margin-left: 15px;">{{ dato.moneda }}</td>
+                                <td style="margin-left: 15px;">{{ dato.simbolo }}</td>
+                                <td style="margin-left: 15px;">{{ dato.observaciones }}</td>
+                                <td style="margin-left: 15px;">{{ dato.empleado }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+</mat-card>
+
+<div class="container-fluid">
+    <div class="row pt-4">
+        <div class="col-md-12 text-center mb-2" style="text-align: center;">
+            <small> ©2022 CopyRight
+                <span class="text-secondary font-weight-bold">Elizandro Dev. </span>
+            </small>
+        </div>
+    </div>
+</div>
