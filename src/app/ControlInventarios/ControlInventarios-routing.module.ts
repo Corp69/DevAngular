@@ -1,12 +1,31 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from '../ControlPrincipal/home/home.component';
+import { InvProductoComponent } from './inv-producto/invproducto.component';
 
 
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    children: [
+      //=====================================================================================
+      { path: 'producto',    component: InvProductoComponent },
+      //=====================================================================================
+      //? Sat
+      { path: 'satPdroducto',    component: InvProductoComponent },
+      //=====================================================================================
+      { path: '**', redirectTo: '/Control/inicio' }
+    ]
+  }
+];
 
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule
+    RouterModule.forChild( routes )
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class ControlInventariosRoutingModule { }

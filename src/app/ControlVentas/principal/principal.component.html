@@ -97,14 +97,17 @@
                                 <th scope="row">
                                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                                         <button type="button" class="btn btn-outline-danger">
-                                                 <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
+                                            <i class="fa-solid fa-trash"></i>
+                                            Eliminar
                                         </button>
-                                        <button type="button" class="btn btn-outline-info">
-                                            <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
+                                        <button type="button" class="btn btn-outline-primary">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                            Modificar
                                         </button>
                                         <button type="button" class="btn btn-outline-success">
-                                            <mat-icon mat-list-icon style="background-color: yellow;"></mat-icon>
-                                            <a [routerLink]="['/ControlVentas/venta', dato.id]">Redireccionar</a>
+                                            <i class="fa-solid fa-rotate"></i>
+                                            <a [routerLink]="['/ControlVentas/venta', dato.id]">Procesar</a>
+                                        
                                         </button>
                                       </div>
                                 </th>

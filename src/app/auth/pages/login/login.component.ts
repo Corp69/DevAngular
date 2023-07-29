@@ -48,7 +48,7 @@ export class LoginComponent  implements OnInit {
           localStorage.setItem('id', resp.data.user.id! );
           localStorage.setItem('Usuario', resp.data.user.usuario! );
           localStorage.setItem('token', resp.data.token! );
-            this.router.navigate(['./ControlVentas/inicio']);
+            this.router.navigate(['./Control/inicio']);
           break;
       }
     });
