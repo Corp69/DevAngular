@@ -39,7 +39,9 @@
                    Modulos
                   </a>
                   <ul class="dropdown-menu" style="background-color: #737373;">
-                    <li><a class="dropdown-item" href="#" style=" color: #181D26;" >Action</a></li>
+                    <li *ngFor="let opcion of lstOpciones" >
+                      <a class="dropdown-item" [href]="opcion.url" style=" color: #181D26;" >{{ opcion.descripcion }}</a>
+                    </li>
                   </ul>
                 </li>
               </ul>
