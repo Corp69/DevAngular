@@ -20,6 +20,7 @@ import { GraficosResultadosComponent } from './GraficosResultados/GraficosResult
 //========================================
 //Angular Graficos
 import { NgChartsConfiguration, NgChartsModule } from 'ng2-charts';
+import { GraficosDetalleComponent } from './GraficosDetalle/GraficosDetalle.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NgChartsConfiguration, NgChartsModule } from 'ng2-charts';
     NutripacientediametrosComponent,
     NutripacienteplieguesComponent,
     TbpacientesComponent,
-    GraficosResultadosComponent
+    GraficosResultadosComponent,
+    GraficosDetalleComponent
   ],
   imports: [
     //========================================

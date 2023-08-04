@@ -1,40 +1,19 @@
-<div class="content-graphs">
-  <mat-card >
+  <mat-card style=" margin-bottom: 10px;">
     <mat-card-content >
-        <h1 style="text-align: center;"><b>Resultados:</b></h1>
-  
-        <canvas baseChart class="chart"
-        [data]="pieChartData"
-        [type]="pieChartType"
-        [options]="pieChartOptions"
-        [plugins]="pieChartPlugins">
-        </canvas>
-  
-        <mat-divider></mat-divider>
-  
-        <div class="button-row">
-          <button mat-button mat-raised-button color="primary" (click)="toggleLegend()">Toggle Legend</button>
-          <button mat-button mat-raised-button color="primary" (click)="changeLabels()">Change Labels</button>
-          <button mat-button mat-raised-button color="primary" (click)="addSlice()">Add Slice</button>
-          <button mat-button mat-raised-button color="primary" (click)="removeSlice()">Remove Slice</button>
-          <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()">Change Legend Position</button>
-        </div>
-  
+        <h1 style="text-align: center;"><b>KPIS:</b></h1>
+        <mat-divider></mat-divider>  
     </mat-card-content>
   </mat-card>
-  <mat-card >
-    <mat-card-content>
-        <div class="card">
-            <h1 style="text-align: center;">
-                <b>Cntenido adional:</b>
-            </h1>
-        </div>
-        <canvas baseChart class="chart"
-        [data]="pieChartData"
-        [type]="pieChartType"
-        [options]="pieChartOptions"
-        [plugins]="pieChartPlugins">
-        </canvas>
+
+<div class="content-graphs">
+  <mat-card *ngFor="let item of data" style="margin-left: 15px; margin-bottom: 20px;">
+    <mat-card-content >
+          <div [innerHTML]="item.nombre" [style]="item.stylenombre">
+            <a [routerLink]="['/ControlVentas/venta']"></a>
+          </div>
+          <div [innerHTML]="item.descripcion" [style]="item.styledescripcion"></div>
+          <div [innerHTML]="item.observaciones" [style]="item.styleobservaciones"></div>
+        <mat-divider></mat-divider>  
     </mat-card-content>
   </mat-card>
 </div>
