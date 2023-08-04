@@ -8,7 +8,8 @@ $width-full: 100%;
 .content-graphs {
   display: flex;
   flex-wrap: wrap;
-
+  margin-bottom: 10px
+  
   mat-card {
     width: $width-half;
   }

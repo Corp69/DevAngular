@@ -2,26 +2,17 @@ import { Component } from '@angular/core';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import Swal from 'sweetalert2';
-import { GraficoService } from './Services/Grafico.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { GraficoDetalleService } from './Services/GraficoDetalle.service';
+
 @Component({
-  selector: 'app-GraficosResultados',
-  templateUrl: './GraficosResultados.component.html',
-  styleUrls: ['./GraficosResultados.component.scss']
+  selector: 'app-GraficosDetalle',
+  templateUrl: './GraficosDetalle.component.html',
+  styleUrls: ['./GraficosDetalle.component.scss']
 })
-export class GraficosResultadosComponent {
-
-  public data: any;
-  public Titulo: any;
-  public Descripcion: any;
-  public Observaciones: any;
-  public observacionesHTML: any;
-
-
+export class GraficosDetalleComponent {
   constructor(
     //private fb: FormBuilder,
-    private servicio: GraficoService,
-    private sanitizer: DomSanitizer
+    private servicio: GraficoDetalleService
   ) {
 
     this.servicio._tablasServicios().subscribe(resp => {
@@ -32,17 +23,16 @@ export class GraficosResultadosComponent {
         default:
         //  this.tbDocVenta = resp.Detalle.tb_pacientes_por_fecha_limite;
         //  this.tbDocVenta_columns = Object.keys(this.tbDocVenta[0]);
-        this.data = resp.Detalle._app_graficas_titulo_x_empleado;
-          console.log(this.data);
+          console.log(resp.Detalle);
         break;
       }  
     });
 
   }
 
-  ngOnInit(): void {
-    this.observacionesHTML = this.sanitizer.bypassSecurityTrustHtml('');
-  }
+
+
+
 
 
   // Pie
@@ -72,6 +62,5 @@ export class GraficosResultadosComponent {
 
   public pieChartType: ChartType = 'pie';
   public pieChartPlugins = [DatalabelsPlugin];
-
 
 }
