@@ -21,6 +21,7 @@ import { GraficosResultadosComponent } from './GraficosResultados/GraficosResult
 //Angular Graficos
 import { NgChartsConfiguration, NgChartsModule } from 'ng2-charts';
 import { GraficosDetalleComponent } from './GraficosDetalle/GraficosDetalle.component';
+import { SuperiorComponent } from '../shared/components/superior/superior.component';
 
 
 @NgModule({
@@ -33,7 +34,11 @@ import { GraficosDetalleComponent } from './GraficosDetalle/GraficosDetalle.comp
     NutripacienteplieguesComponent,
     TbpacientesComponent,
     GraficosResultadosComponent,
-    GraficosDetalleComponent
+    GraficosDetalleComponent,
+    //=================================
+    // Importaciones:
+    SuperiorComponent
+    //=================================
   ],
   imports: [
     //========================================
@@ -42,23 +47,23 @@ import { GraficosDetalleComponent } from './GraficosDetalle/GraficosDetalle.comp
     //========================================
     //Fechas: Angular Material
     MatFormFieldModule,
-    MatInputModule, 
-    MatNativeDateModule, 
+    MatInputModule,
+    MatNativeDateModule,
     MatDatepickerModule,
     //========================================
     CommonModule,
     MaterialModule,
     MatTableModule,
-     //========================================
-     MatCardModule,
-     MaterialModule,
-     ReactiveFormsModule,
+    //========================================
+    MatCardModule,
+    MaterialModule,
+    ReactiveFormsModule,
     ControlMedicoRoutingModule
   ],
   providers: [
     DatePipe,
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
-    { provide: NgChartsConfiguration, useValue: { generateColors: false }}
+    { provide: NgChartsConfiguration, useValue: { generateColors: false } }
   ]
 })
 export class ControlMedicoModule { }
