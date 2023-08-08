@@ -5,6 +5,7 @@ import { SucursalComponent } from './sucursal/sucursal.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { MaterialModule } from '../material/material.module';
 import { ControlEmpresaRoutingModule } from './ControlEmpresa-routing.module';
+import { SuperiorComponent } from '../shared/components/superior/superior.component';
 
 
 
@@ -12,7 +13,11 @@ import { ControlEmpresaRoutingModule } from './ControlEmpresa-routing.module';
   declarations: [
     HomeComponent,
     SucursalComponent,
-    EmpresaComponent
+    EmpresaComponent,
+    //=================================
+    // Importaciones:
+    SuperiorComponent
+    //=================================
   ],
   imports: [
     CommonModule,
