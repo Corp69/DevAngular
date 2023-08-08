@@ -13,10 +13,9 @@ import { SuperiorComponent } from '../shared/components/superior/superior.compon
   declarations: [
     HomeComponent,
     SucursalComponent,
-    EmpresaComponent,
+    EmpresaComponent
     //=================================
     // Importaciones:
-    SuperiorComponent
     //=================================
   ],
   imports: [

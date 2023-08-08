@@ -15,10 +15,10 @@ import { SuperiorComponent } from '../shared/components/superior/superior.compon
 @NgModule({
   declarations: [
     HomeComponent,
-    PrincipalComponent,
+    PrincipalComponent
   //=================================
   // Importaciones:
-    SuperiorComponent
+   
   //=================================
   ],
   imports: [

@@ -27,10 +27,10 @@ import { SuperiorComponent } from '../shared/components/superior/superior.compon
     AlmacenesComponent,
     CobrosComponent,
     CajascortesComponent,
-    ListadoComponent,
+    ListadoComponent
     //=================================
     // Importaciones:
-    SuperiorComponent
+  
     //=================================
   ],
   imports: [

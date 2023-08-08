@@ -34,10 +34,9 @@ import { SuperiorComponent } from '../shared/components/superior/superior.compon
     NutripacienteplieguesComponent,
     TbpacientesComponent,
     GraficosResultadosComponent,
-    GraficosDetalleComponent,
+    GraficosDetalleComponent
     //=================================
     // Importaciones:
-    SuperiorComponent
     //=================================
   ],
   imports: [
