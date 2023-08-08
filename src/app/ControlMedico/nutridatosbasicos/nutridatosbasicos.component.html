@@ -5,14 +5,14 @@
             <div class="row">
                 <div class="col-sm-3">
                     <label><b>Edad:</b></label>
-                    <input type="number" class="form-control" placeholder="Ingrese Edad">
+                    <input  formControlName="edad" type="number" class="form-control" placeholder="Ingrese Edad">
                 </div>
                 <div class="col-sm-3">
                     <label><b>Peso Paciente:</b></label>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Peso en</span>
+                        <span  class="input-group-text">Peso en</span>
                         <span class="input-group-text">Kg</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input formControlName="peso" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-3">
@@ -20,7 +20,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Talla en</span>
                         <span class="input-group-text">Cm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input formControlName="tallacm" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-3">
@@ -28,7 +28,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Talla en</span>
                         <span class="input-group-text">Cm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input  formControlName="tallasentado" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
             </div>
@@ -37,14 +37,13 @@
                     <label><b>Paciente:</b></label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Nombre</span>
-                        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input  type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-3">
                     <label><b>Sexo:</b></label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="1">Hombre</option>
-                        <option value="2">Mujer</option>
+                    <select class="form-select"  formControlName="id_cg_sexo"  aria-label="Default select example">
+                        <option *ngFor="let sexo of lstSexo" [value]="sexo.id">{{sexo.descripcion}}</option>
                       </select>
                 </div>
             </div>

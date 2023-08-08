@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MdlBasico } from './Models/MdlBasico';
 import { BasicosService } from './Services/Basicos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nutridatos-basicos',
@@ -37,14 +38,32 @@ export class NutridatosBasicosComponent  implements OnInit {
     //? ======================================================
     // seteamos los valores al formulario
     this.frmBasico.setValue(this.MdlPaciente);
+    console.log(this.lstSexo);
     //=================================
     //carga del listado
-    //this.servicio.lstEstatus().subscribe(resp => {this.lstEstatus = resp.Detalle._listado_filtro_estatus;});
+   this.servicio.listSexo().subscribe(resp => {this.lstSexo = resp.Detalle;});
   
   }
 
   public btnAlmacenar() {
-
+    this.BtnSpinner = true;
+    console.log("formulario==",this.frmBasico.value);
+    setTimeout(() => {
+      //===============================
+      this.servicio.GuardarNtBasicos(this.frmBasico.value).subscribe(resp => {
+        console.log(resp);
+        switch (resp.Detalle.tb_ventas_por_fecha_limite) {
+          case  null:
+            Swal.fire(resp.Mensaje,'0 registros','warning');
+            break;
+          default:
+            Swal.fire(resp.Mensaje,'success');
+          break;
+        }  
+      });
+      //===============================
+      this.BtnSpinner = false;
+    }, 1000);
   }
 
 
