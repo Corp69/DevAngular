@@ -8,8 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { SuperiorComponent } from '../shared/components/superior/superior.component';
-
+import { DlgappModule } from '../shared/components/dlgapp.module';
 
 
 @NgModule({
@@ -18,7 +17,6 @@ import { SuperiorComponent } from '../shared/components/superior/superior.compon
     PrincipalComponent
   //=================================
   // Importaciones:
-   
   //=================================
   ],
   imports: [
@@ -28,7 +26,9 @@ import { SuperiorComponent } from '../shared/components/superior/superior.compon
     MatSortModule,
     MatPaginatorModule,
     ReactiveFormsModule,
-    PrincipalModuleRoutingModule
+    PrincipalModuleRoutingModule,
+    //Importamos el modulo de la app
+    DlgappModule
   ]
 })
 export class PrincipalModule { }

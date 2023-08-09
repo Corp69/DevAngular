@@ -24,7 +24,7 @@ import { SuperiorComponent } from '../shared/components/superior/superior.compon
     DocventaComponent,
     //=================================
     // Importaciones:
-    SuperiorComponent
+    //SuperiorComponent
     //=================================
   ],
   imports: [
