@@ -22,7 +22,7 @@ const routes: Routes = [
       //? Nutricion
       { path: 'infoBasicos',   component: NutridatosBasicosComponent },
       { path: 'infoDiametros', component: NutripacientediametrosComponent },
-      { path: 'infoPligues',   component: NutripacienteplieguesComponent },
+      { path: 'infoPligues/:id',   component: NutripacienteplieguesComponent },
       //=====================================================================================
       { path: 'Principal',     component: PrincipalComponent },
       //=====================================================================================

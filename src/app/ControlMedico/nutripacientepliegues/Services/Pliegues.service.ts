@@ -59,4 +59,23 @@ export class PlieguesService {
         })
       );
   }
+  public InfoDespliegues(id : any) : Observable<any> {
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http
+      .post(
+        `${environment.baseUrl}clientes/${id}`,
+        {
+          Qtabla: 'nutri_paciente_pliegues',
+        },
+        { headers: headers }
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(this.errores.getErrores(error));
+        })
+      );
+  }
+
 }
