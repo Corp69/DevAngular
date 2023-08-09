@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Mdldiametros } from './Models/MdlDiametros';
+import { ServiceDiametro } from './Services/ServiceDiametro';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nutripacientediametros',
@@ -16,16 +18,15 @@ export class NutripacientediametrosComponent implements OnInit {
   public frmDiametro: FormGroup = this.fb.group({
     id: [-1],
     id_hos_paciente: [, [Validators.required, Validators.min(0)]],
-    edad: [, [Validators.required, Validators.min(0)]],
-    peso: [, [Validators.required, Validators.min(0)]],
-    tallacm: [, [Validators.required, Validators.min(0)]],
-    tallasentado: [, [Validators.required, Validators.min(0)]],
-    envergadurabrazo: [, [Validators.required, Validators.min(0)]],
+    humero: [, [Validators.required, Validators.min(0)]],
+    biestiloideo: [, [Validators.required, Validators.min(0)]],
+    femur: [, [Validators.required, Validators.min(0)]],
     id_cg_sexo: [-1]
   });
   
   constructor(
     private fb: FormBuilder,
+    private servicio: ServiceDiametro
     //private datePipe: DatePipe,
     //private servicio: VentasService
   ) {
@@ -38,10 +39,29 @@ export class NutripacientediametrosComponent implements OnInit {
     this.frmDiametro.setValue(this.Mdldiametros);
     //=================================
     //carga del listado
-    //this.servicio.lstEstatus().subscribe(resp => {this.lstEstatus = resp.Detalle._listado_filtro_estatus;});
+    //
+   this.servicio.listSexo().subscribe(resp => {this.lstSexo = resp.Detalle;});
   }
 
   public btnAlmacenar() {
+    this.BtnSpinner = true;
+    console.log("formulario==",this.frmDiametro.value);
+    setTimeout(() => {
+      //===============================
+      this.servicio.GuardarDiametros(this.frmDiametro.value).subscribe(resp => {
+        console.log(resp);
+        switch (resp.Detalle) {
+          case  null:
+            Swal.fire(resp.Mensaje,'0 registros','warning');
+            break;
+          default:
+            Swal.fire(resp.Mensaje,'success');
+          break;
+        }  
+      });
+      //===============================
+      this.BtnSpinner = false;
+    }, 1000);
 
   }
 

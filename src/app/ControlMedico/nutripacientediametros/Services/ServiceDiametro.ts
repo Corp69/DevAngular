@@ -4,20 +4,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ErroresService } from 'src/app/shared/errores.service';
-import { MdlPliegues } from '../Models/MdlPliegues';
-
-
+import { Mdldiametros } from '../Models/MdlDiametros';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class PlieguesService {
+export class ServiceDiametro {
+  constructor(private http: HttpClient, private errores: ErroresService) {}
 
-  constructor(
-    private http: HttpClient,
-    private errores: ErroresService) { }
-
-  
 
   //listado para sexo
   public listSexo(): Observable<any> {
@@ -40,7 +34,7 @@ export class PlieguesService {
   }
 
   //guardar
-  public GuardarPliegues(modelo: MdlPliegues): Observable<any> {
+  public GuardarDiametros(modelo: Mdldiametros): Observable<any> {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
@@ -48,7 +42,7 @@ export class PlieguesService {
       .post(
         `${environment.baseUrl}clientes/ctr/agregar`,
         {
-          Qtabla: 'nutri_paciente_pliegues',
+          Qtabla: 'nutri_paciente_diametros',
           Datos: modelo ,
         },
         { headers: headers }

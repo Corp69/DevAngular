@@ -7,21 +7,21 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">subescapular</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input formControlName="p_subescapular" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Tricipital</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input formControlName="p_tricipital" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Bicipital</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input formControlName="p_bicipital" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
             </div>
@@ -32,21 +32,21 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Cresta Ileaca</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input formControlName="p_cresta_ileaca" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Supraespinal</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input  formControlName="p_supraespinal"type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Abdominal</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input formControlName="p_abdominal"  type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
             </div>
@@ -56,21 +56,21 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Muslo</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input  formControlName="p_muslo" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Pantorrilla</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input  formControlName="p_pantorrilla" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Pectoral</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input formControlName="p_pectoral"  type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text">Axilar</span>
                         <span class="input-group-text">Medida en mm</span>
-                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input  formControlName="p_axilar" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                       </div>
                 </div>
                 <div class="col-sm-4">
@@ -92,9 +92,9 @@
                 <div class="col-sm-4">
                     <div class="input-group mb-4">
                         <span class="input-group-text">Sexo:</span>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1">Hombre</option>
-                            <option value="2">Mujer</option>
+                        <select class="form-select" formControlName="id_cg_sexo" aria-label="Default select example">
+                            <option value="-1" disabled selected>Selecciona un sexo</option>
+                            <option  *ngFor="let sexo of lstSexo" [value]="sexo.id">{{sexo.descripcion}}</option>
                           </select> 
                     </div>
                 </div>
