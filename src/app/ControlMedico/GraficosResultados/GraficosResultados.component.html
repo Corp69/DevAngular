@@ -6,7 +6,7 @@
  <br>
   <mat-card>
     <mat-card-content>
-      <h1 class="fw-light"><b>Titulo:</b></h1>
+      <div [innerHTML]="item.titulo" [style]="item.styletitulo"></div>
       <div class="row">
         <div class="feature col">
           <div class="feature-icon bg-primary bg-gradient">
@@ -19,6 +19,7 @@
           </div>
           <div [innerHTML]="item.observaciones" [style]="item.styleobservaciones"></div>
           <div [innerHTML]="item.descripcion" [style]="item.styledescripcion"></div>
+          <div [innerHTML]="item.descripcion2" [style]="item.styledescripcion2"></div>
         </div>
       </div>
     </mat-card-content>
