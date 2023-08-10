@@ -1,27 +1,27 @@
-<div class="container" style="background-color: #dee4db">
-  <h3 class="text-center">
-    Iniciar Session
-    <small class="text-body-secondary">Listo...</small>
-  </h3>
-  <form [formGroup]="myForm"  autocomplete="off">
-    <div class="input-group mb-3">
-      <input type="text"
-      class="form-control"
-      formControlName="USUARIO"
-      placeholder="Nombre del producto">
-      <span class="input-group-text">@</span>
-      <input type="password" name="PASSS" formControlName="PASSS" class="form-control">
-    </div>
-
-    <div class="text-center">
-      <button (click)="onSave()" type="button" class="btn btn-outline-success">Success</button>
+<div class=" h-100 text-white bg-dark">
+  <div style="text-align: center;">
+  <h1>Inicio Session.</h1>
+  </div>
+  <form [formGroup]="myForm" autocomplete="off">
+    <div class="row">
+      <div class="col-sm-6">
+        <input type="text" class="form-control" formControlName="USUARIO" placeholder="Nombre del producto">
+      </div>
+      <div class="col-sm-6">
+        <input type="password" name="PASSS" formControlName="PASSS" class="form-control">
+      </div>
+      <div class="text-center">
+        <button (click)="onSave()" type="button" class="btn btn-outline-success">Success</button>
+      </div>
     </div>
   </form>
+  <div class="row">
+    <div class="col-sm-12">
+      <div style="text-align: center;">
+        <small> ©2022 CopyRight
+          <span class="text-secondary font-weight-bold">Elizandro Dev. </span>
+        </small>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-<div class="row">  
-  <div class="col-sm-12 btn btn-primary">  
-    Angular Sweetalert Demo  
-  </div>  
-</div>  

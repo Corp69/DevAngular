@@ -17,6 +17,7 @@ import { DlgappModule } from '../shared/components/dlgapp.module';
     PrincipalComponent
   //=================================
   // Importaciones:
+   // SuperiorComponent
   //=================================
   ],
   imports: [
