@@ -1,30 +1,26 @@
-  <mat-card style=" margin-bottom: 10px;">
-    <mat-card-content >
-        <h1 style="text-align: center;"><b>KPIS:</b></h1>
-        <mat-divider></mat-divider>  
-    </mat-card-content>
-  </mat-card>
-
-<div class="content-graphs">
-  <mat-card *ngFor="let item of data" style="margin-left: 15px; margin-bottom: 20px;">
-    <mat-card-content >
-          <div [innerHTML]="item.nombre" [style]="item.stylenombre">
-            <a [routerLink]="['/ControlVentas/venta']"></a>
+<div class="text-center container">
+  <h1 class="fw-light"><b>kpis</b></h1>
+  <p class="lead text-muted"><b>Developer node angular.</b></p>
+</div>
+<div *ngFor="let item of data" class="container" id="featured-3">
+ <br>
+  <mat-card>
+    <mat-card-content>
+      <h1 class="fw-light"><b>Titulo:</b></h1>
+      <div class="row">
+        <div class="feature col">
+          <div class="feature-icon bg-primary bg-gradient">
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#collection" />
+            </svg>
           </div>
-          <div [innerHTML]="item.descripcion" [style]="item.styledescripcion"></div>
+          <div [innerHTML]="item.nombre" [style]="item.stylenombre">
+            <a [routerLink]="['/ControlVentas/venta']">ver Informacion</a>
+          </div>
           <div [innerHTML]="item.observaciones" [style]="item.styleobservaciones"></div>
-        <mat-divider></mat-divider>  
+          <div [innerHTML]="item.descripcion" [style]="item.styledescripcion"></div>
+        </div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
-
-<div class="container-fluid">
-  <div class="row pt-4">
-      <div class="col-md-12 text-center mb-2" style="text-align: center;">
-          <small> ©2022 CopyRight
-              <span class="text-secondary font-weight-bold">Elizandro Dev. </span>
-          </small>
-      </div>
-  </div>
-</div>
-
