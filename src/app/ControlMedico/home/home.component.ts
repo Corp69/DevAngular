@@ -16,4 +16,11 @@ export class HomeComponent {
       });
  
   }
+
+  public OcultarBar(){
+    
+  }
+  
+
+  
 }
