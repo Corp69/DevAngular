@@ -13,4 +13,8 @@ export class HomeComponent {
   {
     this.servicio.lstOpciones().subscribe(resp => {this.lstOpciones = resp.Detalle._app_menu_x_empleado;});
   }
+
+  public OcultarBar(){
+    
+  }
 }

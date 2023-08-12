@@ -16,7 +16,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       //=====================================================================================
-      { path: 'pacientes',    component: TbpacientesComponent },
+      { path: 'TbpacientesComponent',    component: TbpacientesComponent },
       { path: 'paciente/:id', component: PacienteComponent },
       //=====================================================================================
       //? Nutricion
@@ -29,7 +29,7 @@ const routes: Routes = [
       //? Nutricion
       { path: 'resultados/:id/:id',component: GraficosDetalleComponent },
       { path: 'resultados',component: GraficosResultadosComponent },
-      { path: '**', redirectTo: 'pacientes' }
+      { path: '**', redirectTo: 'TbpacientesComponent' }
     ]
   }
 ];

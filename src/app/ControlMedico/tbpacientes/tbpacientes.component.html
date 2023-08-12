@@ -1,101 +1,32 @@
-<mat-card>
-    <mat-card-content>
-        <h1 style="text-align: center;">Pacientes:</h1>
-        <form [formGroup]="myForm" autocomplete="off">
-            <div class="row">
-                <div class="col-sm-6">
-                    <mat-form-field color="accent">
-                        <input (dateInput)="seleccionarFecha1($event.target)" formControlName="fecha1"
-                            placeholder="Seleccionar Fecha" matInput [matDatepicker]="picker1">
-                        <mat-hint>Fecha Inicio</mat-hint>
-                        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-                        <mat-datepicker #picker1></mat-datepicker>
-                    </mat-form-field>
-                </div>
-                <div class="col-sm-6">
-                    <mat-form-field color="accent">
-                        <input (dateInput)="seleccionarFecha2($event.target)" placeholder="Seleccionar Fecha"
-                            formControlName="fecha12" matInput [matDatepicker]="picker2">
-                        <mat-hint>Fecha Final</mat-hint>
-                        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-                        <mat-datepicker #picker2 color="primary"></mat-datepicker>
-                    </mat-form-field>
-                </div>
-            </div>
-            <hr>
-            <div class="text-center">
-                <button (click)="btnBuscarPacientes()" [disabled]="BtnSpinner" type="button"
-                    class="btn btn-outline-success" title="Realizar Busqueda">Buscar Pacientes
-                    <span *ngIf="BtnSpinner" class="spinner-border spinner-border-sm" role="status"></span>
-                </button>
-            </div>
-        </form>
-
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-content *ngIf="tbDocVenta != null">
-        <div class="card" style="width: 100%;">
-            <h1 style="text-align: center;">
-                <b>Pacientes Actuales:</b>
-            </h1>
-            <style>
-                table {
-                    border-collapse: collapse;
-                    width: 100%;
-                }
-                table {
-                    border-collapse: collapse;
-                    width: 100%;
-                }
-
-                th,
-                td {
-                    padding: 8px;
-                    text-align: left;
-                    border-bottom: 1px solid #ddd;
-                }
-
-                td:hover {
-                    background-color: coral;
-                }
-            </style>
-            <div class="card-body">
-                <div style="overflow-x: scroll;">
-                    <table class="table table-striped table-bordered table-hover table-sm">
-                        <thead class="thead-light">
-                            <tr>
-                                <!-- <th scope="col" *ngFor="let column of tbDocVenta_columns">{{ column }}</th> -->
-                                <th scope="col">Accion</th>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Paciente</th>
-                                <th scope="col">Ficha</th>
-                                <th scope="col">Numero</th>
-                                <th scope="col">Edad</th>
-                                <th scope="col">Curp</th>
-                                <th scope="col">Cliente</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let dato of tbDocVenta">
-                                <td style="margin-left: 15px;">{{ dato.id }}</td>
-                                <td style="margin-left: 15px;">{{ dato.fechacreacion }}</td>
-                                <td style="margin-left: 15px;">{{ dato.paciente }}</td>
-                                <td style="margin-left: 15px;">{{ dato.ficha }}</td>
-                                <td style="margin-left: 15px;">{{ dato.numero }}</td>
-                                <td style="margin-left: 15px;">{{ dato.edad }}</td>
-                                <td style="margin-left: 15px;">{{ dato.curp }}</td>
-                                <td style="margin-left: 15px;">{{ dato.cliente }}</td>
-                              </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
+<h1>Pacientes:</h1>
+<form [formGroup]="myForm" autocomplete="off">
+    <div class="row">
+        <div class="col-sm-6">
+            <mat-form-field color="accent">
+                <input (dateInput)="seleccionarFecha1($event.target)" formControlName="fecha1"
+                    placeholder="Seleccionar Fecha" matInput [matDatepicker]="picker1">
+                <mat-hint>Fecha Inicio</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
         </div>
-
-    </mat-card-content>
-</mat-card>
+        <div class="col-sm-6">
+            <mat-form-field color="accent">
+                <input (dateInput)="seleccionarFecha2($event.target)" placeholder="Seleccionar Fecha"
+                    formControlName="fecha12" matInput [matDatepicker]="picker2">
+                <mat-hint>Fecha Final</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2 color="primary"></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <hr>
+        <button (click)="btnBuscarPacientes()" [disabled]="BtnSpinner" type="button"
+            class="btn btn-outline-success" title="Realizar Busqueda">Buscar Pacientes
+            <span *ngIf="BtnSpinner" class="spinner-border spinner-border-sm" role="status"></span>
+        </button>
+    
+</form>
 
 <div class="container-fluid">
     <div class="row pt-4">
