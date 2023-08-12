@@ -19,7 +19,7 @@ export class HomeService {
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
     return this.http
-      .post(`${environment.baseUrl}clientes/conf/funciones`,
+      .post(`${environment.baseUrl}clientes/exce/schema`,
         {
           "ExSchema": "Config",
           "funcion": "_app_menu_X_empleado",
