@@ -1,30 +1,36 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
-import { MaterialModule } from '../material/material.module';
-import { ControlVentasRoutingModule } from './ControlInventarios-routing.module';
-import { PrincipalComponent } from './principal/principal.component';
-import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
 //========================================
 //Fechas: Angular Material
+import { CommonModule, DatePipe } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
-import { DocventaComponent } from './docventa/docventa.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { ControlComprasRoutingModule } from './ControlCompra-routing.module';
+import { MaterialModule } from '../material/material.module';
+import { HomeComponent } from './home/home.component';
+import { ProveedorComponent } from './proveedor/proveedor.component';
+import { LstProveedorComponent } from './lstProveedor/lstProveedor.component';
+import { ListDcumentosComponent } from './listDocumentos/ListDcumentos.component';
+import { DocCompraComponent } from './docCompra/DocCompra.component';
+import { InicioComponent } from './inicio/inicio.component';
 //========================================
+
+
 
 @NgModule({
   declarations: [
+  
+  
     HomeComponent,
-    PrincipalComponent,
-    DocventaComponent,
-    //=================================
-    // Importaciones:
-    //SuperiorComponent
-    //=================================
+          ProveedorComponent,
+          LstProveedorComponent,
+          ListDcumentosComponent,
+          DocCompraComponent,
+          InicioComponent
   ],
   imports: [
     MatIconModule,
@@ -39,11 +45,13 @@ import { DocventaComponent } from './docventa/docventa.component';
     MatCardModule,
     MaterialModule,
     ReactiveFormsModule,
-    ControlVentasRoutingModule
+    ControlComprasRoutingModule
   ],
   providers: [
     DatePipe,
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
   ]
 })
-export class VentasModule { }
+
+
+export class ComprasModule { }

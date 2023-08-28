@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorPagesComponent } from './shared/error-pages/error-pages.component';
 import { MaterialModule } from './material/material.module';
 import { DlgProductoComponent } from './shared/components/dlg-producto/dlg-producto.component';
+import { DocCompraComponent } from './controlCompras/docCompra/DocCompra.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,6 @@ import { DlgProductoComponent } from './shared/components/dlg-producto/dlg-produ
   imports: [
     BrowserModule,
     MaterialModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
