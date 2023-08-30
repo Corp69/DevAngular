@@ -14,7 +14,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DocventaComponent } from './docventa/docventa.component';
-import { SuperiorComponent } from '../shared/components/superior/superior.component';
 //========================================
 
 @NgModule({

@@ -19,7 +19,6 @@ import { DlgProductoComponent } from './shared/components/dlg-producto/dlg-produ
   imports: [
     BrowserModule,
     MaterialModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,

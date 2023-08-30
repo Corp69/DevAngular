@@ -56,6 +56,12 @@ const routes: Routes = [
     canMatch:[ AuthGuard] 
   },
   {
+    path: 'ControlCompras',
+    loadChildren: () => import('./controlCompras/compras.module').then( m => m.ComprasModule ),
+    canActivate:[ AuthGuard ],
+    canMatch:[ AuthGuard] 
+  },
+  {
     path: 'estatus',
     loadChildren: () => import('./ControlEstatus/estatus.module').then( m => m.EstatusModule ),
     canActivate:[ AuthGuard ],

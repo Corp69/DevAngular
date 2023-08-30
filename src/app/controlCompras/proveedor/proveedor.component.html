@@ -1,0 +1,105 @@
+<mat-card>
+    <mat-card-content>
+        <h1 style="text-align: center;"> <b>Proveedor</b></h1>
+        <!-- Agregar Informcion del formulario -->
+        <form [formGroup]="frmProveedor" autocomplete="off">
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>Nombre/Nombre Comercial:</b></label>
+                    <input formControlName="nombre" type="text"  class="form-control"
+                        placeholder="Ingrese Nombre/Nombre Comercial">
+                           <span *ngIf="frmProveedor.controls['nombre'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                <div class="col-sm-3">
+                    <label><b>Apellido Paterno:</b></label>
+                    <input formControlName="paterno" type="text" class="form-control"
+                        placeholder="Ingrese Apellido Paterno">
+                        <span *ngIf="frmProveedor.controls['paterno'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Apellido Materno:</b></label>
+                    <input formControlName="materno" type="text" class="form-control"
+                        placeholder="Ingrese Apellido Materno">
+                        <span *ngIf="frmProveedor.controls['materno'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                
+                    </div>
+                <div class="col-sm-3">
+                    <label><b>RFC:</b></label>
+                    <input formControlName="rfc" type="text" class="form-control" placeholder="Ingrese RFC XXX0X0X0X0">
+                    <span *ngIf="frmProveedor.controls['rfc'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>Codigo Postal:</b></label>
+                    <input formControlName="cp" type="text" class="form-control" placeholder="Ingrese Un Codigo">
+                    <span *ngIf="frmProveedor.controls['cp'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Tipo:</b></label>
+                    <select class="form-select" formControlName="id_proveedor_tipo" placeholder="Seleccione tipo"
+                        aria-label="Default select example">
+                        <option *ngFor="let item of lstProveedorTipo" [value]="item.id">{{item.descripcion}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Clasificación:</b></label>
+                    <select class="form-select" formControlName="id_proveedor_clasificacion"
+                        placeholder="Seleccione Clasificación" aria-label="Default select example">
+                        <option *ngFor="let item of lstProveedorClasificacion" [value]="item.id">{{item.descripcion}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>Estatus:</b></label>
+                    <select class="form-select" formControlName="id_proveedor_estatus" placeholder="Seleccione Estatus"
+                        aria-label="Default select example">
+                        <option *ngFor="let item of lstestatus" [value]="item.id">{{item.descripcion}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Tipo Operador:</b></label>
+                    <select class="form-select" formControlName="id_proveedor_operacion" placeholder="Seleccione tipo"
+                        aria-label="Default select example">
+                        <option *ngFor="let item of lstProovedorOperacion" [value]="item.id">{{item.descripcion}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Codigo:</b></label>
+                    <input formControlName="codigo" type="text" class="form-control" placeholder="Ingrese Un Codigo">
+                    <span *ngIf="frmProveedor.controls['codigo'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                </div>
+            </div>
+            <hr>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <button type="button"  (click)="NuevoProvedor()" [disabled]="BtnSpinner"  title="Resetear Formulario" class="btn btn-outline-primary">
+                    Nuevo
+                </button>
+                <button *ngIf="BtnSpinner == false" type="submit"  (click)="Almacenar()" [disabled]="frmProveedor.invalid"   title="Guardar Formulario" class="btn btn-outline-primary">
+                    Guardar
+                </button>
+            </div>
+        </form>
+         
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-content>
+        <!-- En caso de haber tabla Agregar Aqui -->
+    </mat-card-content>
+</mat-card>
+
+<div class="container-fluid">
+    <div class="row pt-4">
+        <div class="col-md-12 text-center mb-2" style="text-align: center;">
+            <small> ©2022 CopyRight
+                <span class="text-secondary font-weight-bold">Elizandro Dev. </span>
+            </small>
+        </div>
+    </div>
+</div>
