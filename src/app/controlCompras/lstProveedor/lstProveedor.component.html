@@ -1,5 +1,45 @@
+<p-card header="Buscar">
+    <form [formGroup]="frmLstProveedores" autocomplete="off">
+        <div class="row">
+            <div class="col-sm-4">
+                <mat-form-field color="accent">
+                    <input (dateInput)="seleccionarFecha1($event.target)" formControlName="fecha1"
+                        placeholder="Seleccionar Fecha" matInput [matDatepicker]="picker1">
+                    <mat-hint>Fecha Inicio</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+                <span *ngIf="frmLstProveedores.controls['fecha1'].invalid"><b style=" color: rgb(235, 56, 29);">* Fecha Requerida</b></span> 
+            </div>
+            <div class="col-sm-4">
+                <label><b>Estatus:</b></label>
+                <select class="form-select" formControlName="id_proveedor_estatus" placeholder="Seleccione Estatus"
+                    aria-label="Default select example">
+                    <option *ngFor="let item of lstestatus" [value]="item.id">{{item.descripcion}}</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <mat-form-field color="accent">
+                    <input (dateInput)="seleccionarFecha2($event.target)" placeholder="Seleccionar Fecha"
+                        formControlName="fecha12" matInput [matDatepicker]="picker2">
+                    <mat-hint>Fecha Final</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                </mat-form-field>
+                <span *ngIf="frmLstProveedores.controls['fecha12'].invalid"><b style=" color: rgb(235, 56, 29);">* Fecha Requerida</b></span> 
+             </div>
+        </div>
+        <hr>
+            <button (click)="btnBuscar()" [disabled]="BtnSpinner" type="button"
+                class="btn btn-outline-success" title="Realizar Busqueda">Buscar
+                <span *ngIf="BtnSpinner" class="spinner-border spinner-border-sm" role="status"></span>
+            </button>
+        
+    </form>
+</p-card>
+<hr>
 <p-card header="Poveedores">
-    <p-table #dt [value]="customers" [(selection)]="selectedCustomers" dataKey="id" [rowHover]="true" [rows]="5"
+    <p-table #dt [value]="DataProveedores" [(selection)]="selectedCustomers" dataKey="id" [rowHover]="true" [rows]="5"
         [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,25]" [loading]="loading" [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0"
         [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']">
@@ -11,11 +51,11 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="name" style="min-width: 14rem">
+                <th pSortableColumn="nombre" style="min-width: 14rem">
                     <div class="flex justify-content-between align-items-center">
-                        Name
-                        <p-sortIcon field="name"></p-sortIcon>
-                        <p-columnFilter type="text" field="name" display="menu" class="ml-auto"></p-columnFilter>
+                        Nombre
+                        <p-sortIcon field="nombre"></p-sortIcon>
+                        <p-columnFilter type="text" field="nombre" display="menu" class="ml-auto"></p-columnFilter>
                     </div>
                 </th>
                 <th pSortableColumn="country.name" style="min-width: 14rem">
@@ -96,7 +136,7 @@
         </ng-template>
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td colspan="8">No se encontraron Proveedores.</td>
+                <td colspan="8">No se encontraron registros.</td>
             </tr>
         </ng-template>
     </p-table>
