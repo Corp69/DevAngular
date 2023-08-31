@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ErroresService } from 'src/app/shared/errores.service';
+import { MdlBuscar } from '../models/MdlBuscar';
 
 
 
@@ -13,8 +14,25 @@ import { ErroresService } from 'src/app/shared/errores.service';
 export class LstProveedor {
   constructor(private http: HttpClient, private errores: ErroresService) { }
   //==================================================================================================
-  //guardar
-
+  // Accion de la vista
+  public BusquedaXfecha(modelo: MdlBuscar): Observable<any> {
+    let  headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+    return this.http
+      .post(`${environment.baseUrl}clientes/exce/schema`,
+      {
+        "ExSchema": "compras",
+        "funcion": "_proveedoresXfecha",
+        "data": modelo
+      },
+        { headers: headers })
+      .pipe(
+        catchError(error => {
+          return throwError(this.errores.getErrores(error));
+        })
+      );
+    }
 
   //===================================================================================================
   //?       Listados: Proveedor 
@@ -22,27 +40,7 @@ export class LstProveedor {
    * 
    * @returns  Json Array clasificacion de proveedor
    */
-  public listProveedorClasificacion(): Observable<any> {
-    let headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    });
-    return this.http.post(`${environment.baseUrl}clientes`,
-      {
-        Qtabla: 'proveedor_clasificacion',
-      },
-      { headers: headers }
-    ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
-  }
-
-  /**
-   * 
-   * @returns Json Array Estatus de proveedor
-   */
-  public listProveedorEstatus(): Observable<any> {
+  public lstEstatus(): Observable<any> {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
@@ -57,46 +55,7 @@ export class LstProveedor {
         })
       );
   }
-  
-  /**
-   * 
-   * @returns Json Array Operacion de proveedor
-   */
-  public listProveedorOperacion(): Observable<any> {
-    let headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    });
-    return this.http.post(`${environment.baseUrl}clientes`,
-      {
-        Qtabla: 'proveedor_operacion',
-      },
-      { headers: headers }
-    ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
-  }
 
-  /**
-   * 
-   * @returns Json Array Tipo  de proveedor
-   */
-  public listProveedorTipo(): Observable<any> {
-    let headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    });
-    return this.http.post(`${environment.baseUrl}clientes`,
-      {
-        Qtabla: 'proveedor_tipo',
-      },
-      { headers: headers }
-    ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
-  }
   //===================================================================================================
 
   getData() {
