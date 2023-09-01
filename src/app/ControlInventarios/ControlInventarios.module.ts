@@ -18,7 +18,8 @@ import { AlmacenesComponent } from './almacenes/almacenes.component';
 import { CobrosComponent } from './cobros/cobros.component';
 import { CajascortesComponent } from './cajascortes/cajascortes.component';
 import { ListadoComponent } from './listado/listado.component';
-import { SuperiorComponent } from '../shared/components/superior/superior.component';
+import { HomeComponent } from './home/home.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { SuperiorComponent } from '../shared/components/superior/superior.compon
     AlmacenesComponent,
     CobrosComponent,
     CajascortesComponent,
-    ListadoComponent
+    ListadoComponent,
+    HomeComponent,
+    InicioComponent
     //=================================
     // Importaciones:
   
