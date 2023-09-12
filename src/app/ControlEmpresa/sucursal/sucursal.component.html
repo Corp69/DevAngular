@@ -1,1 +1,156 @@
-<p>sucursal works!</p>
+<mat-card>
+    <mat-card-content>
+        <h1 style="text-align: center;"> <b>Sucursales</b></h1>
+        <!-- Agregar Informcion del formulario -->
+        <form [formGroup]="frmSucursal" autocomplete="off">
+            <div class="row"> 
+                <div class="col-sm-3">
+                    <label><b>nombre:</b></label>
+                    <input formControlName="nombre" type="text" class="form-control"
+                        placeholder="Ingrese nombre">
+                        <span *ngIf="frmSucursal.controls['nombre'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                </div>
+                <div class="col-sm-3">
+                    <label><b>director:</b></label>
+                    <input formControlName="director" type="text" class="form-control"
+                        placeholder="Ingrese director">
+                        <span *ngIf="frmSucursal.controls['director'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+            
+                    </div>
+                    
+                    <div class="col-sm-3">
+                        <label><b>nombrecomercial:</b></label>
+                        <input formControlName="nombrecomercial" type="text" class="form-control"
+                            placeholder="Ingrese nombrecomercial">
+                            <span *ngIf="frmSucursal.controls['nombrecomercial'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>rfc:</b></label>
+                        <input formControlName="rfc" type="text" class="form-control"
+                            placeholder="Ingrese rfc">
+                            <span *ngIf="frmSucursal.controls['rfc'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>cedula:</b></label>
+                        <input formControlName="cedula" type="text" class="form-control"
+                            placeholder="Ingrese cedula">
+                            <span *ngIf="frmSucursal.controls['cedula'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>calle:</b></label>
+                        <input formControlName="calle" type="text" class="form-control"
+                            placeholder="Ingrese calle">
+                            <span *ngIf="frmSucursal.controls['calle'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>num_ext:</b></label>
+                        <input formControlName="num_ext" type="text" class="form-control"
+                            placeholder="Ingrese num_ext">
+                            <span *ngIf="frmSucursal.controls['num_ext'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>num_int:</b></label>
+                        <input formControlName="num_int" type="text" class="form-control"
+                            placeholder="Ingrese num_int">
+                            <span *ngIf="frmSucursal.controls['num_int'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>colonia:</b></label>
+                        <input formControlName="colonia" type="text" class="form-control"
+                            placeholder="Ingrese colonia">
+                            <span *ngIf="frmSucursal.controls['colonia'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>estado:</b></label>
+                        <input formControlName="estado" type="text" class="form-control"
+                            placeholder="Ingrese estado">
+                            <span *ngIf="frmSucursal.controls['estado'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>localidad:</b></label>
+                        <input formControlName="localidad" type="text" class="form-control"
+                            placeholder="Ingrese localidad">
+                            <span *ngIf="frmSucursal.controls['localidad'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>municipio:</b></label>
+                        <input formControlName="municipio" type="text" class="form-control"
+                            placeholder="Ingrese municipio">
+                            <span *ngIf="frmSucursal.controls['municipio'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>codigo:</b></label>
+                        <input formControlName="codigo" type="text" class="form-control"
+                            placeholder="Ingrese codigo">
+                            <span *ngIf="frmSucursal.controls['codigo'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>pais:</b></label>
+                        <input formControlName="pais" type="text" class="form-control"
+                            placeholder="Ingrese pais">
+                            <span *ngIf="frmSucursal.controls['pais'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>regimen:</b></label>
+                        <input formControlName="regimen" type="text" class="form-control"
+                            placeholder="Ingrese regimen">
+                            <span *ngIf="frmSucursal.controls['regimen'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>representante:</b></label>
+                        <input formControlName="representante" type="text" class="form-control"
+                            placeholder="Ingrese representante">
+                            <span *ngIf="frmSucursal.controls['representante'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>observaciones:</b></label>
+                        <input formControlName="observaciones" type="text" class="form-control"
+                            placeholder="Ingrese observaciones">
+                            <span *ngIf="frmSucursal.controls['observaciones'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>autoriza:</b></label>
+                        <input formControlName="autoriza" type="text" class="form-control"
+                            placeholder="Ingrese autoriza">
+                            <span *ngIf="frmSucursal.controls['autoriza'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>numero:</b></label>
+                        <input formControlName="numero" type="text" class="form-control"
+                            placeholder="Ingrese numero">
+                            <span *ngIf="frmSucursal.controls['numero'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    </div>
+
+                    
+            </div>
+
+
+          
+            <hr>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <button type="button"  (click)="NuevaSucursal()" [disabled]="BtnSpinner"  title="Resetear Formulario" class="btn btn-outline-primary">
+                    Nuevo
+                </button>
+                <button *ngIf="BtnSpinner == false" type="submit"  (click)="Almacenar()" [disabled]="frmSucursal.invalid"   title="Guardar Formulario" class="btn btn-outline-primary">
+                    Guardar
+                </button>
+            </div>
+        </form>
+         
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-content>
+        <!-- En caso de haber tabla Agregar Aqui -->
+    </mat-card-content>
+</mat-card>
+
+<div class="container-fluid">
+    <div class="row pt-4">
+        <div class="col-md-12 text-center mb-2" style="text-align: center;">
+            <small> ©2022 CopyRight
+                <span class="text-secondary font-weight-bold">Risega Dev. </span>
+            </small>
+        </div>
+    </div>
+</div>
