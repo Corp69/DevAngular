@@ -27,9 +27,9 @@ const routes: Routes = [
   },
   {
     path: 'ControlRh',
-    loadChildren: () => import('./ControlRh/rh.module').then( m => m.RhModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
+    loadChildren: () => import('./controlRh/ControlRh.module').then( m => m.ControlRh ),
+    //canActivate:[ AuthGuard ],
+    //canMatch:[ AuthGuard] 
   },
   {
     path: 'ControlEscolar',

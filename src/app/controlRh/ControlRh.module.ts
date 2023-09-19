@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HomeComponent } from './home/home.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { AlmacenesComponent } from './almacenes/almacenes.component';
 import { DepartamentoComponent } from './departamento/departamento.component';
@@ -25,6 +24,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MaterialModule } from '../material/material.module';
+import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MaterialModule } from '../material/material.module';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     ControlRhRoutingModule,
     MatIconModule,
     //========================================
@@ -59,12 +61,10 @@ import { MaterialModule } from '../material/material.module';
     TabViewModule,
     //Cards: Angular PrimeNG 
     CardModule
-
-
   ],
   providers: [
     DatePipe,
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
   ]
 })
-export class RhModule { }
+export class ControlRh { }
