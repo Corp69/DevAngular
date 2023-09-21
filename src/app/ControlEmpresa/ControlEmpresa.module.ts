@@ -5,7 +5,6 @@ import { SucursalComponent } from './sucursal/sucursal.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { MaterialModule } from '../material/material.module';
 import { ControlEmpresaRoutingModule } from './ControlEmpresa-routing.module';
-import { SuperiorComponent } from '../shared/components/superior/superior.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { NgChartsConfiguration } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';

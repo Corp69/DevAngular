@@ -8,8 +8,10 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 //========================================
 //Angular Material
 import { MaterialModule } from 'src/app/material/material.module';
-import { AppComponent } from './app/app.component';
-import { SuperiorComponent } from './superior/superior.component';
+import { dlgBusquedasModuleRoutingModule } from './DlgappModule-routing.module';
+import { HomeComponent } from './home/home.component';
+import { RegimenFiscalComponent } from './Sat/regimen-fiscal/regimen-fiscal.component';
+import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.component';
 
 
 @NgModule({
@@ -17,18 +19,21 @@ import { SuperiorComponent } from './superior/superior.component';
     //=================================
     // Importaciones:
     //=================================
-    SuperiorComponent,
-    AppComponent
+  
+    HomeComponent,
+    RegimenFiscalComponent,
+    ClaveProdServcpComponent
   ],
   exports:[
-    SuperiorComponent
+
   ],
   imports: [
     //========================================
     CommonModule,
     MaterialModule,
     //========================================
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    dlgBusquedasModuleRoutingModule
   ],
   providers: [
     DatePipe,

@@ -74,6 +74,12 @@ const routes: Routes = [
     canMatch:[ AuthGuard] 
   },
   {
+    path: 'app',
+    loadChildren: () => import('./shared/components/DlgappModule.module').then( m => m.DlgappModule ),
+    canActivate:[ AuthGuard ],
+    canMatch:[ AuthGuard] 
+  },
+  {
     path: '404',
     component: ErrorPagesComponent
   },

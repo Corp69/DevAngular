@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { DlgappModule } from '../shared/components/dlgapp.module';
+import { DlgappModule } from '../shared/components/DlgappModule.module';
 
 
 @NgModule({

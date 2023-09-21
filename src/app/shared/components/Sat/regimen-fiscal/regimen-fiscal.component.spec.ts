@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InferiorComponent } from './inferior.component';
+import { RegimenFiscalComponent } from './regimen-fiscal.component';
 
-describe('InferiorComponent', () => {
-  let component: InferiorComponent;
-  let fixture: ComponentFixture<InferiorComponent>;
+describe('RegimenFiscalComponent', () => {
+  let component: RegimenFiscalComponent;
+  let fixture: ComponentFixture<RegimenFiscalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InferiorComponent ]
+      declarations: [ RegimenFiscalComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InferiorComponent);
+    fixture = TestBed.createComponent(RegimenFiscalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

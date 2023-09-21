@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SuperiorComponent } from './superior/superior.component';
+import { HomeComponent } from './home/home.component';
+import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SuperiorComponent,
+    component: HomeComponent,
     children: [
-    //  { path: 'inicio', component: PrincipalComponent },
-      { path: '**', redirectTo: '/Control/inicio' }
+      { path: 'claveServiciocp', component: ClaveProdServcpComponent },
+      { path: '**', redirectTo: '/app/claveServiciocp' }
     ]
   }
 ];

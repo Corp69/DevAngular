@@ -22,6 +22,7 @@ import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
+import { ProveedorDomicilioComponent } from './proveedor-domicilio/ProveedorDomicilio.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CardModule } from 'primeng/card';
     LstProveedorComponent,
     ListDcumentosComponent,
     DocCompraComponent,
-    InicioComponent
+    InicioComponent,
+    ProveedorDomicilioComponent
   ],
   imports: [
     MatIconModule,
