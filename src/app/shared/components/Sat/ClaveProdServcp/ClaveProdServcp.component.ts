@@ -12,28 +12,9 @@ import { SatClaveprodservService } from './Service/SatClaveprodserv.service';
 export class ClaveProdServcpComponent {
 
   public frmSat: FormGroup = this.fb.group({ descripcion: [, [Validators.required, Validators.minLength(3)]] });
-  public DataProveedores: any;
   //tabla   
-
-  customers!: Customer[];
-
-  selectedCustomers!: Customer[];
-
-  representatives!: Representative[];
-
-  statuses!: any[];
-
-  loading: boolean = true;
-
-  activityValues: number[] = [0, 100];
-
-
-  //tabla 
-
-
-
-
-
+  public DataSource: any;
+  
   constructor(
     private fb: FormBuilder,
     private servicio: SatClaveprodservService
@@ -51,6 +32,7 @@ export class ClaveProdServcpComponent {
             Swal.fire(resp.Mensaje,'0 registros','warning');
             break;
           default:
+            this.DataSource = resp.Detalle; 
             this.frmSat.setValue(this.frmSat.value);
             Swal.fire(resp.Mensaje,'Operacion Exitosa');
           break;
@@ -62,8 +44,13 @@ export class ClaveProdServcpComponent {
 
     //==============================================================================================================
   // Crud Para Almacen:
+  public onSelectionChange( args: any){
+    console.log(args)
+  }
 
-
+  public onSelectAllChange( args: any){
+    console.log(args)
+  }
 
 
 }
