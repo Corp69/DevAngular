@@ -12,6 +12,10 @@ import { dlgBusquedasModuleRoutingModule } from './DlgappModule-routing.module';
 import { HomeComponent } from './home/home.component';
 import { RegimenFiscalComponent } from './Sat/regimen-fiscal/regimen-fiscal.component';
 import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.component';
+import { TableModule } from 'primeng/table';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { TabViewModule } from 'primeng/tabview';
+import { CardModule } from 'primeng/card';
 
 
 @NgModule({
@@ -33,7 +37,14 @@ import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.
     MaterialModule,
     //========================================
     ReactiveFormsModule,
-    dlgBusquedasModuleRoutingModule
+    dlgBusquedasModuleRoutingModule,
+    //========================================
+    //Tablas: Angular PrimeNG 
+    TableModule,
+    TabMenuModule,
+    TabViewModule,
+    //Cards: Angular PrimeNG 
+    CardModule
   ],
   providers: [
     DatePipe,
