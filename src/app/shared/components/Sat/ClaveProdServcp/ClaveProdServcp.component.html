@@ -32,41 +32,15 @@
 
 <hr>
 <p-card *ngIf="DataSource != null " header="Busqueda">
-    <p-table [value]="DataSource" dataKey="id" [tableStyle]="{ 'min-width': '75rem' }"
-        (selectionChange)="onSelectionChange($event)" (selectAllChange)="onSelectAllChange($event)" [paginator]="true"
+    <p-table [value]="DataSource" dataKey="id" 
+        [tableStyle]="{ 'min-width': '75rem' }"
+        (selectionChange)="onSelectionChange($event)" 
+        (selectAllChange)="onSelectAllChange($event)" [paginator]="true"
         [rows]="10" [rowsPerPageOptions]="[5,10,25]" [paginator]="true">
         <ng-template pTemplate="header">
             <tr>
                 <th style="width: 4rem"></th>
-                <th pSortableColumn="id">Numero<p-sortIcon field="id"></p-sortIcon></th>
-                <th pSortableColumn="descripcion">Descripcion<p-sortIcon field="descripcion"></p-sortIcon></th>
-                <th pSortableColumn="codigo">Codigo<p-sortIcon field="codigo"></p-sortIcon></th>
-                <th pSortableColumn="similares">Similares<p-sortIcon field="similares"></p-sortIcon></th>
-                <th pSortableColumn="peligroso">Peligroso<p-sortIcon field="peligroso"></p-sortIcon></th>
-                <th pSortableColumn="activo">Activo<p-sortIcon field="activo"></p-sortIcon></th>
-            </tr>
-            <tr>
-                <th style="width: 4rem">
-                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="id"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="descripcion"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="codigo"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="similares"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="peligroso"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="activo"></p-columnFilter>
-                </th>
+                <th *ngFor="let column of DataSourceColumnas" pSortableColumn="{{column}}">{{column}}<p-sortIcon field="{{column}}"></p-sortIcon></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-DataSource>
@@ -74,12 +48,7 @@
                 <td>
                     <p-tableCheckbox [value]="DataSource"></p-tableCheckbox>
                 </td>
-                <td>{{ DataSource.id }}</td>
-                <td>{{ DataSource.descripcion }}</td>
-                <td>{{ DataSource.codigo }}</td>
-                <td>{{ DataSource.similares }}</td>
-                <td>{{ DataSource.peligroso }}</td>
-                <td>{{ DataSource.activo }}</td>
+                <td *ngFor="let value of getValues(DataSource)">{{ value }}</td>
             </tr>
         </ng-template>
         <ng-template pTemplate="emptymessage">

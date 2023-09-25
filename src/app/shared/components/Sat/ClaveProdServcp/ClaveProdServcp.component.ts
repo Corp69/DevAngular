@@ -13,7 +13,8 @@ export class ClaveProdServcpComponent {
   public frmSat: FormGroup = this.fb.group({ descripcion: [, [Validators.required, Validators.minLength(3)]] });
   //tabla   
   public DataSource: any;
-
+  public DataSourceColumnas: any;
+  public arrayDinamico: any;
   //=================================================================================================================
   // variables entre componentes
   @Input()
@@ -40,6 +41,13 @@ export class ClaveProdServcpComponent {
             break;
           default:
             this.DataSource = resp.Detalle; 
+            this.DataSourceColumnas = Object.keys(this.DataSource[0]);
+            this.arrayDinamico = this.DataSourceColumnas.map((x: any) => `DataSource.${x}`);
+
+
+
+
+         
             this.frmSat.setValue(this.frmSat.value);
             Swal.fire(resp.Mensaje,'Operacion Exitosa');
           break;
@@ -48,13 +56,16 @@ export class ClaveProdServcpComponent {
       //=====================================================================================
   }
 
-
-    //==============================================================================================================
+  //==============================================================================================================
   // Crud Para Almacen:
   public onSelectionChange( args: any){
     this.JsonSat.emit(args[0]);
     this.DataSource =null;
     this.frmSat.controls['descripcion'].setValue('');
+  }
+
+  public getValues(obj: any): any[] {
+    return Object.values(obj);
   }
 
   public onSelectAllChange( args: any){
