@@ -14,7 +14,6 @@ export class ClaveProdServcpComponent {
   //tabla   
   public DataSource: any;
   public DataSourceColumnas: any;
-  public arrayDinamico: any;
   //=================================================================================================================
   // variables entre componentes
   @Input()
@@ -42,12 +41,6 @@ export class ClaveProdServcpComponent {
           default:
             this.DataSource = resp.Detalle; 
             this.DataSourceColumnas = Object.keys(this.DataSource[0]);
-            this.arrayDinamico = this.DataSourceColumnas.map((x: any) => `DataSource.${x}`);
-
-
-
-
-         
             this.frmSat.setValue(this.frmSat.value);
             Swal.fire(resp.Mensaje,'Operacion Exitosa');
           break;
@@ -55,18 +48,19 @@ export class ClaveProdServcpComponent {
       });
       //=====================================================================================
   }
-
   //==============================================================================================================
-  // Crud Para Almacen:
+  // funcionalidad de la tabla:
   public onSelectionChange( args: any){
     this.JsonSat.emit(args[0]);
     this.DataSource =null;
     this.frmSat.controls['descripcion'].setValue('');
   }
-
-  public getValues(obj: any): any[] {
-    return Object.values(obj);
-  }
+  /**
+   * 
+   * @param obj pasamos el json del DataSource => solo obtenemos el valor del atributo eliminando el key del Json. 
+   * @returns => retorna valor del atributo sin el key. 
+   */
+  public Obtenervalor = (obj: any): any[] => { return Object.values(obj);}
 
   public onSelectAllChange( args: any){
     this.JsonSat = args;

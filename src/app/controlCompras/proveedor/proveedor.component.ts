@@ -21,7 +21,11 @@ export class ProveedorComponent  implements OnInit {
   public usoCFDI = ''
 
   public tabalaSat2: String = 'sat_regimenfiscal';
+  public RegimenCFDI = ''
+
+  
   public tablaSat3:  String = 'sat_doc_cobro';
+  public SatCobroCFDI = ''
   //==============================================================================================================
   // Listados:
   public lstestatus: any;
@@ -110,24 +114,35 @@ export class ProveedorComponent  implements OnInit {
   //VALIDACIONES:
 
   //==============================================================================================================
-  //Modal:
+  //Modales:
   public visible: boolean = false;
   public dlgRegimenvisible: boolean = false;
   public dlgDocCbrovisible: boolean = false;
-  
-  public  showDialog  = () => { this.visible = true;            this.tabalaSat1 = 'sat_usocfdi' }
-  public  dlgRegimen  = () => { this.dlgRegimenvisible = true;  this.tabalaSat2 = 'sat_regimenfiscal' }
-  public  dlgDocCbro  = () => { this.dlgDocCbrovisible = true;  this.tablaSat3 = 'sat_regimenfiscal' }
-  public  closeDialog = () => { this.visible = false;}
+  //==============================================================================================================
+  public  showDialog  = () => { this.visible           = true;   }
+  public  dlgRegimen  = () => { this.dlgRegimenvisible = true;   }
+  public  dlgDocCbro  = () => { this.dlgDocCbrovisible = true;   }
+  public  closeDialog = () => { this.visible           = false;  }
   //==============================================================================================================
   public  SatUsoCfedi ( jsonSatUsoCFDI: any ){
-      console.log('recibimos prpoveedor  ===> ', jsonSatUsoCFDI);
-      console.log('recibimos prpoveedor  ===> ', parseInt(jsonSatUsoCFDI.id) );
       this.usoCFDI = jsonSatUsoCFDI.descripcion;
       this.frmProveedor.controls['id_sat_usocfdi'].setValue(parseInt(jsonSatUsoCFDI.id));
       this.visible = false;
   }
-
+  //==============================================================================================================
+  public  SatRegimen ( jsonRegimenCFDI: any ){
+      this.RegimenCFDI = jsonRegimenCFDI.descripcion;
+      this.frmProveedor.controls['id_sat_regimenfiscal'].setValue(parseInt(jsonRegimenCFDI.id));
+      this.dlgRegimenvisible = false;
+  }
+  //==============================================================================================================
+  public  SatCobro ( jsonSatCobroCFDI: any ){
+      this.SatCobroCFDI = jsonSatCobroCFDI.descripcion;
+      this.frmProveedor.controls['id_sat_doc_cobro'].setValue(parseInt(jsonSatCobroCFDI.id));
+      this.dlgDocCbrovisible = false;
+  }
+  //==============================================================================================================
+  
 
 
 }

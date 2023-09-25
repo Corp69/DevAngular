@@ -96,7 +96,7 @@
                 <div class="col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Sat Regimen Fiscal:</span>
-                        <input disabled type="text" class="form-control" placeholder="vacio">
+                        <input disabled type="text" [value]="RegimenCFDI" class="form-control" placeholder="vacio">
                         <button type="button" (click)="dlgRegimen()" title="Selecionar Regimen Fiscal"
                         class="btn btn-outline-primary">
                         <i class="fa-solid fa-plus"></i> Agregar
@@ -106,7 +106,7 @@
                 <div class="col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Sat Doc Cobro:</span>
-                        <input disabled type="text" class="form-control" placeholder="vacio">
+                        <input disabled type="text" [value]="SatCobroCFDI" class="form-control" placeholder="vacio">
                         <button type="button" (click)="dlgDocCbro()" title="Selecionar Regimen Fiscal"
                         class="btn btn-outline-primary">
                         <i class="fa-solid fa-plus"></i> Agregar
@@ -159,7 +159,7 @@
 <!-- SAT  --->
 <div class="card flex justify-content-center">
     <p-dialog header="Header" [(visible)]="dlgRegimenvisible" [modal]="true" [style]="{ width: '90vw' }" [draggable]="false" [resizable]="false">
-        <app-ClaveProdServcp tabla={{tabalaSat2}} ></app-ClaveProdServcp>
+        <app-ClaveProdServcp tabla={{tabalaSat2}} (JsonSat)="SatRegimen($event)"></app-ClaveProdServcp>
         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
             <button type="button" (click)="NuevoProvedor()" [disabled]="BtnSpinner" title="Resetear Formulario"
                 class="btn btn-outline-primary">
@@ -171,7 +171,7 @@
 <!-- SAT DOC COBRO  --->
 <div class="card flex justify-content-center">
     <p-dialog header="Header" [(visible)]="dlgDocCbrovisible" [modal]="true" [style]="{ width: '90vw' }" [draggable]="false" [resizable]="false">
-        <app-ClaveProdServcp tabla={{tabalaSat1}} ></app-ClaveProdServcp>
+        <app-ClaveProdServcp tabla={{tabalaSat1}} (JsonSat)="SatCobro($event)"></app-ClaveProdServcp>
         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
             <button type="button" (click)="NuevoProvedor()" [disabled]="BtnSpinner" title="Resetear Formulario"
                 class="btn btn-outline-primary">
