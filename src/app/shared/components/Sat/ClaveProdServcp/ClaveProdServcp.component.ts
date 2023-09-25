@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { Customer, Representative } from './domain/Customer';
 import { SatClaveprodservService } from './Service/SatClaveprodserv.service';
 
 @Component({
@@ -14,18 +13,26 @@ export class ClaveProdServcpComponent {
   public frmSat: FormGroup = this.fb.group({ descripcion: [, [Validators.required, Validators.minLength(3)]] });
   //tabla   
   public DataSource: any;
+
+  //=================================================================================================================
+  // variables entre componentes
+  @Input()
+  public tabla: String = '';
+  @Output() JsonSat = new EventEmitter<any>();
   
+  //=================================================================================================================
+
   constructor(
     private fb: FormBuilder,
     private servicio: SatClaveprodservService
     //private datePipe: DatePipe,
   ) {}
-
   //
   public buscarinfo = () =>{
+    console.log('tabla ====> ',this.tabla);
     console.log("formulario==",this.frmSat.value.descripcion);
       //=======================================================================================
-      this.servicio.BuscarSatClaveprodServicio('sat_claveprodservcp', this.frmSat.value.descripcion ).subscribe(resp => {
+      this.servicio.BuscarSatClaveprodServicio(this.tabla, this.frmSat.value.descripcion ).subscribe(resp => {
         console.log(resp);
         switch (resp.Detalle) {
           case  null:
@@ -45,12 +52,12 @@ export class ClaveProdServcpComponent {
     //==============================================================================================================
   // Crud Para Almacen:
   public onSelectionChange( args: any){
-    console.log(args)
+    this.JsonSat.emit(args[0]);
+    this.DataSource =null;
+    this.frmSat.controls['descripcion'].setValue('');
   }
 
   public onSelectAllChange( args: any){
-    console.log(args)
+    this.JsonSat = args;
   }
-
-
 }

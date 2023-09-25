@@ -29,7 +29,7 @@ import { CardModule } from 'primeng/card';
     ClaveProdServcpComponent
   ],
   exports:[
-
+    ClaveProdServcpComponent
   ],
   imports: [
     //========================================

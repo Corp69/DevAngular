@@ -16,7 +16,7 @@ export class SatClaveprodservService {
    * 
    * @returns  Json Array catalogo de Sat dependiento de lo que se esta realñizando la busqueda
    */
-  public BuscarSatClaveprodServicio(  _tabla: string, _item: string ): Observable<any> {
+  public BuscarSatClaveprodServicio(  _tabla: String, _item: String ): Observable<any> {
     let headers = new HttpHeaders({ 'Authorization': `Bearer ${localStorage.getItem('token')}`});
     return this.http.post(`${environment.baseUrl}clientes/ctr/buscar`,
         { "Qtabla":_tabla, "_busqueda": _item },

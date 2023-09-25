@@ -8,8 +8,8 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: 'claveServiciocp', component: ClaveProdServcpComponent },
-      { path: '**', redirectTo: '/app/claveServiciocp' }
+     // { path: 'claveServiciocp', component: ClaveProdServcpComponent },
+     // { path: '**', redirectTo: '/app/claveServiciocp' }
     ]
   }
 ];

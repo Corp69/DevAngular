@@ -6,27 +6,31 @@
             <div class="row">
                 <div class="col-sm-3">
                     <label><b>Nombre/Nombre Comercial:</b></label>
-                    <input formControlName="nombre" type="text"  class="form-control"
+                    <input formControlName="nombre" type="text" class="form-control"
                         placeholder="Ingrese Nombre/Nombre Comercial">
-                           <span *ngIf="frmProveedor.controls['nombre'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
-                    </div>
+                    <span *ngIf="frmProveedor.controls['nombre'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
+                            Requerido</b></span>
+                </div>
                 <div class="col-sm-3">
                     <label><b>Apellido Paterno:</b></label>
                     <input formControlName="paterno" type="text" class="form-control"
                         placeholder="Ingrese Apellido Paterno">
-                        <span *ngIf="frmProveedor.controls['paterno'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    <span *ngIf="frmProveedor.controls['paterno'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
+                            Requerido</b></span>
                 </div>
                 <div class="col-sm-3">
                     <label><b>Apellido Materno:</b></label>
                     <input formControlName="materno" type="text" class="form-control"
                         placeholder="Ingrese Apellido Materno">
-                        <span *ngIf="frmProveedor.controls['materno'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
-                
-                    </div>
+                    <span *ngIf="frmProveedor.controls['materno'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
+                            Requerido</b></span>
+
+                </div>
                 <div class="col-sm-3">
                     <label><b>RFC:</b></label>
                     <input formControlName="rfc" type="text" class="form-control" placeholder="Ingrese RFC XXX0X0X0X0">
-                    <span *ngIf="frmProveedor.controls['rfc'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    <span *ngIf="frmProveedor.controls['rfc'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
+                            Requerido</b></span>
                 </div>
             </div>
 
@@ -35,7 +39,8 @@
                 <div class="col-sm-3">
                     <label><b>Codigo Postal:</b></label>
                     <input formControlName="cp" type="text" class="form-control" placeholder="Ingrese Un Codigo">
-                    <span *ngIf="frmProveedor.controls['cp'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    <span *ngIf="frmProveedor.controls['cp'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
+                            Requerido</b></span>
                 </div>
                 <div class="col-sm-3">
                     <label><b>Tipo:</b></label>
@@ -72,20 +77,62 @@
                 <div class="col-sm-3">
                     <label><b>Codigo:</b></label>
                     <input formControlName="codigo" type="text" class="form-control" placeholder="Ingrese Un Codigo">
-                    <span *ngIf="frmProveedor.controls['codigo'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+                    <span *ngIf="frmProveedor.controls['codigo'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
+                            Requerido</b></span>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Sat Uso CFDI:</span>
+                        <input disabled type="text" [value]="usoCFDI" class="form-control" placeholder="vacio">
+                        <button type="button" (click)="showDialog()" title="Selecionar Regimen Fiscal"
+                        class="btn btn-outline-primary">
+                        <i class="fa-solid fa-plus"></i> Agregar
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Sat Regimen Fiscal:</span>
+                        <input disabled type="text" class="form-control" placeholder="vacio">
+                        <button type="button" (click)="dlgRegimen()" title="Selecionar Regimen Fiscal"
+                        class="btn btn-outline-primary">
+                        <i class="fa-solid fa-plus"></i> Agregar
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Sat Doc Cobro:</span>
+                        <input disabled type="text" class="form-control" placeholder="vacio">
+                        <button type="button" (click)="dlgDocCbro()" title="Selecionar Regimen Fiscal"
+                        class="btn btn-outline-primary">
+                        <i class="fa-solid fa-plus"></i> Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
             <hr>
             <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                <button type="button"  (click)="NuevoProvedor()" [disabled]="BtnSpinner"  title="Resetear Formulario" class="btn btn-outline-primary">
+                <button type="button" (click)="NuevoProvedor()" [disabled]="BtnSpinner" title="Resetear Formulario"
+                    class="btn btn-outline-primary">
                     Nuevo
                 </button>
-                <button *ngIf="BtnSpinner == false" type="submit"  (click)="Almacenar()" [disabled]="frmProveedor.invalid"   title="Guardar Formulario" class="btn btn-outline-primary">
+                <button type="button" (click)="showDialog()" title="Resetear Formulario"
+                    class="btn btn-outline-primary">
+                    Modal
+                </button>
+                <button *ngIf="BtnSpinner == false" type="submit" (click)="Almacenar()"
+                    [disabled]="frmProveedor.invalid" title="Guardar Formulario" class="btn btn-outline-primary">
                     Guardar
                 </button>
             </div>
         </form>
-         
+
     </mat-card-content>
 </mat-card>
 <mat-card>
@@ -94,6 +141,49 @@
     </mat-card-content>
 </mat-card>
 
+
+<!-- ========================================================================================================================================================================================= -->
+<!-- DIALOGOS SAT --->
+<!-- ========================================================================================================================================================================================= -->
+<div class="card flex justify-content-center">
+    <p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '90vw' }" [draggable]="false" [resizable]="false">
+        <app-ClaveProdServcp tabla={{tabalaSat1}} (JsonSat)="SatUsoCfedi($event)" ></app-ClaveProdServcp>
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <button type="button" (click)="NuevoProvedor()" [disabled]="BtnSpinner" title="Resetear Formulario"
+                class="btn btn-outline-primary">
+                Seleccionar
+            </button>
+        </div>
+    </p-dialog>
+</div>
+<!-- SAT  --->
+<div class="card flex justify-content-center">
+    <p-dialog header="Header" [(visible)]="dlgRegimenvisible" [modal]="true" [style]="{ width: '90vw' }" [draggable]="false" [resizable]="false">
+        <app-ClaveProdServcp tabla={{tabalaSat2}} ></app-ClaveProdServcp>
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <button type="button" (click)="NuevoProvedor()" [disabled]="BtnSpinner" title="Resetear Formulario"
+                class="btn btn-outline-primary">
+                Seleccionar
+            </button>
+        </div>
+    </p-dialog>
+</div>
+<!-- SAT DOC COBRO  --->
+<div class="card flex justify-content-center">
+    <p-dialog header="Header" [(visible)]="dlgDocCbrovisible" [modal]="true" [style]="{ width: '90vw' }" [draggable]="false" [resizable]="false">
+        <app-ClaveProdServcp tabla={{tabalaSat1}} ></app-ClaveProdServcp>
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <button type="button" (click)="NuevoProvedor()" [disabled]="BtnSpinner" title="Resetear Formulario"
+                class="btn btn-outline-primary">
+                Seleccionar
+            </button>
+        </div>
+    </p-dialog>
+</div>
+
+
+
+<!-- ========================================================================================================================================================================================= -->
 <div class="container-fluid">
     <div class="row pt-4">
         <div class="col-md-12 text-center mb-2" style="text-align: center;">

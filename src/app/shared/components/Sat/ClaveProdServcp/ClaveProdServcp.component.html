@@ -7,12 +7,13 @@
                 <div class="col-sm-3">
                     <label><b>Catlogo:</b></label>
                     <select disabled class="form-select">
-                        <option selected>Sat Producto Servicio</option>
+                        <option selected>{{tabla}}</option>
                     </select>
                 </div>
                 <div class="col-sm-3">
                     <label><b>Descripcion / Codigo:</b></label>
-                    <input formControlName="descripcion" type="text" class="form-control" placeholder="Buscar ">
+                    <input formControlName="descripcion" 
+                    type="text" class="form-control" placeholder="Buscar ">
                     <span *ngIf="frmSat.controls['descripcion'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo
                             Requerido</b></span>
                 </div>
@@ -20,9 +21,8 @@
                 <div class="col-sm-3">
                     <button type="submit" (click)="buscarinfo()" [disabled]="frmSat.invalid"
                         title="Realizar busqueda Buscar" class="btn btn-outline-primary">
-                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i> Guardar
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i> Buscar
                     </button>
-
                 </div>
             </div>
         </form>

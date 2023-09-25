@@ -23,7 +23,10 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
 import { ProveedorDomicilioComponent } from './proveedor-domicilio/ProveedorDomicilio.component';
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DialogModule } from 'primeng/dialog';
+import { DlgappModule } from '../shared/components/DlgappModule.module';
+import { ClaveProdServcpComponent } from '../shared/components/Sat/ClaveProdServcp/ClaveProdServcp.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -35,6 +38,9 @@ import { ProveedorDomicilioComponent } from './proveedor-domicilio/ProveedorDomi
     ProveedorDomicilioComponent
   ],
   imports: [
+    DlgappModule,
+    //========================================
+    //Modulo: Compartido.
     MatIconModule,
     //========================================
     //Fechas: Angular Material
@@ -53,8 +59,10 @@ import { ProveedorDomicilioComponent } from './proveedor-domicilio/ProveedorDomi
     TabMenuModule,
     TabViewModule,
     //Cards: Angular PrimeNG 
-    CardModule
-
+    CardModule,
+    //dialogo o modal: Angular PrimeNG 
+    DialogModule,
+    ConfirmDialogModule
   ],
   providers: [
     DatePipe,
