@@ -1,1 +1,176 @@
-<p>departamento works!</p>
+<mat-card>
+    <mat-card-content>
+        <h1 style="text-align: center;"> <b>Departamento</b></h1>
+        <!-- Agregar Informcion del formulario -->
+        <form [formGroup]="frmDepartamento" autocomplete="off">
+            <div class="row"> 
+                <div class="col-sm-3">
+                    <label><b>descipcion:</b></label>
+                    <input formControlName="descipcion" type="text" class="form-control"
+                        placeholder="Ingrese descipcion">
+                        <span *ngIf="frmDepartamento.controls['descipcion'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                </div>
+                <div class="col-sm-3">
+                    <label><b>soporte:</b></label>
+                    <input formControlName="soporte" type="text" class="form-control"
+                        placeholder="Ingrese soporte">
+                        <span *ngIf="frmDepartamento.controls['soporte'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+            
+                    </div>
+                    
+                    <div class="col-sm-3">
+                        <label><b>tolerancia_asistencia:</b></label>
+                        <input formControlName="tolerancia_asistencia" type="text" class="form-control"
+                            placeholder="Ingrese tolerancia_asistencia">
+                            <span *ngIf="frmDepartamento.controls['tolerancia_asistencia'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>tolerancia_entrada:</b></label>
+                        <input formControlName="tolerancia_entrada" type="text" class="form-control"
+                            placeholder="Ingrese tolerancia_entrada">
+                            <span *ngIf="frmDepartamento.controls['tolerancia_entrada'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>tolerancia_permiso:</b></label>
+                        <input formControlName="tolerancia_permiso" type="text" class="form-control"
+                            placeholder="Ingrese tolerancia_permiso">
+                            <span *ngIf="frmDepartamento.controls['tolerancia_permiso'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>tolerancia_retardo:</b></label>
+                        <input formControlName="tolerancia_retardo" type="text" class="form-control"
+                            placeholder="Ingrese tolerancia_retardo">
+                            <span *ngIf="frmDepartamento.controls['tolerancia_retardo'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>falta_retardo:</b></label>
+                        <input formControlName="falta_retardo" type="text" class="form-control"
+                            placeholder="Ingrese falta_retardo">
+                            <span *ngIf="frmDepartamento.controls['falta_retardo'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>tolerancia_falta:</b></label>
+                        <input formControlName="tolerancia_falta" type="text" class="form-control"
+                            placeholder="Ingrese tolerancia_falta">
+                            <span *ngIf="frmDepartamento.controls['tolerancia_falta'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>confianza:</b></label>
+                        <input formControlName="confianza" type="text" class="form-control"
+                            placeholder="Ingrese confianza">
+                            <span *ngIf="frmDepartamento.controls['confianza'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_lunes_inicia:</b></label>
+                        <input formControlName="jornada_lunes_inicia" type="text" class="form-control"
+                            placeholder="Ingrese jornada_lunes_inicia">
+                            <span *ngIf="frmDepartamento.controls['jornada_lunes_inicia'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_lunes_termina:</b></label>
+                        <input formControlName="jornada_lunes_termina" type="text" class="form-control"
+                            placeholder="Ingrese jornada_lunes_termina">
+                            <span *ngIf="frmDepartamento.controls['jornada_lunes_termina'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_martes_inicia:</b></label>
+                        <input formControlName="jornada_martes_inicia" type="text" class="form-control"
+                            placeholder="Ingrese jornada_martes_inicia">
+                            <span *ngIf="frmDepartamento.controls['jornada_martes_inicia'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_martes_termina:</b></label>
+                        <input formControlName="jornada_martes_termina" type="text" class="form-control"
+                            placeholder="Ingrese jornada_martes_termina">
+                            <span *ngIf="frmDepartamento.controls['jornada_martes_termina'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_miercoles_inicia:</b></label>
+                        <input formControlName="jornada_miercoles_inicia" type="text" class="form-control"
+                            placeholder="Ingrese jornada_miercoles_inicia">
+                            <span *ngIf="frmDepartamento.controls['jornada_miercoles_inicia'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_miercoles_termina:</b></label>
+                        <input formControlName="jornada_miercoles_termina" type="text" class="form-control"
+                            placeholder="Ingrese jornada_miercoles_termina">
+                            <span *ngIf="frmDepartamento.controls['jornada_miercoles_termina'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_jueves_inicia:</b></label>
+                        <input formControlName="jornada_jueves_inicia" type="text" class="form-control"
+                            placeholder="Ingrese jornada_jueves_inicia">
+                            <span *ngIf="frmDepartamento.controls['jornada_jueves_inicia'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_jueves_termina:</b></label>
+                        <input formControlName="jornada_jueves_termina" type="text" class="form-control"
+                            placeholder="Ingrese jornada_jueves_termina">
+                            <span *ngIf="frmDepartamento.controls['jornada_jueves_termina'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_viernes_inicia:</b></label>
+                        <input formControlName="jornada_viernes_inicia" type="text" class="form-control"
+                            placeholder="Ingrese jornada_viernes_inicia">
+                            <span *ngIf="frmDepartamento.controls['jornada_viernes_inicia'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_viernes_termina:</b></label>
+                        <input formControlName="jornada_viernes_termina" type="text" class="form-control"
+                            placeholder="Ingrese jornada_viernes_termina">
+                            <span *ngIf="frmDepartamento.controls['jornada_viernes_termina'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_sabado_inicia:</b></label>
+                        <input formControlName="jornada_sabado_inicia" type="text" class="form-control"
+                            placeholder="Ingrese jornada_sabado_inicia">
+                            <span *ngIf="frmDepartamento.controls['jornada_sabado_inicia'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_sabado_termina:</b></label>
+                        <input formControlName="jornada_sabado_termina" type="text" class="form-control"
+                            placeholder="Ingrese jornada_sabado_termina">
+                            <span *ngIf="frmDepartamento.controls['jornada_sabado_termina'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_domingo_inicia:</b></label>
+                        <input formControlName="jornada_domingo_inicia" type="text" class="form-control"
+                            placeholder="Ingrese jornada_domingo_inicia">
+                            <span *ngIf="frmDepartamento.controls['jornada_domingo_inicia'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>jornada_domingo_termina:</b></label>
+                        <input formControlName="jornada_domingo_termina" type="text" class="form-control"
+                            placeholder="Ingrese jornada_domingo_termina">
+                            <span *ngIf="frmDepartamento.controls['jornada_domingo_termina'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+            </div>
+          
+            <hr>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <button type="button"  (click)="NuevoDepartamento()" [disabled]="BtnSpinner"  title="Resetear Formulario" class="btn btn-outline-primary">
+                    Nuevo
+                </button>
+                <button *ngIf="BtnSpinner == false" type="submit"  (click)="Almacenar()" [disabled]="frmDepartamento.invalid"   title="Guardar Formulario" class="btn btn-outline-primary">
+                    Guardar
+                </button>
+            </div>
+        </form>
+         
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-content>
+        <!-- En caso de haber tabla Agregar Aqui -->
+    </mat-card-content>
+</mat-card>
+
+<div class="container-fluid">
+    <div class="row pt-4">
+        <div class="col-md-12 text-center mb-2" style="text-align: center;">
+            <small> ©2022 CopyRight
+                <span class="text-secondary font-weight-bold">Risega Dev. </span>
+            </small>
+        </div>
+    </div>
+</div>

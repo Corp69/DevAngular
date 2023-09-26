@@ -38,7 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HistorialComponent,
     SalariosComponent,
     AsistenciasComponent,
-    PrincipalComponent
+    PrincipalComponent,
   ],
   imports: [
     CommonModule,
