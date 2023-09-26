@@ -21,8 +21,6 @@ import { GraficosResultadosComponent } from './GraficosResultados/GraficosResult
 //Angular Graficos
 import { NgChartsConfiguration, NgChartsModule } from 'ng2-charts';
 import { GraficosDetalleComponent } from './GraficosDetalle/GraficosDetalle.component';
-import { SuperiorComponent } from '../shared/components/superior/superior.component';
-
 
 @NgModule({
   declarations: [

@@ -22,8 +22,6 @@ export class LstProveedorComponent {
 
   customers!: Customer[];
 
-  selectedCustomers!: Customer[];
-
   representatives!: Representative[];
 
   statuses!: any[];
@@ -123,5 +121,16 @@ export class LstProveedorComponent {
   }
   //=============================================================================================================================================================================
 
+  public filter( args: any){
+
+  }
+
+  public onSelectionChange( args: any){
+    console.log(args)
+  }
+
+  public onSelectAllChange( args: any){
+    console.log(args)
+  }
 
 }

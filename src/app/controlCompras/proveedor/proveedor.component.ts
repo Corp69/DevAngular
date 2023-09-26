@@ -9,7 +9,23 @@ import Swal from 'sweetalert2';
   templateUrl: './proveedor.component.html',
   styleUrls: ['./proveedor.component.scss']
 })
-export class ProveedorComponent  implements OnInit {
+export class ProveedorComponent  implements OnInit {  
+  //==============================================================================================================
+  // Tabla sat al Componente:
+  /**
+   * @variable tabalaSat1:  sat_usocfdi       => Catalogo del sat uso CFDI. asignado a proveedor.
+   * @variable tabalaSat2:  sat_regimenfiscal => Catalogo del sat uso Regimen. asignado a proveedor.
+   * @variable tabalaSat3:  sat_doc_cobro     => Catalogo del sat uso Doc Combro. asignado a proveedor.
+   */
+  public tabalaSat1: String = 'sat_usocfdi';
+  public usoCFDI = ''
+
+  public tabalaSat2: String = 'sat_regimenfiscal';
+  public RegimenCFDI = ''
+
+  
+  public tablaSat3:  String = 'sat_doc_cobro';
+  public SatCobroCFDI = ''
   //==============================================================================================================
   // Listados:
   public lstestatus: any;
@@ -36,7 +52,11 @@ export class ProveedorComponent  implements OnInit {
     id_proveedor_tipo: [1, [Validators.required, Validators.min(0)]],
     id_proveedor_clasificacion: [1, [Validators.required, Validators.min(0)]],
     id_rh_empleado: [localStorage.getItem("id"), [Validators.required, Validators.min(0)]],
-    id_proveedor_operacion: [1, [Validators.required, Validators.min(0)]]
+    id_proveedor_operacion: [1, [Validators.required, Validators.min(0)]],
+
+    id_sat_usocfdi: [1, [Validators.required, Validators.min(0)]],
+    id_sat_doc_cobro: [1, [Validators.required, Validators.min(0)]],
+    id_sat_regimenfiscal: [1, [Validators.required, Validators.min(0)]]
   });
 
   constructor(
@@ -93,6 +113,36 @@ export class ProveedorComponent  implements OnInit {
   //==============================================================================================================
   //VALIDACIONES:
 
+  //==============================================================================================================
+  //Modales:
+  public visible: boolean = false;
+  public dlgRegimenvisible: boolean = false;
+  public dlgDocCbrovisible: boolean = false;
+  //==============================================================================================================
+  public  showDialog  = () => { this.visible           = true;   }
+  public  dlgRegimen  = () => { this.dlgRegimenvisible = true;   }
+  public  dlgDocCbro  = () => { this.dlgDocCbrovisible = true;   }
+  public  closeDialog = () => { this.visible           = false;  }
+  //==============================================================================================================
+  public  SatUsoCfedi ( jsonSatUsoCFDI: any ){
+      this.usoCFDI = jsonSatUsoCFDI.descripcion;
+      this.frmProveedor.controls['id_sat_usocfdi'].setValue(parseInt(jsonSatUsoCFDI.id));
+      this.visible = false;
+  }
+  //==============================================================================================================
+  public  SatRegimen ( jsonRegimenCFDI: any ){
+      this.RegimenCFDI = jsonRegimenCFDI.descripcion;
+      this.frmProveedor.controls['id_sat_regimenfiscal'].setValue(parseInt(jsonRegimenCFDI.id));
+      this.dlgRegimenvisible = false;
+  }
+  //==============================================================================================================
+  public  SatCobro ( jsonSatCobroCFDI: any ){
+      this.SatCobroCFDI = jsonSatCobroCFDI.descripcion;
+      this.frmProveedor.controls['id_sat_doc_cobro'].setValue(parseInt(jsonSatCobroCFDI.id));
+      this.dlgDocCbrovisible = false;
+  }
+  //==============================================================================================================
   
+
 
 }
