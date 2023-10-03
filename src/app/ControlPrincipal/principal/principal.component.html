@@ -1,57 +1,98 @@
-<div class="card" style="width: 100%;">
-  <h1 style="text-align: center;"><b>Adeudos</b></h1>
-  <div class="card-body">
-    <mat-form-field fxFlex="100%">
-      <input matInput type="text" (keyup)="doFilter($event)" placeholder="Buscar ">
-    </mat-form-field>
-    
-    <table fxFlex="100%" mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
-          No.
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
-          Name
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-  
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
-          Weight
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-          Symbol
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="axx">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
-          AXX
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-        </mat-paginator>
- 
-  </div>
+<div class="text-center container">
+  <h1 class="fw-light"><b>kpis</b></h1>
+  <p class="lead text-muted"><b>Developer APP.</b></p>
 </div>
 
+<main>
+  <div class="album bg-light">
+    <div class="container">
+      <div class="col">
+        <div class="card shadow-sm" style="background-color: rgb(173, 221, 237);">
+          <div class="text-center container">
+            <h1 class="fw-light"><b>INGRESOS SEMESTRAL</b></h1>
+            <p class="lead text-muted"><b>Developer APP.</b></p>
+          </div>
+          <div class="card shadow-sm" style="background-color: rgb(255, 255, 255);">
+            <p-chart type="line" [data]="dataBarra" [options]="options"></p-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
+<main>
+  <div class="album bg-light">
+    <div class="container">
+      <div class="col">
+        <div class="card shadow-sm" style="background-color: rgb(157, 213, 232);">
+          <div class="text-center container">
+            <h1 class="fw-light"><b>INGRESOS SEMESTRAL</b></h1>
+            <p class="lead text-muted"><b>Developer APP.</b></p>
+          </div>
+          <div class="card shadow-sm" style=" background-color: rgb(255, 255, 255);">
+            <p-chart type="line" [data]="data2" [options]="options2"></p-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<mat-card>
+  <mat-card-content>
+    <div class="card flex justify-content-center overflow-x-auto">
+      <p-organizationChart [value]="data">
+        <ng-template let-node pTemplate="person">
+          <div class="p-2 text-center">
+            <img [src]="node.data.image" class="mb-3 w-3rem h-3rem" />
+            <div class="font-bold">{{ node.data.name }}</div>
+            <div>{{ node.data.title }}</div>
+          </div>
+        </ng-template>
+      </p-organizationChart>
+    </div>
+  </mat-card-content>
+</mat-card>
+<hr>
+<mat-card>
+  <mat-card-content>
+    <div class="card">
+      <p-timeline [value]="events" align="alternate" styleClass="customized-timeline">
+        <ng-template pTemplate="marker" let-event>
+          <span class="custom-marker shadow-2" [style.backgroundColor]="event.color">
+            <i [ngClass]="event.icon"></i>
+          </span>
+        </ng-template>
+        <ng-template pTemplate="content" let-event>
+          <p-card [header]="event.status" [subheader]="event.date">
+            <img *ngIf="event.image" [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + event.image"
+              [alt]="event.name" width="200" class="shadow-2" />
+
+            <h1> DEVELOPER APP: </h1>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae
+              numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis
+              esse,
+              cupiditate
+              neque quas!
+            </p>
+            <button pButton label="Read more" class="p-button-text"></button>
+          </p-card>
+        </ng-template>
+      </p-timeline>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<div class="container-fluid">
+  <div class="row pt-4">
+    <div class="col-md-12 text-center mb-2" style="text-align: center;">
+      <small> ©2023 CopyRight
+        <span class="text-secondary font-weight-bold">Elizandro Dev. </span>
+      </small>
+    </div>
+  </div>
+</div>
