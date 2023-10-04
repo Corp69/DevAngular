@@ -23,7 +23,6 @@ public jornada_viernes_termina: String = "";
 public jornada_sabado_inicia: String = "";
 public jornada_sabado_termina: String = "";
 public jornada_domingo_inicia: String = "";
-public jornada_domingo_termina: String = "";
-
+public jornada_domingo_termina: String = ""
 
 }

@@ -12,6 +12,9 @@ import { DepartamentoService } from './services/Departamento.service';
 
 export class DepartamentoComponent {
 
+   // Listados:
+   public lstrhdepto: any;
+   //==============================================================================================================
   
   public frmDepartamento: FormGroup = this.fb.group({ 
     id: [-1], 
@@ -48,10 +51,10 @@ export class DepartamentoComponent {
   ) {
     
   }
-
+  
   //==============================================================================================================
   //modelos:
-  public MdlDepartamento: MdlDepartamento = new this.MdlDepartamento();
+  public MdlDepartamento: MdlDepartamento = new MdlDepartamento();
   //==============================================================================================================
   //Config. de la app:
   public BtnSpinner: boolean = false;
