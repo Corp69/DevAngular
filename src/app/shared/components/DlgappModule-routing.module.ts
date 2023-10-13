@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DomiciliosComponent } from './domicilios/domicilios.component';
 import { HomeComponent } from './home/home.component';
-import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
-     // { path: 'claveServiciocp', component: ClaveProdServcpComponent },
+     { path: 'domicilio', component: DomiciliosComponent },
      // { path: '**', redirectTo: '/app/claveServiciocp' }
     ]
   }

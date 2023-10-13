@@ -28,8 +28,8 @@ const routes: Routes = [
   {
     path: 'ControlRh',
     loadChildren: () => import('./controlRh/ControlRh.module').then( m => m.ControlRh ),
-    //canActivate:[ AuthGuard ],
-    //canMatch:[ AuthGuard] 
+    canActivate:[ AuthGuard ],
+    canMatch:[ AuthGuard] 
   },
   {
     path: 'ControlEscolar',
@@ -75,9 +75,7 @@ const routes: Routes = [
   },
   {
     path: 'app',
-    loadChildren: () => import('./shared/components/DlgappModule.module').then( m => m.DlgappModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
+    loadChildren: () => import('./shared/components/DlgappModule.module').then( m => m.DlgappModule )
   },
   {
     path: '404',

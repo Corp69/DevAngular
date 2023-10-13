@@ -1,0 +1,61 @@
+<mat-card>
+    <mat-card-content>
+        <h1 style="text-align: center;"><b>Domicilio</b></h1>
+        <!-- Agregar Informcion del formulario -->
+        <form [formGroup]="frmDomiclio" autocomplete="off">
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>calle:</b></label>
+                    <input formControlName="calle" type="text" class="form-control" placeholder="Ingrese Nombre">
+                    <span *ngIf="frmDomiclio.controls['calle'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                            Requerido</b></span>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Numero Exterior:</b></label>
+                    <input formControlName="num_ext" type="text" class="form-control"
+                        placeholder="ingrese numero exterior">
+                    <span *ngIf="frmDomiclio.controls['num_ext'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                            Requerido</b></span>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Numero Interior:</b></label>
+                    <input formControlName="num_int" type="text" class="form-control"
+                        placeholder="Ingrese Numero Interior">
+                    <span *ngIf="frmDomiclio.controls['num_int'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                            Requerido</b></span>
+
+                </div>
+                <div class="col-sm-3">
+                    <label><b>cp:</b></label>
+                    <input formControlName="cp" type="text" class="form-control" placeholder="Codigo Postal">
+                    <span *ngIf="frmDomiclio.controls['cp'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                            Requerido</b></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label><b>id_municipio:</b></label>
+                    <input formControlName="id_municipio" type="text" class="form-control" placeholder="Ingrese Nombre">
+                    <span *ngIf="frmDomiclio.controls['id_municipio'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                            Requerido</b></span>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>id_localidad:</b></label>
+                    <input formControlName="id_localidad" type="text" class="form-control"
+                        placeholder="ingrese numero id_localidad">
+                    <span *ngIf="frmDomiclio.controls['id_localidad'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                            Requerido</b></span>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>id_colonia:</b></label>
+                    <input formControlName="id_colonia" type="text" class="form-control"
+                        placeholder="Ingrese id_colonia">
+                    <span *ngIf="frmDomiclio.controls['id_colonia'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                            Requerido</b></span>
+                </div>
+            </div>
+            <hr>
+        </form>
+    </mat-card-content>
+</mat-card>
+
