@@ -78,7 +78,7 @@ export class SucursalComponent {
   
   /**
    * 
-   * @returns NuevoProvedor: Resetea el formulario al valor del modelo.
+   * @returns NuevaSucursal: Resetea el formulario al valor del modelo.
    */
   public NuevaSucursal = () => {
     this.frmSucursal.setValue(this.MdlSucursal);

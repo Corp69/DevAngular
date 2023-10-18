@@ -1,1 +1,73 @@
-<p>puesto works!</p>
+<mat-card>
+    <mat-card-content>
+        <h1 style="text-align: center;"> <b>Puesto</b></h1>
+        <!-- Agregar Informcion del formulario -->
+        <form [formGroup]="frmPuesto" autocomplete="off">
+            <div class="row"> 
+                <div class="col-sm-3">
+                    <label><b>Descipcion:</b></label>
+                    <input formControlName="descipcion" type="text" class="form-control"
+                        placeholder="Ingrese descipcion">
+                        <span *ngIf="frmPuesto.controls['descipcion'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Puesto unico:</b></label>
+                    <input formControlName="puesto_unico" type="text" class="form-control"
+                        placeholder="Ingrese puesto unico">
+                        <span *ngIf="frmPuesto.controls['puesto_unico'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+            
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>Costo:</b></label>
+                        <input formControlName="costo" type="text" class="form-control"
+                            placeholder="Ingrese costo">
+                            <span *ngIf="frmPuesto.controls['costo'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>Codigo:</b></label>
+                        <input formControlName="codigo" type="text" class="form-control"
+                            placeholder="Ingrese codigo">
+                            <span *ngIf="frmPuesto.controls['codigo'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>Encargado:</b></label>
+                        <input formControlName="encargado" type="text" class="form-control"
+                            placeholder="Ingrese encargado">
+                            <span *ngIf="frmPuesto.controls['encargado'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+                    <div class="col-sm-3">
+                        <label><b>Activo:</b></label>
+                        <input formControlName="activo" type="text" class="form-control"
+                            placeholder="Ingrese activo">
+                            <span *ngIf="frmPuesto.controls['activo'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo Requerido</b></span> 
+                    </div>
+            </div>
+          
+            <hr>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <button type="button"  (click)="NuevoPuesto()" [disabled]="BtnSpinner"  title="Resetear Formulario" class="btn btn-outline-primary">
+                    Nuevo
+                </button>
+                <button *ngIf="BtnSpinner == false" type="submit"  (click)="Almacenar()" [disabled]="frmPuesto.invalid"   title="Guardar Formulario" class="btn btn-outline-primary">
+                    Guardar
+                </button>
+            </div>
+        </form>
+         
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-content>
+        <!-- En caso de haber tabla Agregar Aqui -->
+    </mat-card-content>
+</mat-card>
+
+<div class="container-fluid">
+    <div class="row pt-4">
+        <div class="col-md-12 text-center mb-2" style="text-align: center;">
+            <small> ©2022 CopyRight
+                <span class="text-secondary font-weight-bold">Risega Dev. </span>
+            </small>
+        </div>
+    </div>
+</div>
