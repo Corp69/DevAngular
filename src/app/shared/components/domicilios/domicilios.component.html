@@ -34,23 +34,39 @@
             </div>
             <div class="row">
                 <div class="col-sm-3">
+                    <label><b>Estado:</b></label>
+                    <select class="form-select" formControlName="id_estado" placeholder="Seleccione Estado"
+                        aria-label="Default select example">
+                        <option *ngFor="let item of lstEstado" (onchange)="hola()" [value]="item.id">{{item.descripcion}}
+                        </option>
+                    </select>
+
+
+                    <span *ngIf="frmDomiclio.controls['id_municipio'].invalid"><b style=" color: rgb(235, 56, 29);">*
+                            campo
+                            Requerido</b></span>
+                </div>
+                <div class="col-sm-3">
                     <label><b>id_municipio:</b></label>
                     <input formControlName="id_municipio" type="text" class="form-control" placeholder="Ingrese Nombre">
-                    <span *ngIf="frmDomiclio.controls['id_municipio'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                    <span *ngIf="frmDomiclio.controls['id_municipio'].invalid"><b style=" color: rgb(235, 56, 29);">*
+                            campo
                             Requerido</b></span>
                 </div>
                 <div class="col-sm-3">
                     <label><b>id_localidad:</b></label>
                     <input formControlName="id_localidad" type="text" class="form-control"
                         placeholder="ingrese numero id_localidad">
-                    <span *ngIf="frmDomiclio.controls['id_localidad'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                    <span *ngIf="frmDomiclio.controls['id_localidad'].invalid"><b style=" color: rgb(235, 56, 29);">*
+                            campo
                             Requerido</b></span>
                 </div>
                 <div class="col-sm-3">
                     <label><b>id_colonia:</b></label>
                     <input formControlName="id_colonia" type="text" class="form-control"
                         placeholder="Ingrese id_colonia">
-                    <span *ngIf="frmDomiclio.controls['id_colonia'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                    <span *ngIf="frmDomiclio.controls['id_colonia'].invalid"><b style=" color: rgb(235, 56, 29);">*
+                            campo
                             Requerido</b></span>
                 </div>
             </div>
@@ -58,4 +74,3 @@
         </form>
     </mat-card-content>
 </mat-card>
-
