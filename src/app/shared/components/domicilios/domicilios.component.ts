@@ -9,8 +9,14 @@ import { DomiciliosService } from './Service/Domicilios.service';
 })
 export class DomiciliosComponent implements OnInit{
 
-  
-
+  //==============================================================================================================
+  // Tabla sat Codigo Postal:
+  /**
+   * @variable valorBUsqueda:   => muestra unicamente la busqueda el resultado.
+   * @variable tabalaBuscar1:   => se asigna Objeto Json para buscar dinamicamente
+   */
+  public tabalaBuscar1: any = {  "Qtabla": "colonia","_Columna": "codigopostal","_OrderBY": "descripcion"};
+  public valorBUsqueda = '';
   //==============================================================================================================
   // Formularios
   public frmDomiclio: FormGroup = this.fb.group({
@@ -28,7 +34,10 @@ export class DomiciliosComponent implements OnInit{
   });
   //==============================================================================================================
   // listados
-  public lstEstado:         any;
+  public lstEstado:      any;
+  public lstMunicipio:   any;
+  public lstLocalidad:   any;
+  public lstColonia:     any;
   //==============================================================================================================
   constructor(
     private fb: FormBuilder,
@@ -37,7 +46,7 @@ export class DomiciliosComponent implements OnInit{
   ) {}
   ngOnInit(): void {
     //=========================================================================================================================
-    //Consumo de listados
+    //Consumo de listados estado
     this.servicio.BuscarTB(1,146).subscribe(resp => {this.lstEstado = resp.Detalle;
       console.log(resp)
     });
@@ -45,11 +54,32 @@ export class DomiciliosComponent implements OnInit{
  
   }
 
-  public hola(){
-    console.log('hola ')
+  public filtroXestado( _valor : any){
+    //? ======================================================================================================================
+    // cargamos municipios 
+    this.servicio.BuscarTB(2,_valor.value).subscribe(resp => {this.lstMunicipio = resp.Detalle;});
+    // cargamos localidad
+    this.servicio.BuscarTB(3,_valor.value).subscribe(resp => {this.lstLocalidad = resp.Detalle;});
+    // cargamos Colonia
+    this.servicio.BuscarTB(3,_valor.value).subscribe(resp => {this.lstColonia = resp.Detalle;});
+  }
+  //==============================================================================================================
+  //Modales Codigo postal:
+    public visible:        boolean = false;
+  //==============================================================================================================
+  // Abrir modal para codigo postal
+    public abrirCP       = () => { this.visible = true;   }
+  //==============================================================================================================
+  // metdos o funciones de los modales
+  public  seleccionarCP ( jsonRes: any ){
+    this.valorBUsqueda = jsonRes.descripcion;
+    //this.frmProveedor.controls['id_sat_usocfdi'].setValue(parseInt(jsonSatUsoCFDI.id));
+    this.visible = false;
   }
 
+  public NuevoProvedor(){
 
+  }
 
   
 

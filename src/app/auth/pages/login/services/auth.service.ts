@@ -21,7 +21,7 @@ export class AuthService {
 
     public checkAuthentication(body: JSON) : Observable<any> {
       return this.http
-        .post(`${environment.baseUrl}/auth/Tokken`, body)
+        .post(`${environment.baseUrl}auth/Tokken`, body)
         .pipe(
           catchError(error => {
             return throwError(this.errores.getErrores(error));
@@ -33,7 +33,7 @@ export class AuthService {
 
   public inicioSesion3(modelo: MdlUser) : Observable<any> {
     return this.http
-      .post(`${environment.baseUrl}/auth/login`, modelo)
+      .post(`${environment.baseUrl}auth/login`, modelo)
       .pipe(
         catchError(error => {
           return throwError(this.errores.getErrores(error));

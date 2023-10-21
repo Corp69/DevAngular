@@ -16,6 +16,9 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
 import { DomiciliosComponent } from './domicilios/domicilios.component';
+import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 @NgModule({
@@ -23,13 +26,14 @@ import { DomiciliosComponent } from './domicilios/domicilios.component';
     //=================================
     // Importaciones:
     //=================================
-  
     HomeComponent,
     ClaveProdServcpComponent,
-    DomiciliosComponent
+    DomiciliosComponent,
+    BusquedaComponent
   ],
   exports:[
-    ClaveProdServcpComponent
+    ClaveProdServcpComponent,
+    BusquedaComponent
   ],
   imports: [
     //========================================
@@ -44,7 +48,10 @@ import { DomiciliosComponent } from './domicilios/domicilios.component';
     TabMenuModule,
     TabViewModule,
     //Cards: Angular PrimeNG 
-    CardModule
+    CardModule,
+    //dialogo o modal: Angular PrimeNG 
+    DialogModule,
+    ConfirmDialogModule
   ],
   providers: [
     DatePipe,

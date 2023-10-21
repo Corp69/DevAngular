@@ -1,4 +1,4 @@
-export class MdlSatClaveprodserv {
+export class MdlDomicilio {
     public id: number = -1; 
     public calle: String = "";
     public num_ext: String = "";

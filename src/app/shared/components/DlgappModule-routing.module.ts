@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-     { path: 'domicilio', component: DomiciliosComponent },
+     { path: 'domicilio', component: DomiciliosComponent }
      // { path: '**', redirectTo: '/app/claveServiciocp' }
     ]
   }

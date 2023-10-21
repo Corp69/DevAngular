@@ -15,10 +15,8 @@ export class DomiciliosService {
   /**
    * @method BuscarTB  ==> realiza la busqueda por medio de tabla, por medio de los campos dinamicos
    * 
-   * @param _tabla     ==> Pasamos la tabla para hacer una consulta de tipo busqueda 
-   * @param _columna   ==> pasamos la columna que sera de filtro
-   * @param _ordernar  ==> pasamos la columna que sera de ordenar los resultados
-   * @param _datos     ==> pasamos la columna que sera de filtro en este caso IDS
+   * @param _id       ==> Pasamos id para filtrar 1 estado 2 municipio 3 localidad 
+   * @param _filtro   ==> puede ser 146 para pais mexico o agregar otro id o varios
    * @returns 
    */
   public BuscarTB( _id: number, _filtro: Number ): Observable<any> {
@@ -54,7 +52,7 @@ private _estado( _id: Number, _filtro: Number ){
           "Datos": {"ids": [_filtro]}
         }
     break;
-  case 2:
+  case 3:
         return {
           "Qtabla":"estado",
           "_columna": "id_pais",

@@ -1,15 +1,16 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { SatClaveprodservService } from './Service/SatClaveprodserv.service';
+import { BuscarService } from './Service/BuscarService.service';
 
 @Component({
-  selector: 'app-ClaveProdServcp',
-  templateUrl: './ClaveProdServcp.component.html',
-  styleUrls: ['./ClaveProdServcp.component.scss']
+  selector: 'app-busqueda',
+  templateUrl: './busqueda.component.html',
+  styleUrls: ['./busqueda.component.scss']
 })
-export class ClaveProdServcpComponent {
+export class BusquedaComponent {
 
+  
   public frmSat: FormGroup = this.fb.group({ descripcion: [, [Validators.required, Validators.minLength(3)]] });
   //tabla   
   public DataSource: any;
@@ -17,20 +18,21 @@ export class ClaveProdServcpComponent {
   //=================================================================================================================
   // variables entre componentes
   @Input()
-  public tabla: String = '';
+  public tabla: any;
+
   @Output() JsonSat = new EventEmitter<any>();
   
   //=================================================================================================================
 
   constructor(
     private fb: FormBuilder,
-    private servicio: SatClaveprodservService
+    private servicio: BuscarService
     //private datePipe: DatePipe,
   ) {}
   //
   public buscarinfo = () =>{
       //=======================================================================================
-      this.servicio.BuscarSatClaveprodServicio(this.tabla, this.frmSat.value.descripcion ).subscribe(resp => {
+      this.servicio.buscar(this.tabla.Qtabla, this.tabla._Columna, this.tabla._OrderBY, this.frmSat.value.descripcion).subscribe(resp => {
         console.log(resp);
         switch (resp.Detalle) {
           case  null:
@@ -62,4 +64,5 @@ export class ClaveProdServcpComponent {
   public onSelectAllChange( args: any){
     this.JsonSat = args;
   }
+
 }

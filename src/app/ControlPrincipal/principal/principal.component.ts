@@ -30,8 +30,8 @@ export class PrincipalComponent implements OnInit {
             styleClass: 'bg-indigo-500 text-white',
             data: {
                 image: 'https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png',
-                name: 'Amy Elsner',
-                title: 'CEO'
+                name: 'Elzandro Casillas',
+                title: 'PATROCINADOR'
             },
             children: [
                 {
@@ -40,7 +40,7 @@ export class PrincipalComponent implements OnInit {
                     styleClass: 'bg-purple-500 text-white',
                     data: {
                         image: 'https://primefaces.org/cdn/primeng/images/demo/avatar/annafali.png',
-                        name: 'Anna Fali',
+                        name: 'LIZBETH ESTRADA',
                         title: 'CMO'
                     },
                     children: [
@@ -62,16 +62,16 @@ export class PrincipalComponent implements OnInit {
                     styleClass: 'bg-teal-500 text-white',
                     data: {
                         image: 'https://primefaces.org/cdn/primeng/images/demo/avatar/stephenshaw.png',
-                        name: 'Stephen Shaw',
-                        title: 'CTO'
+                        name: 'RICHART RISEGA',
+                        title: 'CEO'
                     },
                     children: [
                         {
-                            label: 'Development',
+                            label: 'BUSSINES/TI',
                             styleClass: 'bg-teal-500 text-white'
                         },
                         {
-                            label: 'UI/UX Design',
+                            label: 'HOSTING/SF DEVELOPER',
                             styleClass: 'bg-teal-500 text-white'
                         }
                     ]
