@@ -1,54 +1,217 @@
-import {LiveAnnouncer} from '@angular/cdk/a11y';
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatSort, Sort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-import {MatPaginator} from '@angular/material/paginator';
+import { Component, OnInit } from "@angular/core";
+import { TreeNode } from "primeng/api";
 
+interface EventItem {
+    status?: string;
+    date?: string;
+    icon?: string;
+    color?: string;
+    image?: string;
+}
 
 @Component({
-  selector: 'app-principal',
-  templateUrl: './principal.component.html',
-  styleUrls: ['./principal.component.scss']
+    selector: 'app-principal',
+    templateUrl: './principal.component.html',
+    styleUrls: ['./principal.component.scss']
 })
-export class PrincipalComponent {
-  
-  public ELEMENT_DATA: any = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', axx: 'sx'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He', axx: 'sx'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li', axx: 'sx'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be', axx: 'sx'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B', axx: 'sx'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C', axx: 'sx'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N', axx: 'sx'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O', axx: 'sx'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F', axx: 'sx'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', axx: 'sx'},
-  ];
+export class PrincipalComponent implements OnInit {
+    public events: EventItem[];
+    public dataBarra: any;
+    public options: any;
+   
+    public options2: any;
+    public data2: any;
+   
 
+    public data: TreeNode[] = [
+        {
+            expanded: true,
+            type: 'person',
+            styleClass: 'bg-indigo-500 text-white',
+            data: {
+                image: 'https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png',
+                name: 'Amy Elsner',
+                title: 'CEO'
+            },
+            children: [
+                {
+                    expanded: true,
+                    type: 'person',
+                    styleClass: 'bg-purple-500 text-white',
+                    data: {
+                        image: 'https://primefaces.org/cdn/primeng/images/demo/avatar/annafali.png',
+                        name: 'Anna Fali',
+                        title: 'CMO'
+                    },
+                    children: [
+                        {
+                            label: 'Sales',
+                            styleClass: 'bg-purple-500 text-white',
+                            style: ' border-radius: 12px'
+                        },
+                        {
+                            label: 'Marketing',
+                            styleClass: 'bg-purple-500 text-white',
+                            style: ' border-radius: 12px'
+                        }
+                    ]
+                },
+                {
+                    expanded: true,
+                    type: 'person',
+                    styleClass: 'bg-teal-500 text-white',
+                    data: {
+                        image: 'https://primefaces.org/cdn/primeng/images/demo/avatar/stephenshaw.png',
+                        name: 'Stephen Shaw',
+                        title: 'CTO'
+                    },
+                    children: [
+                        {
+                            label: 'Development',
+                            styleClass: 'bg-teal-500 text-white'
+                        },
+                        {
+                            label: 'UI/UX Design',
+                            styleClass: 'bg-teal-500 text-white'
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'axx'];
-  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-
-  constructor(private _liveAnnouncer: LiveAnnouncer) {}
-
-  @ViewChild(MatSort)sort!: MatSort;
-  @ViewChild(MatPaginator)paginator!: MatPaginator;
-  
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-  }
-
-    announceSortChange(sortState: Sort) {
-      if (sortState.direction) {
-        this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-      } else {
-        this._liveAnnouncer.announce('Sorting cleared');
-      }
+    constructor() {
+        this.events = [
+            { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg' },
+            { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
+            { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
+            { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
+        ];
     }
 
-    public doFilter = (value: any) => {
-      this.dataSource.filter = value.target.value.trim().toLocaleLowerCase();
-    }
+    ngOnInit() {
+        const documentStyle = getComputedStyle(document.documentElement);
+        const textColor = documentStyle.getPropertyValue('--text-color');
+        const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+        const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
+        this.dataBarra = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Dataset 1',
+                    borderColor: documentStyle.getPropertyValue('--blue-500'),
+                    borderWidth: 2,
+                    fill: false,
+                    tension: 0.4,
+                    data: [50, 25, 12, 48, 56, 76, 42]
+                },
+                {
+                    type: 'bar',
+                    label: 'Dataset 2',
+                    backgroundColor: documentStyle.getPropertyValue('--green-500'),
+                    data: [21, 84, 24, 75, 37, 65, 34],
+                    borderColor: 'white',
+                    borderWidth: 2
+                },
+                {
+                    type: 'bar',
+                    label: 'Dataset 3',
+                    backgroundColor: documentStyle.getPropertyValue('--orange-500'),
+                    data: [41, 52, 24, 74, 23, 21, 32]
+                }
+            ]
+        };
+
+        this.options = {
+            maintainAspectRatio: false,
+            aspectRatio: 0.6,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: textColor
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: textColorSecondary
+                    },
+                    grid: {
+                        color: surfaceBorder
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: textColorSecondary
+                    },
+                    grid: {
+                        color: surfaceBorder
+                    }
+                }
+            }
+        };
+
+        this.data2 = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                    label: 'First Dataset',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    tension: 0.4,
+                    borderColor: documentStyle.getPropertyValue('--blue-500')
+                },
+                {
+                    label: 'Second Dataset',
+                    data: [28, 48, 40, 19, 86, 27, 90],
+                    fill: false,
+                    borderDash: [5, 5],
+                    tension: 0.4,
+                    borderColor: documentStyle.getPropertyValue('--teal-500')
+                },
+                {
+                    label: 'Third Dataset',
+                    data: [12, 51, 62, 33, 21, 62, 45],
+                    fill: true,
+                    borderColor: documentStyle.getPropertyValue('--orange-500'),
+                    tension: 0.4,
+                    backgroundColor: 'rgba(255,167,38,0.2)'
+                }
+            ]
+        };
+        
+        this.options2 = {
+            maintainAspectRatio: false,
+            aspectRatio: 0.6,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: textColor
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: textColorSecondary
+                    },
+                    grid: {
+                        color: surfaceBorder
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: textColorSecondary
+                    },
+                    grid: {
+                        color: surfaceBorder
+                    }
+                }
+            }
+        };
+    }
+    
 }

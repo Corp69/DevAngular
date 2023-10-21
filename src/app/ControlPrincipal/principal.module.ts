@@ -9,16 +9,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DlgappModule } from '../shared/components/DlgappModule.module';
-
-
+// PRIME NG
+import { OrganizationChartModule } from 'primeng/organizationchart';
+import { CardModule } from 'primeng/card';
+import { TimelineModule } from 'primeng/timeline';
+import { ChartModule } from 'primeng/chart';
 @NgModule({
   declarations: [
     HomeComponent,
     PrincipalComponent
-  //=================================
-  // Importaciones:
-   // SuperiorComponent
-  //=================================
   ],
   imports: [
     CommonModule,
@@ -29,7 +28,13 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
     ReactiveFormsModule,
     PrincipalModuleRoutingModule,
     //Importamos el modulo de la app
-    DlgappModule
+    DlgappModule,
+    // prime ng 
+    CardModule,
+    TimelineModule,
+    OrganizationChartModule,
+    ChartModule
+
   ]
 })
 export class PrincipalModule { }

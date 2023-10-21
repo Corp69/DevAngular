@@ -10,12 +10,12 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MaterialModule } from 'src/app/material/material.module';
 import { dlgBusquedasModuleRoutingModule } from './DlgappModule-routing.module';
 import { HomeComponent } from './home/home.component';
-import { RegimenFiscalComponent } from './Sat/regimen-fiscal/regimen-fiscal.component';
 import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.component';
 import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
+import { DomiciliosComponent } from './domicilios/domicilios.component';
 
 
 @NgModule({
@@ -25,8 +25,8 @@ import { CardModule } from 'primeng/card';
     //=================================
   
     HomeComponent,
-    RegimenFiscalComponent,
-    ClaveProdServcpComponent
+    ClaveProdServcpComponent,
+    DomiciliosComponent
   ],
   exports:[
     ClaveProdServcpComponent
