@@ -77,6 +77,7 @@ export class DomiciliosComponent implements OnInit{
     this.visible = false;
   }
 
+  
   public NuevoProvedor(){
 
   }
