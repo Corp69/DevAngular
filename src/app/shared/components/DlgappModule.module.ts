@@ -19,6 +19,9 @@ import { DomiciliosComponent } from './domicilios/domicilios.component';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ConfirmacionComponent } from './msj/confirmacion/confirmacion.component';
+import { ErrorComponent } from './msj/error/error.component';
+import { AdvertenciaComponent } from './msj/advertencia/advertencia.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
     HomeComponent,
     ClaveProdServcpComponent,
     DomiciliosComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    ConfirmacionComponent,
+    ErrorComponent,
+    AdvertenciaComponent
   ],
   exports:[
     ClaveProdServcpComponent,
