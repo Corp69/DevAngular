@@ -20,8 +20,6 @@ import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { ConfirmacionComponent } from './msj/confirmacion/confirmacion.component';
-import { ErrorComponent } from './msj/error/error.component';
-import { AdvertenciaComponent } from './msj/advertencia/advertencia.component';
 
 
 @NgModule({
@@ -33,13 +31,12 @@ import { AdvertenciaComponent } from './msj/advertencia/advertencia.component';
     ClaveProdServcpComponent,
     DomiciliosComponent,
     BusquedaComponent,
-    ConfirmacionComponent,
-    ErrorComponent,
-    AdvertenciaComponent
+    ConfirmacionComponent
   ],
   exports:[
     ClaveProdServcpComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    ConfirmacionComponent
   ],
   imports: [
     //========================================

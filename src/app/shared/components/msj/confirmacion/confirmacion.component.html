@@ -1,13 +1,15 @@
-<p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '20vw' }" [draggable]="false"
+<p-dialog [(visible)]="msjBody.visible" [modal]="true" [style]="{ width: '20vw' }" [draggable]="false"
   [resizable]="false">
   <hr>
   <div class="row">
     <div class="col-mb-4">
-      <i class="fa-solid fa-check fa-2xl" style=" color: green;"></i>
-     <b>{{Mensaje}}</b> 
+      <i *ngIf="msjBody.msjTipo == 1" class="fa-solid fa-check fa-2xl" style=" color: green;"></i>
+      <i *ngIf="msjBody.msjTipo == 2" class="fa-solid fa-circle-exclamation fa-2xl" style=" color: orange;"></i>
+      <i *ngIf="msjBody.msjTipo == 3" class="fa-solid fa-triangle-exclamation fa-2xl" style=" color: red;"></i>
+     <b>{{msjBody.titulo}}</b> 
     </div>
     <div class="col-mb-4">
-    <b>{{Detalle}}</b>
+    <b>{{msjBody.detalle}}</b>
     </div>
   </div>
   <br>

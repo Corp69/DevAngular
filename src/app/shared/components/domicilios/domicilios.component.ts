@@ -10,13 +10,10 @@ import { DomiciliosService } from './Service/Domicilios.service';
 export class DomiciliosComponent implements OnInit{
 
   //==============================================================================================================
-  // Tabla sat Codigo Postal:
-  /**
-   * @variable valorBUsqueda:   => muestra unicamente la busqueda el resultado.
-   * @variable tabalaBuscar1:   => se asigna Objeto Json para buscar dinamicamente
-   */
+  // herencia padre e hijo 
   public tabalaBuscar1: any = {  "Qtabla": "colonia","_Columna": "codigopostal","_OrderBY": "descripcion"};
   public valorBUsqueda = '';
+  public msjConfirmacion: object = { visible: false, msjTipo: 1, titulo: '', mensaje: '', detalle: ''};
   //==============================================================================================================
   // Formularios
   public frmDomiclio: FormGroup = this.fb.group({
@@ -47,9 +44,7 @@ export class DomiciliosComponent implements OnInit{
   ngOnInit(): void {
     //=========================================================================================================================
     //Consumo de listados estado
-    this.servicio.BuscarTB(1,146).subscribe(resp => {this.lstEstado = resp.Detalle;
-      console.log(resp)
-    });
+    this.servicio.BuscarTB(1,146).subscribe(resp => {this.lstEstado = resp.Detalle;});
    //=========================================================================================================================
  
   }
@@ -77,7 +72,6 @@ export class DomiciliosComponent implements OnInit{
     this.visible = false;
   }
 
-  
   public NuevoProvedor(){
 
   }

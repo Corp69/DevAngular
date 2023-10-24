@@ -1,22 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 
 @Component({
-  selector: 'app-confirmacion',
+  selector: 'app-msjConfirmacion',
   templateUrl: './confirmacion.component.html',
   styleUrls: ['./confirmacion.component.scss']
 })
-export class ConfirmacionComponent {
 
-  // ******************************************
-  // variable: modales
-  public visible:  boolean = true;
-  public Titulo:   String  = 'Developer' 
-  public Mensaje:  String  = 'Operacion al servicio OK !' 
-  public Detalle:  String  = 'Transaccion Exitosa' 
+
+export class ConfirmacionComponent implements OnInit {
+
+  //=================================================================================================================
+  // variables entre componentes
+  @Input()
+  public msjBody: any;
   
+  constructor(){}
 
-  constructor(){
-    
+  ngOnInit(): void {
+    //=========================================================================================================================
+    console.log(this.msjBody); 
+   //=========================================================================================================================
+ 
   }
+
 
 }
