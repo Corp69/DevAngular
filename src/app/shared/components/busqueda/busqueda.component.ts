@@ -29,7 +29,8 @@ export class BusquedaComponent {
     private servicio: BuscarService
     //private datePipe: DatePipe,
   ) {}
-  //
+
+  //Realizamos la busqueda
   public buscarinfo = () =>{
       //=======================================================================================
       this.servicio.buscar(this.tabla.Qtabla, this.tabla._Columna, this.tabla._OrderBY, this.frmSat.value.descripcion).subscribe(resp => {
@@ -50,19 +51,19 @@ export class BusquedaComponent {
   //==============================================================================================================
   // funcionalidad de la tabla:
   public onSelectionChange( args: any){
-    this.JsonSat.emit(args[0]);
-    this.DataSource =null;
+    this.DataSource = null;
     this.frmSat.controls['descripcion'].setValue('');
+    this.JsonSat.emit(args[0]);
   }
-  /**
-   * 
-   * @param obj pasamos el json del DataSource => solo obtenemos el valor del atributo eliminando el key del Json. 
-   * @returns => retorna valor del atributo sin el key. 
-   */
+
+  //=============================================================================================================
+  //obtenemos las columnas
   public Obtenervalor = (obj: any): any[] => { return Object.values(obj);}
 
-  public onSelectAllChange( args: any){
+  //==============================================================================================================
+  // obtener todos los registros
+  /* public onSelectAllChange( args: any){
     this.JsonSat = args;
-  }
+  }*/
 
 }

@@ -21,9 +21,6 @@
                     <label><b>Numero Interior:</b></label>
                     <input formControlName="num_int" type="text" class="form-control"
                         placeholder="Ingrese Numero Interior">
-                    <span *ngIf="frmDomiclio.controls['num_int'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
-                            Requerido</b></span>
-
                 </div>
                 <div class="col-sm-3">
                     <label><b>cp:</b></label>
@@ -46,20 +43,20 @@
                 </div>
                 <div class="col-sm-3">
                     <label><b>Municipio:</b></label>
-                    <select class="form-select" formControlName="id_estado" placeholder="Seleccione Municipio"
+                    <select class="form-select" formControlName="id_municipio" placeholder="Seleccione Municipio"
                         aria-label="Default select example">
                         <option *ngFor="let item of lstMunicipio" [value]="item.id">{{item.descripcion}}
                         </option>
                     </select>
-                    <span *ngIf="frmDomiclio.controls['id_estado'].invalid"><b style=" color: rgb(235, 56, 29);">*
+                    <span *ngIf="frmDomiclio.controls['id_municipio'].invalid"><b style=" color: rgb(235, 56, 29);">*
                             campo
                             Requerido</b></span>
                 </div>
                 <div class="col-sm-3">
                     <label><b>localidad:</b></label>
-                    <select class="form-select" formControlName="id_localidad" placeholder="Seleccione Municipio"
+                    <select class="form-select" formControlName="id_localidad" placeholder="Seleccione Localidad"
                         aria-label="Default select example">
-                        <option *ngFor="let item of lstMunicipio" [value]="item.id">{{item.descripcion}}
+                        <option *ngFor="let item of lstLocalidad" [value]="item.id">{{item.descripcion}}
                         </option>
                     </select>
                     <span *ngIf="frmDomiclio.controls['id_localidad'].invalid"><b style=" color: rgb(235, 56, 29);">*
@@ -71,7 +68,7 @@
                 <div class="col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Colonia:</span>
-                        <input disabled type="text" [value]="valorBUsqueda" class="form-control" placeholder="vacio">
+                        <input disabled type="text" [value]="valorColonia" class="form-control" placeholder="vacio">
                         <button type="button" (click)="abrirCP()" title="Selecionar Codigo Postal"
                             class="btn btn-outline-primary">
                             <i class="fa-solid fa-plus"></i> Agregar
@@ -81,7 +78,7 @@
                 <div class="col-sm-3">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Codigo Postal:</span>
-                        <input disabled type="text" [value]="valorBUsqueda" class="form-control" placeholder="vacio">
+                        <input disabled type="text" [value]="valorCp" class="form-control" placeholder="vacio">
                         <button type="button" (click)="abrirCP()" title="Selecionar Codigo Postal"
                             class="btn btn-outline-primary">
                             <i class="fa-solid fa-plus"></i> Agregar
@@ -95,15 +92,16 @@
                 <p-dialog header="Header" [(visible)]="visible" [modal]="visible" [style]="{ width: '90vw' }"
                     [draggable]="false" [resizable]="false">
                     <app-busqueda [tabla]="tabalaBuscar1" (JsonSat)="seleccionarCP($event)"></app-busqueda>
-                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                        <button type="button" (click)="NuevoProvedor()" title="Resetear Formulario"
-                            class="btn btn-outline-primary">
-                            Seleccionar
-                        </button>
-                    </div>
                 </p-dialog>
             </div>
             <hr>
+            <hr>
+            <div class="col-sm-3">
+                <button type="submit" (click)="Almacenar()" [disabled]="frmDomiclio.invalid"
+                    title="Almacenar Informcion" class="btn btn-outline-primary">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i> Guardar
+                </button>
+            </div>
         </form>
     </mat-card-content>
 </mat-card>

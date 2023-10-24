@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ErroresService } from 'src/app/shared/errores.service';
+import { MdlDomicilio } from '../Models/MdlDomicilio';
 
 @Injectable({
   providedIn: 'root',
@@ -60,6 +61,14 @@ private _estado( _id: Number, _filtro: Number ){
           "Datos": {"ids": [_filtro]}
         }
     break;
+  case 4:
+        return {
+          "Qtabla":"localidad",
+          "_columna": "id_estado",
+          "_orderBY": "descripcion",
+          "Datos": {"ids": [_filtro]}
+        }
+    break;
   default:
     return {
       "Qtabla":"estado",
@@ -71,6 +80,34 @@ private _estado( _id: Number, _filtro: Number ){
  }
  
 }
+
+  //==================================================================================================
+  //guardar
+  public AlmacenarDomicilio(modelo: MdlDomicilio): Observable<any> {
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    console.log(  {
+      Qtabla: 'rh_empleado_domicilio',
+      Datos: modelo,
+    })
+    return this.http
+      .post(
+        `${environment.baseUrl}clientes/ctr/agregar`,
+        {
+          Qtabla: 'rh_empleado_domicilio',
+          Datos: modelo,
+        },
+        { headers: headers }
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(this.errores.getErrores(error));
+        })
+      );
+  }
+
+
 
 
   //===================================================================================================

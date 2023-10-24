@@ -11,7 +11,7 @@
                     </select>
                 </div>
                 <div class="col-sm-3">
-                    <label><b>Descripcion / Codigo:</b></label>
+                    <label><b>{{tabla.Buscar}}:</b></label>
                     <input formControlName="descripcion" 
                     type="text" class="form-control" placeholder="Buscar ">
                     <span *ngIf="frmSat.controls['descripcion'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo
@@ -32,11 +32,14 @@
 
 <hr>
 <p-card *ngIf="DataSource != null " header="Busqueda">
-    <p-table [value]="DataSource" dataKey="id" 
+    <p-table 
+        [value]="DataSource" dataKey="id" 
         [tableStyle]="{ 'min-width': '75rem' }"
         (selectionChange)="onSelectionChange($event)" 
-        (selectAllChange)="onSelectAllChange($event)" [paginator]="true"
-        [rows]="10" [rowsPerPageOptions]="[5,10,25]" [paginator]="true">
+        [paginator]="true"
+        [rows]="10" 
+        [rowsPerPageOptions]="[5,10,25]" 
+        [paginator]="true">
         <ng-template pTemplate="header">
             <tr>
                 <th style="width: 4rem"></th>
