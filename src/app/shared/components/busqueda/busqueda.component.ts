@@ -34,7 +34,6 @@ export class BusquedaComponent {
   public buscarinfo = () =>{
       //=======================================================================================
       this.servicio.buscar(this.tabla.Qtabla, this.tabla._Columna, this.tabla._OrderBY, this.frmSat.value.descripcion).subscribe(resp => {
-        console.log(resp);
         switch (resp.Detalle) {
           case  null:
             Swal.fire(resp.Mensaje,'0 registros','warning');

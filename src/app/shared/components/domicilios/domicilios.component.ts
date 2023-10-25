@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomiciliosService } from './Service/Domicilios.service';
-import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-domicilios',
@@ -12,10 +12,10 @@ export class DomiciliosComponent implements OnInit{
 
   //==============================================================================================================
   // herencia padre e hijo 
-  public tabalaBuscar1: any = { "Buscar": " Busquedar por Codigo Postal", "Qtabla": "colonia","_Columna": "codigopostal","_OrderBY": "descripcion"};
+  public tabalaBuscar1: any = { "mostrar": false, "Buscar": " Busquedar por Codigo Postal", "Qtabla": "colonia","_Columna": "codigopostal","_OrderBY": "descripcion"};
   public valorCp = '';
   public valorColonia = '';
-  public msjConfirmacion: object = { visible: false, msjTipo: 1, titulo: '', mensaje: '', detalle: ''};
+  public msjConfirmacion: any = { msjTipo: 1, titulo: '', mensaje: '', detalle: ''};
   //==============================================================================================================
   // Formularios
   public frmDomiclio: FormGroup = this.fb.group({
@@ -61,8 +61,11 @@ export class DomiciliosComponent implements OnInit{
     this.servicio.BuscarTB(3,_valor.value).subscribe(resp => {this.lstColonia = resp.Detalle;});
   }
   //==============================================================================================================
-  //Modales Codigo postal:
-    public visible:        boolean = false;
+  //modal  Codigo postal:
+    public visible:   boolean = false;
+  // modal confirmacion  
+    public mdlMsj:    boolean = false;
+ 
   //==============================================================================================================
   // Abrir modal para codigo postal
     public abrirCP = () => { this.visible = true;   }
@@ -84,21 +87,20 @@ export class DomiciliosComponent implements OnInit{
   }
 
   public Almacenar(){
-
+    this.mdlMsj = false;
     console.log( this.frmDomiclio.value );
-
     //=======================================================================================
      this.servicio.AlmacenarDomicilio(this.frmDomiclio.value).subscribe(resp => {
       console.log(resp);
       switch (resp.Detalle) {
         case  null:
-          Swal.fire(resp.Mensaje,'0 registros','warning');
+          this.msjConfirmacion = { msjTipo: 3, titulo: 'DEVELOPER', mensaje: resp.Mensaje, detalle: resp.detalle};
           break;
         default:
+          this.msjConfirmacion = { msjTipo: 1, titulo: 'DEVELOPER', mensaje: resp.Mensaje};
           this.frmDomiclio.setValue(this.frmDomiclio.value);
           this.frmDomiclio.controls['id'].setValue(parseInt(resp.Detalle));
-           
-          Swal.fire(resp.Mensaje,'Operacion Exitosa');
+          this.mdlMsj = true;
         break;
       }  
     });

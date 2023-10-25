@@ -106,5 +106,23 @@
     </mat-card-content>
 </mat-card>
 
-
-<app-msjConfirmacion [msjBody]="msjConfirmacion"></app-msjConfirmacion>
+<!-- MENSAJE GENERICO DE CONFIRMACION  --->
+<p-dialog [(visible)]="mdlMsj" [modal]="true" [style]="{ width: '20vw' }" [draggable]="false"
+  [resizable]="false">
+  <hr>
+  <div class="row">
+    <div class="col-mb-4">
+      <i *ngIf="msjConfirmacion.msjTipo == 1" class="fa-solid fa-check fa-2xl" style=" color: green;"></i>
+      <i *ngIf="msjConfirmacion.msjTipo == 2" class="fa-solid fa-circle-exclamation fa-2xl" style=" color: orange;"></i>
+      <i *ngIf="msjConfirmacion.msjTipo == 3" class="fa-solid fa-triangle-exclamation fa-2xl" style=" color: red;"></i>
+     <b>{{msjConfirmacion.titulo}}</b>
+     <br>
+     <b>{{msjConfirmacion.mensaje}}</b> 
+    </div>
+    <div class="col-mb-4">
+    <b>{{msjConfirmacion.detalle}}</b>
+    </div>
+  </div>
+  <br>
+  <hr>
+</p-dialog>
