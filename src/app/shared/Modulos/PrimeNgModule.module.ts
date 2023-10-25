@@ -1,29 +1,18 @@
-import { CommonModule, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 //========================================
-//Angular Graficos
-//import { NgChartsConfiguration } from 'ng2-charts';
-//========================================
-//Angular Material
-import { MaterialModule } from 'src/app/material/material.module';
+// PrimeNG 
 import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
-import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [
-
-  ],
-  exports:[
-
-  ],
-  imports: [
+  exports: [
+    //========================================
     //Tablas: Angular PrimeNG 
     TableModule,
     TabMenuModule,
@@ -41,4 +30,4 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
   ]
 })
 
-export class PrimeNgKpisModule { }
+export class PrimeNgModule { }

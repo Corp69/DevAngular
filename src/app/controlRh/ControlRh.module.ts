@@ -9,23 +9,16 @@ import { SalariosComponent } from './salarios/salarios.component';
 import { AsistenciasComponent } from './asistencias/asistencias.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { ControlRhRoutingModule } from './ControlRhRoutingModule.module';
-//========================================
-// PrimeNG 
-import { TableModule } from 'primeng/table';
-import { TabMenuModule } from 'primeng/tabmenu';
-import { TabViewModule } from 'primeng/tabview';
-import { CardModule } from 'primeng/card';
-//========================================
-//Fechas: Angular Material
 import { CommonModule, DatePipe } from '@angular/common';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MaterialModule } from '../material/material.module';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+//=======================================
+//! modulos personalizados Librerias 
+import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
+import { MaterialModule } from '../shared/Modulos/material/material.module';
+//=======================================
+//? modulos personalizados reutilizar codigo 
+import { DlgappModule } from '../shared/components/DlgappModule.module';
 
 @NgModule({
   declarations: [
@@ -43,28 +36,20 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ControlRhRoutingModule,
-    MatIconModule,
-    //========================================
-    //Fechas: Angular Material
-    MatFormFieldModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatDatepickerModule,
-    //========================================
-    CommonModule,
+    //=======================================
+    //? modulos personalizados reutilizar codigo 
+    DlgappModule,
+    //=======================================
+    //! modulos personalizados Librerias 
+    PrimeNgModule,
     MaterialModule,
-    //========================================
-    //Tablas: Angular PrimeNG 
-    TableModule,
-    TabMenuModule,
-    TabViewModule,
-    //Cards: Angular PrimeNG 
-    CardModule
+    //PrimeNgKpisModule,
+    //=======================================
+    // routing
+    ControlRhRoutingModule
   ],
   providers: [
-    DatePipe,
-    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
+    DatePipe
   ]
 })
 export class ControlRh { }

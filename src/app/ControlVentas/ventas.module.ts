@@ -1,49 +1,41 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { MaterialModule } from '../material/material.module';
 import { ControlVentasRoutingModule } from './ControlInventarios-routing.module';
 import { PrincipalComponent } from './principal/principal.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-//========================================
-//Fechas: Angular Material
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MatIconModule } from '@angular/material/icon';
 import { DocventaComponent } from './docventa/docventa.component';
-//========================================
+//=======================================
+//! modulos personalizados Librerias 
+import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
+import { MaterialModule } from '../shared/Modulos/material/material.module';
+//=======================================
+//? modulos personalizados reutilizar codigo 
+import { DlgappModule } from '../shared/components/DlgappModule.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
     PrincipalComponent,
-    DocventaComponent,
-    //=================================
-    // Importaciones:
-    //SuperiorComponent
-    //=================================
+    DocventaComponent
   ],
   imports: [
-    MatIconModule,
-    //========================================
-    //Fechas: Angular Material
-    MatFormFieldModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatDatepickerModule,
-    //========================================
     CommonModule,
-    MatCardModule,
-    MaterialModule,
     ReactiveFormsModule,
+    //=======================================
+    //? modulos personalizados reutilizar codigo 
+    DlgappModule,
+    //=======================================
+    //! modulos personalizados Librerias 
+    PrimeNgModule,
+    MaterialModule,
+    //PrimeNgKpisModule,
+    //=======================================
+    // routing
     ControlVentasRoutingModule
   ],
   providers: [
-    DatePipe,
-    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
+    DatePipe
   ]
 })
 export class VentasModule { }

@@ -12,7 +12,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
-
+//fechas de material 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   exports: [
@@ -27,7 +29,13 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressSpinnerModule,
     MatSidenavModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    //========================================
+    //Fechas: Angular Material
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule { }

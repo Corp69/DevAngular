@@ -7,7 +7,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 //import { NgChartsConfiguration } from 'ng2-charts';
 //========================================
 //Angular Material
-import { MaterialModule } from 'src/app/material/material.module';
+import { MaterialModule } from 'src/app/shared/Modulos/material/material.module';
 import { dlgBusquedasModuleRoutingModule } from './DlgappModule-routing.module';
 import { HomeComponent } from './home/home.component';
 import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.component';

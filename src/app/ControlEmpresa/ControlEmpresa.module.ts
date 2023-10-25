@@ -3,34 +3,32 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { SucursalComponent } from './sucursal/sucursal.component';
 import { EmpresaComponent } from './empresa/empresa.component';
-import { MaterialModule } from '../material/material.module';
 import { ControlEmpresaRoutingModule } from './ControlEmpresa-routing.module';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
-import { NgChartsConfiguration } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+//=======================================
+//! modulos personalizados Librerias 
+import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
+import { MaterialModule } from '../shared/Modulos/material/material.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SucursalComponent,
     EmpresaComponent
-    //=================================
-    // Importaciones:
-    //=================================
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    //=======================================
+    //! modulos personalizados Librerias 
+    PrimeNgModule,
     MaterialModule,
-    ControlEmpresaRoutingModule,
-    ReactiveFormsModule
+    //=======================================
+    //routing
+    ControlEmpresaRoutingModule
   ],
-
   providers: [
-    DatePipe,
-    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
-    { provide: NgChartsConfiguration, useValue: { generateColors: false } }
+    DatePipe
   ]
 
 })
