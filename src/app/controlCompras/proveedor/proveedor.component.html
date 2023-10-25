@@ -57,6 +57,10 @@
                         </option>
                     </select>
                 </div>
+                <div class="col-sm-3">
+                    <label><b>CURP:</b></label>
+                    <input formControlName="curp" type="text" class="form-control" placeholder="Ingrese Curp">
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-3">
@@ -78,6 +82,12 @@
                     <label><b>Codigo:</b></label>
                     <input formControlName="codigo" type="text" class="form-control" placeholder="Ingrese Un Codigo">
                     <span *ngIf="frmProveedor.controls['codigo'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
+                            Requerido</b></span>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Correo:</b></label>
+                    <input formControlName="correo" type="text" class="form-control" placeholder="Ingrese Un Codigo">
+                    <span *ngIf="frmProveedor.controls['correo'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
                             Requerido</b></span>
                 </div>
             </div>

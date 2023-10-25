@@ -12,6 +12,29 @@ import { MdlProveedor } from '../models/MdlProveedor';
 })
 export class ProveedorService {
   constructor(private http: HttpClient, private errores: ErroresService) { }
+
+
+  // ? ==================================================================================
+  // resolver obtnemos informacion del registro
+  public Datainfo( id: number): Observable<any> {
+    console.log( 'serviicio =>',  id)
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http.post(`${environment.baseUrl}clientes/${id}`,
+      {
+        Qtabla: 'proveedor',
+      },
+      { headers: headers }
+    ).pipe(
+        catchError((error) => {
+          return throwError(this.errores.getErrores(error));
+        })
+      );
+  }
+  // ? ==================================================================================
+
+
   //==================================================================================================
   //guardar
   public AlmacenarProveedor(modelo: MdlProveedor): Observable<any> {

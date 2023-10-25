@@ -3,6 +3,7 @@ import { MdlProveedor } from './models/MdlProveedor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProveedorService } from './Services/Proveedor.service';
 import Swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-proveedor',
@@ -41,33 +42,48 @@ export class ProveedorComponent  implements OnInit {
   //==============================================================================================================
   //Formularios del app:
   public frmProveedor: FormGroup = this.fb.group({
-    id: [-1],
-    nombre: [, [Validators.required, Validators.minLength(3)]],
-    paterno: [, [Validators.required, Validators.minLength(3)]],
-    materno: [, [Validators.required, Validators.minLength(3)]],
-    codigo: [, [Validators.required, Validators.minLength(3)]],
-    cp: [, [Validators.required, Validators.minLength(3)]],
-    rfc: [, [Validators.required, Validators.minLength(3)]],
-    id_proveedor_estatus: [1, [Validators.required, Validators.min(0)]],
-    id_proveedor_tipo: [1, [Validators.required, Validators.min(0)]],
-    id_proveedor_clasificacion: [1, [Validators.required, Validators.min(0)]],
-    id_rh_empleado: [localStorage.getItem("id"), [Validators.required, Validators.min(0)]],
-    id_proveedor_operacion: [1, [Validators.required, Validators.min(0)]],
+    id:         [-1],
+    nombre:     [, [Validators.required, Validators.minLength(3)]],
+    paterno:    [, [Validators.required, Validators.minLength(3)]],
+    materno:    [, [Validators.required, Validators.minLength(3)]],
+    codigo:     [, [Validators.required, Validators.minLength(3)]],
+    correo:     [, [Validators.required, Validators.minLength(3)]],
+    cp:         [, [Validators.required, Validators.minLength(3)]],
+    rfc:        [, [Validators.required, Validators.minLength(3)]],
+    curp:       [, [Validators.required, Validators.minLength(3)]],
 
-    id_sat_usocfdi: [1, [Validators.required, Validators.min(0)]],
-    id_sat_doc_cobro: [1, [Validators.required, Validators.min(0)]],
-    id_sat_regimenfiscal: [1, [Validators.required, Validators.min(0)]]
+    id_proveedor_estatus:         [1, [Validators.required, Validators.min(0)]],
+    id_proveedor_tipo:            [1, [Validators.required, Validators.min(0)]],
+    id_proveedor_clasificacion:   [1, [Validators.required, Validators.min(0)]],
+    id_rh_empleado:               [localStorage.getItem("id"), [Validators.required, Validators.min(0)]],
+    id_proveedor_operacion:       [1, [Validators.required, Validators.min(0)]],
+
+    id_sat_usocfdi:           [1, [Validators.required, Validators.min(0)]],
+    id_sat_doc_cobro:         [1, [Validators.required, Validators.min(0)]],
+    id_sat_regimenfiscal:     [1, [Validators.required, Validators.min(0)]],
+
+    
+    fecha_creacion: [ ],
+    id_municipio:   [ ],
+    imagen:         [ ]
   });
 
   constructor(
+    private route: ActivatedRoute, 
     private fb: FormBuilder,
     private servicio: ProveedorService
     //private datePipe: DatePipe,
   ) {
-    
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {  
+      this.servicio.Datainfo(+params['id']).subscribe(resp => {
+        console.log('constructor',resp)
+        this.frmProveedor.setValue(resp.Detalle[0]);
+      });
+    });
+  
   //=========================================================================================================================
   //carga listados
    this.servicio.listProveedorEstatus().subscribe(resp => {this.lstestatus = resp.Detalle;});

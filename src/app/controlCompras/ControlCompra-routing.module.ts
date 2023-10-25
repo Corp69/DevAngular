@@ -17,7 +17,9 @@ const routes: Routes = [
       { path: 'lstDocumentos', component: ListDcumentosComponent },
       { path: 'DocCompra', component: DocCompraComponent },
       { path: 'lstProveedor', component: LstProveedorComponent },
-      { path: 'Proveedor', component: ProveedorComponent },
+      { path: 'Proveedor/:id', component: ProveedorComponent },
+     // { path: 'Proveedor/:id', component: ProveedorComponent,  resolve: { data: ProveedorResolver }},
+      
       { path: 'ProveedorDomicilio', component: ProveedorDomicilioComponent },
       { path: '**', redirectTo: '/ControlCompras/inicio' }
     ]
