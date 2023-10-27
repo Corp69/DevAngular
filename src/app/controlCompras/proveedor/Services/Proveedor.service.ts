@@ -16,8 +16,8 @@ export class ProveedorService {
 
   // ? ==================================================================================
   // resolver obtnemos informacion del registro
-  public Datainfo( id: number): Observable<any> {
-    console.log( 'serviicio =>',  id)
+  public Datainfo(id: number): Observable<any> {
+    console.log('serviicio =>', id)
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
@@ -27,10 +27,32 @@ export class ProveedorService {
       },
       { headers: headers }
     ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
+  }
+
+  public Datacfdi(id: number): Observable<any> {
+    console.log('serviicio =>', id)
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http.post(`${environment.baseUrl}clientes/exce/schema`,
+      {
+        "ExSchema": "compras",
+        "funcion": "proveedorCfdi",
+        "data": {
+          "_id_": id
+        }
+      }
+      ,
+      { headers: headers }
+    ).pipe(
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
   // ? ==================================================================================
 
@@ -73,10 +95,10 @@ export class ProveedorService {
       },
       { headers: headers }
     ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
 
   /**
@@ -93,12 +115,12 @@ export class ProveedorService {
       },
       { headers: headers }
     ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
-  
+
   /**
    * 
    * @returns Json Array Operacion de proveedor
@@ -113,10 +135,10 @@ export class ProveedorService {
       },
       { headers: headers }
     ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
 
   /**
@@ -133,10 +155,10 @@ export class ProveedorService {
       },
       { headers: headers }
     ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
   //===================================================================================================
 }

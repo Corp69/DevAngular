@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProveedorService } from './Services/Proveedor.service';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
+import { date } from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'app-proveedor',
@@ -24,6 +25,9 @@ export class ProveedorComponent  implements OnInit {
   public tabalaSat2: String = 'sat_regimenfiscal';
   public RegimenCFDI = ''
 
+  //==============================================================================================================
+  //Config. de la app: Bloqueo de botones
+  public BtnSpinner: boolean = false;
   
   public tablaSat3:  String = 'sat_doc_cobro';
   public SatCobroCFDI = ''
@@ -36,9 +40,6 @@ export class ProveedorComponent  implements OnInit {
   //==============================================================================================================
   //modelos:
   public MdlProveedor: MdlProveedor = new MdlProveedor();
-  //==============================================================================================================
-  //Config. de la app:
-  public BtnSpinner: boolean = false;
   //==============================================================================================================
   //Formularios del app:
   public frmProveedor: FormGroup = this.fb.group({
@@ -74,16 +75,25 @@ export class ProveedorComponent  implements OnInit {
     private servicio: ProveedorService
     //private datePipe: DatePipe,
   ) {
-  }
+      this.route.params.subscribe(params => {  
+        if( +params['id'] > -1 )
+        {
+          // AGREGAMOS LA INFORMACION AL FORMULARIO
+          this.servicio.Datainfo(+params['id']).subscribe(resp => { this.frmProveedor.setValue(resp.Detalle[0]); });
+          //CARGAMOS CFDI
+          this.servicio.Datacfdi(+params['id']).subscribe(resp => {
+            // rellenamos los campos de CFDI EN UNA CONSULTA APARTE  
+            this.frmProveedor.controls['id_sat_regimenfiscal'].setValue(parseInt(resp.Detalle.proveedorcfdi.id_sat_regimenfiscal));
+            this.frmProveedor.controls['id_sat_regimenfiscal'].setValue(parseInt(resp.Detalle.proveedorcfdi.id_sat_usocfdi));
+            this.usoCFDI     = resp.Detalle.proveedorcfdi.usocfdi;
+            this.RegimenCFDI = resp.Detalle.proveedorcfdi.regimen;
+          });
+        }
+      });      
+    }
+
 
   ngOnInit() {
-    this.route.params.subscribe(params => {  
-      this.servicio.Datainfo(+params['id']).subscribe(resp => {
-        console.log('constructor',resp)
-        this.frmProveedor.setValue(resp.Detalle[0]);
-      });
-    });
-  
   //=========================================================================================================================
   //carga listados
    this.servicio.listProveedorEstatus().subscribe(resp => {this.lstestatus = resp.Detalle;});
@@ -108,6 +118,7 @@ export class ProveedorComponent  implements OnInit {
             break;
           default:
             this.frmProveedor.setValue(this.frmProveedor.value);
+            console.log(resp.Detalle)
             this.frmProveedor.controls['id'].setValue(parseInt(resp.Detalle));
             Swal.fire(resp.Mensaje,'Operacion Exitosa');
           break;
@@ -125,10 +136,11 @@ export class ProveedorComponent  implements OnInit {
   public NuevoProvedor = () => {
     this.frmProveedor.setValue(this.MdlProveedor);
     this.frmProveedor.controls['id_rh_empleado'].setValue(localStorage.getItem("id"));
+    this.frmProveedor.controls['id'].setValue(-1);
+    this.usoCFDI     = ''
+    this.RegimenCFDI = ''
+    console.log(this.frmProveedor.value);
   }
-  //==============================================================================================================
-  //VALIDACIONES:
-
   //==============================================================================================================
   //Modales:
   public visible: boolean = false;

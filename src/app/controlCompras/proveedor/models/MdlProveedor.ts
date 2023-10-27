@@ -20,7 +20,7 @@ public id_proveedor_operacion: number = 1;
 
 public id_sat_usocfdi: number = -1;
 public id_sat_doc_cobro: number = 1;
-public id_sat_regimenfiscal: number = 1;
+public id_sat_regimenfiscal: number = -1;
 
 
 public id_municipio: number = -1;
