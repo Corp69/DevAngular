@@ -7,10 +7,8 @@ import { ContratosComponent } from './contratos/contratos.component';
 import { HistorialComponent } from './historial/historial.component';
 import { SalariosComponent } from './salarios/salarios.component';
 import { AsistenciasComponent } from './asistencias/asistencias.component';
-import { PrincipalComponent } from './principal/principal.component';
 import { ControlRhRoutingModule } from './ControlRhRoutingModule.module';
 import { CommonModule, DatePipe } from '@angular/common';
-import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 //=======================================
 //! modulos personalizados Librerias 
@@ -22,7 +20,6 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
     EmpleadoComponent,
     AlmacenesComponent,
     DepartamentoComponent,
@@ -31,7 +28,6 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
     HistorialComponent,
     SalariosComponent,
     AsistenciasComponent,
-    PrincipalComponent,
   ],
   imports: [
     CommonModule,

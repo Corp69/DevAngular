@@ -12,12 +12,20 @@
               <span>{{item.descripcion}}</span>
           </a>
       </mat-nav-list>
+
+      <div class="card flex justify-content-center">
+        <p-panelMenu [model]="items" [style]="{'width':'300px'}" [multiple]="true"></p-panelMenu>
+    </div>
+
+
+
   </mat-sidenav>
-  <mat-toolbar style="background-color: rgb(30, 59, 129);">
-      <button mat-icon-button (click)="sidenav.toggle()">
+  <mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
-      </button>
+    </button>
   </mat-toolbar>
+
   <div class="container-fluid">
       <router-outlet></router-outlet>
     </div>

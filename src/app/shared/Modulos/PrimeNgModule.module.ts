@@ -9,6 +9,9 @@ import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
+import { BadgeModule } from 'primeng/badge';
+import { PanelModule } from 'primeng/panel';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
 @NgModule({
   exports: [
@@ -21,7 +24,11 @@ import { DialogModule } from 'primeng/dialog';
     CardModule,
     //dialogo o modal: Angular PrimeNG 
     DialogModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    //menu: Angular PrimeNG 
+    BadgeModule,
+    PanelModule,
+    PanelMenuModule
   ],
   providers: [
     DatePipe,

@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { ControlVentasRoutingModule } from './ControlInventarios-routing.module';
-import { PrincipalComponent } from './principal/principal.component';
-import { HomeComponent } from './home/home.component';
+import { ControlVentasRoutingModule } from './ControlVenta-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DocventaComponent } from './docventa/docventa.component';
 //=======================================
@@ -15,8 +13,6 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    PrincipalComponent,
     DocventaComponent
   ],
   imports: [

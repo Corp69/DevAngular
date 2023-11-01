@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeService } from './Services/Home.service';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   public lstOpciones: any;
+  public items: any;
+
 
   constructor(private servicio: HomeService) {
-      this.servicio.lstOpciones().subscribe(resp => {this.lstOpciones = resp.Detalle._app_menu_x_empleado;
-      console.log('Listado menu ===> ',this.lstOpciones);
-      console.log('Listado menu ===> ',resp.Detalle);
+      this.servicio.lstOpciones().subscribe(resp => {
+      this.lstOpciones = resp.Detalle._app_menu_x_empleado;
+        console.log("menu " , this.lstOpciones );
       });
  
   }
@@ -21,5 +24,14 @@ export class HomeComponent {
   public OcultarBar(){
     
   }
-  
+
+  ngOnInit() {
+    
+}
+
+
+
+
+
+
 }

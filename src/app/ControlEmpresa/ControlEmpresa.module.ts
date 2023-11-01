@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { HomeComponent } from './home/home.component';
 import { SucursalComponent } from './sucursal/sucursal.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { ControlEmpresaRoutingModule } from './ControlEmpresa-routing.module';
@@ -12,7 +11,6 @@ import { MaterialModule } from '../shared/Modulos/material/material.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
     SucursalComponent,
     EmpresaComponent
   ],

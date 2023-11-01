@@ -12,6 +12,11 @@ import { MaterialModule } from '../shared/Modulos/material/material.module';
 //? modulos personalizados reutilizar codigo 
 import { DlgappModule } from '../shared/components/DlgappModule.module';
 import { PrimeNgKpisModule } from '../shared/Modulos/PrimeNgKpisModule.module';
+import { ComprasModule } from '../controlCompras/compras.module';
+import { ControlMedicoModule } from '../ControlMedico/ControlMedico.module';
+import { ControlEmpresaModule } from '../ControlEmpresa/ControlEmpresa.module';
+import { VentasModule } from '../ControlVentas/ventas.module';
+import { TesteoFormatosModule } from '../TesteoFormatos/TesteoFormatos.module';
 
 
 
@@ -21,6 +26,14 @@ import { PrimeNgKpisModule } from '../shared/Modulos/PrimeNgKpisModule.module';
     PrincipalComponent
   ],
   imports: [
+    //? ===================================================== 
+    //? modulos de los aplicativos 
+    ControlEmpresaModule,
+    ComprasModule,
+    ControlMedicoModule,
+    VentasModule,
+    TesteoFormatosModule,
+    //? ======================================================= 
     CommonModule,
     ReactiveFormsModule,
     //=======================================

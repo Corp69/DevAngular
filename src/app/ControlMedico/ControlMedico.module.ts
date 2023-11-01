@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { HomeComponent } from './home/home.component';
 import { PacienteComponent } from './paciente/paciente.component';
 import { ControlMedicoRoutingModule } from './ControlMedico-routing.module';
-import { PrincipalComponent } from './principal/principal.component';
 import { NutridatosBasicosComponent } from './nutridatosbasicos/nutridatosbasicos.component';
 import { NutripacientediametrosComponent } from './nutripacientediametros/nutripacientediametros.component';
 import { NutripacienteplieguesComponent } from './nutripacientepliegues/nutripacientepliegues.component';
@@ -23,9 +21,7 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
     PacienteComponent,
-    PrincipalComponent,
     NutridatosBasicosComponent,
     NutripacientediametrosComponent,
     NutripacienteplieguesComponent,
