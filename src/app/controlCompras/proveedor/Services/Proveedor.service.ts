@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ErroresService } from 'src/app/shared/errores.service';
 import { MdlProveedor } from '../models/MdlProveedor';
-
+import { Confirmation } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root',
@@ -161,4 +161,7 @@ export class ProveedorService {
     );
   }
   //===================================================================================================
+
+
+
 }

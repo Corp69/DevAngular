@@ -43,7 +43,6 @@ import { TesteoFormatosModule } from '../TesteoFormatos/TesteoFormatos.module';
     //! modulos personalizados Librerias 
     PrimeNgKpisModule,
     PrimeNgModule,
-    MaterialModule,
     //=======================================
     PrincipalModuleRoutingModule,
   ]

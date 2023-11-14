@@ -24,6 +24,7 @@ export class DomiciliosComponent implements OnInit{
     num_ext:                 [, [Validators.required, Validators.minLength(0)]],
     num_int:                 [, [Validators.required, Validators.minLength(0)]],
     cp:                      [, [Validators.required, Validators.minLength(0)]],
+    fecha_creacion:          [  new Date()],
     
     id_municipio:            [-1, [Validators.required, Validators.min(0)]],
     id_localidad:            [-1, [Validators.required, Validators.min(0)]],

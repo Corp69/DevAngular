@@ -21,7 +21,19 @@ export class PrincipalComponent implements OnInit {
    
     public options2: any;
     public data2: any;
-   
+    
+    sidebarVisible: boolean = false;
+
+
+    sidebarVisible1: boolean = false;
+    
+    sidebarVisible2: boolean = false;
+    
+    sidebarVisible3: boolean = false;
+    
+    sidebarVisible4: boolean = false;
+
+
 
     public data: TreeNode[] = [
         {

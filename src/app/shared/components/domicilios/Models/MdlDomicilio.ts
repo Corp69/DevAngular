@@ -4,7 +4,7 @@ export class MdlDomicilio {
     public num_ext: String = "";
     public num_int: String = ""
     public cp: String = "";
-
+    
     public id_municipio: number = -1; 
     public id_localidad: number = -1; 
     public id_estado: number = -1; 

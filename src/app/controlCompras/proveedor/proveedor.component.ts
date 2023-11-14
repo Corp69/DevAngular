@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MdlProveedor } from './models/MdlProveedor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProveedorService } from './Services/Proveedor.service';
-import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
-import { date } from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'app-proveedor',
@@ -49,9 +47,9 @@ export class ProveedorComponent  implements OnInit {
     materno:    [, [Validators.required, Validators.minLength(3)]],
     codigo:     [, [Validators.required, Validators.minLength(3)]],
     correo:     [, [Validators.required, Validators.minLength(3)]],
-    cp:         [, [Validators.required, Validators.minLength(3)]],
     rfc:        [, [Validators.required, Validators.minLength(3)]],
     curp:       [, [Validators.required, Validators.minLength(3)]],
+    fecha_creacion:          [new Date()],
 
     id_proveedor_estatus:         [1, [Validators.required, Validators.min(0)]],
     id_proveedor_tipo:            [1, [Validators.required, Validators.min(0)]],
@@ -62,10 +60,6 @@ export class ProveedorComponent  implements OnInit {
     id_sat_usocfdi:           [1, [Validators.required, Validators.min(0)]],
     id_sat_doc_cobro:         [1, [Validators.required, Validators.min(0)]],
     id_sat_regimenfiscal:     [1, [Validators.required, Validators.min(0)]],
-
-    
-    fecha_creacion: [ ],
-    id_municipio:   [ ],
     imagen:         [ ]
   });
 
@@ -111,16 +105,13 @@ export class ProveedorComponent  implements OnInit {
     setTimeout(() => {
       //===============================
       this.servicio.AlmacenarProveedor(this.frmProveedor.value).subscribe(resp => {
-        console.log(resp);
         switch (resp.Detalle) {
           case  null:
-            Swal.fire(resp.Mensaje,'0 registros','warning');
             break;
           default:
             this.frmProveedor.setValue(this.frmProveedor.value);
             console.log(resp.Detalle)
-            this.frmProveedor.controls['id'].setValue(parseInt(resp.Detalle));
-            Swal.fire(resp.Mensaje,'Operacion Exitosa');
+            this.frmProveedor.controls['id'].setValue(parseInt(resp.id));
           break;
         }  
       });
@@ -171,6 +162,7 @@ export class ProveedorComponent  implements OnInit {
   }
   //==============================================================================================================
   
+
 
 
 }

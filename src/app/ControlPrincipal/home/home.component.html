@@ -1,32 +1,3 @@
-<mat-sidenav-container fullscreen>
-  <mat-sidenav #sidenav mode="push">
-      <mat-toolbar color="primary">
-          <span>Menú</span>
-          <button mat-icon-button (click)="sidenav.toggle()">
-              <mat-icon>menu</mat-icon>
-          </button>
-      </mat-toolbar>
-      <mat-nav-list>
-          <a *ngFor="let item of lstOpciones" routerLink="{{item.url}}" mat-list-item (click)="sidenav.toggle()">
-              <mat-icon mat-list-icon>label</mat-icon>
-              <span>{{item.descripcion}}</span>
-          </a>
-      </mat-nav-list>
-
-      <div class="card flex justify-content-center">
-        <p-panelMenu [model]="items" [style]="{'width':'300px'}" [multiple]="true"></p-panelMenu>
-    </div>
-
-
-
-  </mat-sidenav>
-  <mat-toolbar>
-    <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-    </button>
-  </mat-toolbar>
-
-  <div class="container-fluid">
-      <router-outlet></router-outlet>
-    </div>
-</mat-sidenav-container>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

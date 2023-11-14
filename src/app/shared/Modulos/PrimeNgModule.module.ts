@@ -12,9 +12,11 @@ import { DialogModule } from 'primeng/dialog';
 import { BadgeModule } from 'primeng/badge';
 import { PanelModule } from 'primeng/panel';
 import { PanelMenuModule } from 'primeng/panelmenu';
+import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
   exports: [
+    SidebarModule,
     //========================================
     //Tablas: Angular PrimeNG 
     TableModule,
@@ -32,7 +34,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
   ],
   providers: [
     DatePipe,
-      { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }
     //{ provide: NgChartsConfiguration, useValue: { generateColors: false } }
   ]
 })
