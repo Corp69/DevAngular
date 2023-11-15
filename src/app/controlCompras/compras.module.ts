@@ -32,8 +32,7 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
     DlgappModule,
     //=======================================
     //! modulos personalizados Librerias 
-    PrimeNgModule,
-    MaterialModule
+    PrimeNgModule
   ],
   providers: [
     DatePipe

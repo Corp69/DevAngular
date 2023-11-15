@@ -1,138 +1,185 @@
-<mat-card>
-    <mat-card-content>
-        <h1 style="text-align: center;"> <b>Proveedor</b></h1>
+<h1 style="text-align: center;"> <b>Proveedor</b></h1>
         <!-- Agregar Informcion del formulario -->
         <form [formGroup]="frmProveedor" autocomplete="off">
             <div class="row">
                 <div class="col-sm-3">
-                    <label><b>Nombre/Nombre Comercial:</b></label>
-                    <input formControlName="nombre" type="text" class="form-control"
-                        placeholder="Ingrese Nombre/Nombre Comercial">
-                    <span *ngIf="frmProveedor.controls['nombre'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
-                            Requerido</b></span>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Apellido Paterno:</b></label>
-                    <input formControlName="paterno" type="text" class="form-control"
-                        placeholder="Ingrese Apellido Paterno">
-                    <span *ngIf="frmProveedor.controls['paterno'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
-                            Requerido</b></span>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Apellido Materno:</b></label>
-                    <input formControlName="materno" type="text" class="form-control"
-                        placeholder="Ingrese Apellido Materno">
-                    <span *ngIf="frmProveedor.controls['materno'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
-                            Requerido</b></span>
-
-                </div>
-                <div class="col-sm-3">
-                    <label><b>RFC:</b></label>
-                    <input formControlName="rfc" type="text" class="form-control" placeholder="Ingrese RFC XXX0X0X0X0">
-                    <span *ngIf="frmProveedor.controls['rfc'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
-                            Requerido</b></span>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-sm-3">
-                    <label><b>Tipo:</b></label>
-                    <select class="form-select" formControlName="id_proveedor_tipo" placeholder="Seleccione tipo"
-                        aria-label="Default select example">
-                        <option *ngFor="let item of lstProveedorTipo" [value]="item.id">{{item.descripcion}}</option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Clasificación:</b></label>
-                    <select class="form-select" formControlName="id_proveedor_clasificacion"
-                        placeholder="Seleccione Clasificación" aria-label="Default select example">
-                        <option *ngFor="let item of lstProveedorClasificacion" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>CURP:</b></label>
-                    <input formControlName="curp" type="text" class="form-control" placeholder="Ingrese Curp">
-                    <span *ngIf="frmProveedor.controls['curp'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
-                        Requerido</b></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <label><b>Estatus:</b></label>
-                    <select class="form-select" formControlName="id_proveedor_estatus" placeholder="Seleccione Estatus"
-                        aria-label="Default select example">
-                        <option *ngFor="let item of lstestatus" [value]="item.id">{{item.descripcion}}</option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Tipo Operador:</b></label>
-                    <select class="form-select" formControlName="id_proveedor_operacion" placeholder="Seleccione tipo"
-                        aria-label="Default select example">
-                        <option *ngFor="let item of lstProovedorOperacion" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Codigo:</b></label>
-                    <input formControlName="codigo" type="text" class="form-control" placeholder="Ingrese Un Codigo">
-                    <span *ngIf="frmProveedor.controls['codigo'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
-                            Requerido</b></span>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Correo:</b></label>
-                    <input formControlName="correo" type="text" class="form-control" placeholder="Ingrese Un Codigo">
-                    <span *ngIf="frmProveedor.controls['correo'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre
-                            Requerido</b></span>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="input-group mb-6">
-                        <span class="input-group-text">Sat Uso CFDI:</span>
-                        <input disabled type="text" [value]="usoCFDI" class="form-control" placeholder="vacio">
-                        <button type="button" (click)="showDialog()" title="Selecionar Regimen Fiscal"
-                        class="btn btn-outline-primary">
-                        <i class="fa-solid fa-plus"></i> Agregar
-                        </button>
+                    <div class="flex flex-column gap-2">
+                        <label>Proveedor</label>
+                        <input pInputText 
+                                pTooltip="Ingrese Nombre Completo Persona: Fisica o Moral " 
+                                tooltipPosition="bottom"   
+                                 type="text" 
+                                 formControlName="nombre" 
+                                 pInputText 
+                                 placeholder="Vacio" 
+                        />
+                        <small 
+                            *ngIf="frmProveedor.controls['nombre'].invalid"
+                            style=" color: rgb(235, 56, 29);">
+                            * Campo Requerido
+                        </small>
                     </div>
                 </div>
+                <div class="col-sm-3">
+                    <div class="flex flex-column gap-2">
+                        <label>RFC</label>
+                        <input pInputText 
+                                pTooltip="Ingrese RFC Persona: Fisica o Moral " 
+                                tooltipPosition="bottom"  
+                                type="text" 
+                                formControlName="rfc" 
+                                pInputText 
+                                placeholder="Vacio"  
+                        />
+                        <small 
+                            *ngIf="frmProveedor.controls['rfc'].invalid"
+                            style=" color: rgb(235, 56, 29);">
+                            * Campo Requerido
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="col-sm-3">
+                    <div class="flex flex-column gap-2">
+                        <label>CURP</label>
+                        <input   pTooltip="Ingrese CURP Persona: Fisica" 
+                                 tooltipPosition="bottom" 
+                                 type="text" 
+                                 formControlName="curp" 
+                                 pInputText 
+                                 placeholder="Vacio" 
+                        />
+                    </div>
+                </div>
+                
+                <div class="col-sm-3">
+                    <div class="flex flex-column gap-2">
+                        <label>CODIGO</label>
+                        <input   pTooltip="Ingrese Codigo Para Identificar Al Proveedor" 
+                                 tooltipPosition="bottom" 
+                                 type="text" 
+                                 formControlName="codigo" 
+                                 pInputText 
+                                 placeholder="Vacio" 
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-6">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Sat Regimen Fiscal:</span>
-                        <input disabled type="text" [value]="RegimenCFDI" class="form-control" placeholder="vacio">
-                        <button type="button" (click)="dlgRegimen()" title="Selecionar Regimen Fiscal"
-                        class="btn btn-outline-primary">
-                        <i class="fa-solid fa-plus"></i> Agregar
-                        </button>
+                    <div class="flex flex-column gap-2">
+                        <label>CORREO</label>
+                        <input   pTooltip="Ingrese Correo Para Contactar Al Proveedor" 
+                                 tooltipPosition="bottom" 
+                                 type="text" 
+                                 formControlName="correo" 
+                                 pInputText 
+                                 placeholder="Vacio" 
+                        />
                     </div>
                 </div>
             </div>
-
-
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="flex flex-column gap-2">
+                            <label>Tipo:</label>
+                            <p-dropdown 
+                                    pTooltip="Seleccione Un Tipo De Proveedor: con ello haremos futuras configuraciones" 
+                                    tooltipPosition="bottom" 
+                                    formControlName="id_proveedor_tipo" 
+                                    [options]="lstProveedorTipo" 
+                                    value="id"
+                                    optionLabel="descripcion">
+                            </p-dropdown>
+                    </div>
+                </div> 
+                <div class="col-sm-6">
+                    <div class="flex flex-column gap-2">
+                            <label>Estatus:</label>
+                            <p-dropdown 
+                                    pTooltip="Seleccione Un Tipo Estatus: Se Habilita o Deshabilita Visualmente." 
+                                    tooltipPosition="bottom" 
+                                    formControlName="id_proveedor_estatus" 
+                                    [options]="lstestatus" 
+                                    value="id"
+                                    optionLabel="descripcion">
+                            </p-dropdown>
+                    </div>
+                </div>
+            </div>
             <hr>
-            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                <button type="button" (click)="NuevoProvedor()" [disabled]="BtnSpinner" title="Resetear Formulario"
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">
+                            <i class="pi pi-user"> Sat Uso CFDI:</i>
+                        </span>
+                        <input pInputText 
+                                pTooltip="Seleccione Un Uso CFDI Fiscal: Para Timbrar Facturas." 
+                                tooltipPosition="bottom"   
+                                 type="text" 
+                                 formControlName="nombre" 
+                                 pInputText 
+                                 placeholder="Sin Informcion" 
+                                 [value]="usoCFDI"
+                        />
+                        <button type="button" (click)="showDialog()" 
+                                pTooltip="Abrir USO CFDI Fiscal." 
+                                tooltipPosition="bottom" 
+                                class="btn btn-outline-primary">
+                                <i class="fa-solid fa-plus"></i> Agregar
+                        </button>
+                    </div>
+                </div>
+                    <div class="col-sm-6">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon">
+                                <i class="pi pi-user">Sat Regimen Fiscal:</i>
+                            </span>
+                            <input pInputText 
+                                    pTooltip="Seleccione Un Regimen Fiscal: Para Timbrar Facturas." 
+                                    tooltipPosition="bottom"   
+                                     type="text" 
+                                     formControlName="nombre" 
+                                     pInputText 
+                                     placeholder="Sin Informcion" 
+                                     [value]="RegimenCFDI"
+                            />
+                            <button type="button" (click)="dlgRegimen()" 
+                            pTooltip="Abrir Regimen Fiscal." 
+                            tooltipPosition="bottom" 
+                            class="btn btn-outline-primary">
+                            <i class="fa-solid fa-plus"></i> Agregar
+                        </button>
+                        </div>
+                    </div>
+            </div>
+            <p-divider align="left">
+                <div class="inline-flex align-items-center">
+                    <i class="pi pi-user mr-2"></i>
+                    <b>Funciones Usuario:</b>
+                </div>
+            </p-divider>
+                <button type="button" 
+                    (click)="NuevoProvedor()" 
+                    [disabled]="BtnSpinner" 
+                    pTooltip="Nuevo Formulario: Resetear Informcion." 
+                    tooltipPosition="bottom" 
                     class="btn btn-outline-primary">
                     Nuevo
                 </button>
-                <button *ngIf="BtnSpinner == false" type="submit" (click)="Almacenar()"
-                    [disabled]="frmProveedor.invalid" title="Guardar Formulario" class="btn btn-outline-primary">
+                <button 
+                    *ngIf="BtnSpinner == false" 
+                    type="button" 
+                    (click)="Almacenar()"
+                    [disabled]="frmProveedor.invalid" 
+                    pTooltip="Almacenar La Informcion Del Formulario." 
+                    tooltipPosition="bottom" 
+                    class="btn btn-outline-primary">
                     Guardar
                 </button>
-            </div>
+                <p-divider></p-divider>
         </form>
-
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-content>
-        <!-- En caso de haber tabla Agregar Aqui -->
-    </mat-card-content>
-</mat-card>
-
 
 <!-- ========================================================================================================================================================================================= -->
 <!-- DIALOGOS SAT --->
@@ -171,15 +218,4 @@
             </button>
         </div>
     </p-dialog>
-</div>
-
-<!-- ========================================================================================================================================================================================= -->
-<div class="container-fluid">
-    <div class="row pt-4">
-        <div class="col-md-12 text-center mb-2" style="text-align: center;">
-            <small> ©2022 CopyRight
-                <span class="text-secondary font-weight-bold">Elizandro Dev. </span>
-            </small>
-        </div>
-    </div>
 </div>

@@ -13,10 +13,16 @@ import { BadgeModule } from 'primeng/badge';
 import { PanelModule } from 'primeng/panel';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { SidebarModule } from 'primeng/sidebar';
+import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   exports: [
     SidebarModule,
+    DropdownModule,
+    ButtonModule,
+    DividerModule,
     //========================================
     //Tablas: Angular PrimeNG 
     TableModule,

@@ -44,7 +44,7 @@
               {
                 "input": "src/theme-lara-dark.scss",
                 "bundleName": "lara-dark-blue",
-                "inject": false
+                "inject": false   
               }
             ],
             "scripts": [
