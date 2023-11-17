@@ -43,23 +43,17 @@ export class ProveedorComponent  implements OnInit {
   public frmProveedor: FormGroup = this.fb.group({
     id:         [-1],
     nombre:     [, [Validators.required, Validators.minLength(3)]],
-    paterno:    [, [Validators.required, Validators.minLength(3)]],
-    materno:    [, [Validators.required, Validators.minLength(3)]],
-    codigo:     [, [Validators.required, Validators.minLength(3)]],
-    correo:     [, [Validators.required, Validators.minLength(3)]],
-    rfc:        [, [Validators.required, Validators.minLength(3)]],
-    curp:       [, [Validators.required, Validators.minLength(3)]],
-    fecha_creacion:          [new Date()],
+    codigo:     [],
+    correo:     [],
+    rfc:        [],
+    curp:       [],
 
-    id_proveedor_estatus:         [1, [Validators.required, Validators.min(0)]],
-    id_proveedor_tipo:            [1, [Validators.required, Validators.min(0)]],
-    id_proveedor_clasificacion:   [1, [Validators.required, Validators.min(0)]],
-    id_rh_empleado:               [localStorage.getItem("id"), [Validators.required, Validators.min(0)]],
-    id_proveedor_operacion:       [1, [Validators.required, Validators.min(0)]],
-
-    id_sat_usocfdi:           [1, [Validators.required, Validators.min(0)]],
-    id_sat_doc_cobro:         [1, [Validators.required, Validators.min(0)]],
-    id_sat_regimenfiscal:     [1, [Validators.required, Validators.min(0)]],
+    id_proveedor_estatus:         [1],
+    id_proveedor_tipo:            [1],
+    id_rh_empleado:               [localStorage.getItem("id")],
+    id_sat_usocfdi:               [1],
+    //id_sat_doc_cobro:           [1],
+    id_sat_regimenfiscal:         [1],
     imagen:         [ ]
   });
 
@@ -92,8 +86,8 @@ export class ProveedorComponent  implements OnInit {
   //carga listados
    this.servicio.listProveedorEstatus().subscribe(resp => {this.lstestatus = resp.Detalle;});
    this.servicio.listProveedorTipo().subscribe(resp => {this.lstProveedorTipo = resp.Detalle;});
-   this.servicio.listProveedorOperacion().subscribe(resp => {this.lstProovedorOperacion = resp.Detalle;});
-   this.servicio.listProveedorClasificacion().subscribe(resp => {this.lstProveedorClasificacion = resp.Detalle;});
+   //this.servicio.listProveedorOperacion().subscribe(resp => {this.lstProovedorOperacion = resp.Detalle;});
+   //this.servicio.listProveedorClasificacion().subscribe(resp => {this.lstProveedorClasificacion = resp.Detalle;});
   //=========================================================================================================================
   }
 
@@ -102,22 +96,21 @@ export class ProveedorComponent  implements OnInit {
   Almacenar = () =>{
     this.BtnSpinner = true;
     console.log("formulario==",this.frmProveedor.value);
-    setTimeout(() => {
       //===============================
       this.servicio.AlmacenarProveedor(this.frmProveedor.value).subscribe(resp => {
+        console.log(resp)
         switch (resp.Detalle) {
           case  null:
             break;
           default:
             this.frmProveedor.setValue(this.frmProveedor.value);
             console.log(resp.Detalle)
-            this.frmProveedor.controls['id'].setValue(parseInt(resp.id));
+            this.frmProveedor.controls['id'].setValue(parseInt(resp.Id));
           break;
         }  
       });
       //===============================
       this.BtnSpinner = false;
-    }, 1000);
   }
   
   /**
