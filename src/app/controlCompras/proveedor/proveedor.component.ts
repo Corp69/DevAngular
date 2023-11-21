@@ -67,7 +67,9 @@ export class ProveedorComponent  implements OnInit {
         if( +params['id'] > -1 )
         {
           // AGREGAMOS LA INFORMACION AL FORMULARIO
-          this.servicio.Datainfo(+params['id']).subscribe(resp => { this.frmProveedor.setValue(resp.Detalle[0]); });
+          this.servicio.Datainfo(+params['id']).subscribe(resp => { 
+            console.log(resp);
+            this.frmProveedor.setValue(resp.Detalle); });
           //CARGAMOS CFDI
           this.servicio.Datacfdi(+params['id']).subscribe(resp => {
             // rellenamos los campos de CFDI EN UNA CONSULTA APARTE  
@@ -95,16 +97,28 @@ export class ProveedorComponent  implements OnInit {
   // Crud Para Proveedores:
   Almacenar = () =>{
     this.BtnSpinner = true;
-    console.log("formulario==",this.frmProveedor.value);
       //===============================
       this.servicio.AlmacenarProveedor(this.frmProveedor.value).subscribe(resp => {
         console.log(resp)
         switch (resp.Detalle) {
           case  null:
+            this.visibleMjs = true;
+            //============================================================
+            this.msjBody.msjTipo  = 3;
+            this.msjBody.titulo  = 'Modulo Servicio: Developer®';
+            this.msjBody.mensaje = resp.Mensaje;
+            this.msjBody.detalle = resp.Detalle;
             break;
           default:
+            this.visibleMjs = true;
+            this.msjBody.msjTipo  = 1;
+            //============================================================
+            this.msjBody.titulo  = resp.Titulo;
+            this.msjBody.titulo  = 'Modulo Servicio: Developer®';
+            this.msjBody.mensaje = resp.Mensaje;
+            this.msjBody.detalle = resp.Detalle;
+            //============================================================
             this.frmProveedor.setValue(this.frmProveedor.value);
-            console.log(resp.Detalle)
             this.frmProveedor.controls['id'].setValue(parseInt(resp.Id));
           break;
         }  
@@ -154,8 +168,9 @@ export class ProveedorComponent  implements OnInit {
       this.dlgDocCbrovisible = false;
   }
   //==============================================================================================================
-  
-
-
+  // Modal: mensaje Confirmacion 
+  public visibleMjs: boolean = false;
+  // variables para mensaje actualizar guardar 
+  public msjBody: any = { msjTipo: 1, titulo: '', mensaje: '', detalle: ''};
 
 }

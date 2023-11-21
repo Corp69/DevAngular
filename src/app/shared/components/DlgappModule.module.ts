@@ -7,9 +7,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 //import { NgChartsConfiguration } from 'ng2-charts';
 //========================================
 //Angular Material
-import { MaterialModule } from 'src/app/shared/Modulos/material/material.module';
 import { dlgBusquedasModuleRoutingModule } from './DlgappModule-routing.module';
-import { HomeComponent } from './home/home.component';
 import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.component';
 import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
@@ -20,6 +18,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { ConfirmacionComponent } from './msj/confirmacion/confirmacion.component';
+import { PrimeNgModule } from '../Modulos/PrimeNgModule.module';
 
 
 @NgModule({
@@ -27,7 +26,6 @@ import { ConfirmacionComponent } from './msj/confirmacion/confirmacion.component
     //=================================
     // Importaciones:
     //=================================
-    HomeComponent,
     ClaveProdServcpComponent,
     DomiciliosComponent,
     BusquedaComponent,
@@ -41,7 +39,7 @@ import { ConfirmacionComponent } from './msj/confirmacion/confirmacion.component
   imports: [
     //========================================
     CommonModule,
-    MaterialModule,
+    PrimeNgModule,
     //========================================
     ReactiveFormsModule,
     dlgBusquedasModuleRoutingModule,

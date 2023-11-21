@@ -1,49 +1,39 @@
-<mat-card>
-    <mat-card-content>
-        <h1 style="text-align: center;"><b>BUSQUEDA</b></h1>
-        <!-- Agregar Informcion del formulario -->
-        <form [formGroup]="frmSat" autocomplete="off">
-            <div class="row">
-                <div class="col-sm-3">
-                    <label><b>Catalogo:</b></label>
-                    <select disabled class="form-select">
-                        <option selected>{{tabla.Qtabla}}</option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>{{tabla.Buscar}}:</b></label>
-                    <input formControlName="descripcion" 
-                    type="text" class="form-control" placeholder="Buscar ">
-                    <span *ngIf="frmSat.controls['descripcion'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo
-                            Requerido</b></span>
-                </div>
-                <hr>
-                <div class="col-sm-3">
-                    <button type="submit" (click)="buscarinfo()" [disabled]="frmSat.invalid"
-                        title="Realizar busqueda Buscar" class="btn btn-outline-primary">
-                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i> Buscar
-                    </button>
-                </div>
-            </div>
-        </form>
-        <hr>
-    </mat-card-content>
-</mat-card>
+<h1 style="text-align: center;"><b>BUSQUEDA</b></h1>
+<!-- Agregar Informcion del formulario -->
+<form [formGroup]="frmSat" autocomplete="off">
+    <div class="row">
+        <div class="col-sm-3">
+            <label><b>Catalogo:</b></label>
+            <select disabled class="form-select">
+                <option selected>{{tabla.Qtabla}}</option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <label><b>{{tabla.Buscar}}:</b></label>
+            <input formControlName="descripcion" type="text" class="form-control" placeholder="Buscar ">
+            <span *ngIf="frmSat.controls['descripcion'].invalid"><b style=" color: rgb(235, 56, 29);">* Campo
+                    Requerido</b></span>
+        </div>
+        <div class="col-sm-3">
+            <button type="submit" (click)="buscarinfo()" [disabled]="frmSat.invalid" title="Realizar busqueda Buscar"
+                class="btn btn-outline-primary">
+                <i class="fa-sharp fa-solid fa-magnifying-glass"></i> Buscar
+            </button>
+        </div>
+    </div>
+</form>
 
-<hr>
 <p-card *ngIf="DataSource != null " header="Busqueda">
-    <p-table 
-        [value]="DataSource" dataKey="id" 
-        [tableStyle]="{ 'min-width': '75rem' }"
+    <p-table [value]="DataSource" dataKey="id" 
+    [tableStyle]="{ 'min-width': '75rem' }"
         (selectionChange)="onSelectionChange($event)" 
-        [paginator]="true"
-        [rows]="10" 
-        [rowsPerPageOptions]="[5,10,25]" 
+        [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10,25]"
         [paginator]="true">
         <ng-template pTemplate="header">
             <tr>
                 <th style="width: 4rem"></th>
-                <th *ngFor="let column of DataSourceColumnas" pSortableColumn="{{column}}">{{column}}<p-sortIcon field="{{column}}"></p-sortIcon></th>
+                <th *ngFor="let column of DataSourceColumnas" pSortableColumn="{{column}}">{{column}}<p-sortIcon
+                        field="{{column}}"></p-sortIcon></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-DataSource>

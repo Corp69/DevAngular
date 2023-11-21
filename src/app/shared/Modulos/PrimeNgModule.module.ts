@@ -16,13 +16,16 @@ import { SidebarModule } from 'primeng/sidebar';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
-
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
 @NgModule({
   exports: [
     SidebarModule,
     DropdownModule,
     ButtonModule,
     DividerModule,
+    MessageModule,
+    MessagesModule,
     //========================================
     //Tablas: Angular PrimeNG 
     TableModule,

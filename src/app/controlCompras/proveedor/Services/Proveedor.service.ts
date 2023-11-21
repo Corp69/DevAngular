@@ -5,7 +5,6 @@ import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ErroresService } from 'src/app/shared/errores.service';
 import { MdlProveedor } from '../models/MdlProveedor';
-import { Confirmation } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +20,7 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes/${id}`,
+    return this.http.post(`${environment.baseUrl}clientes/ctr/buscar/id/${id}`,
       {
         Qtabla: 'proveedor',
       },
@@ -38,7 +37,7 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes/exce/schema`,
+    return this.http.post(`${environment.baseUrl}clientes/ctr/schema`,
       {
         "ExSchema": "compras",
         "funcion": "proveedorCfdi",
@@ -89,7 +88,7 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes`,
+    return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
         Qtabla: 'proveedor_clasificacion',
       },
@@ -109,7 +108,7 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes`,
+    return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
         Qtabla: 'proveedor_estatus',
       },
@@ -129,7 +128,7 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes`,
+    return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
         Qtabla: 'proveedor_operacion',
       },
@@ -149,7 +148,7 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes`,
+    return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
         Qtabla: 'proveedor_tipo',
       },

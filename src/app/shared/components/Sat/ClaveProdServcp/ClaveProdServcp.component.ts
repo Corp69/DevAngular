@@ -34,13 +34,11 @@ export class ClaveProdServcpComponent {
         console.log(resp);
         switch (resp.Detalle) {
           case  null:
-            Swal.fire(resp.Mensaje,'0 registros','warning');
             break;
           default:
             this.DataSource = resp.Detalle; 
             this.DataSourceColumnas = Object.keys(this.DataSource[0]);
             this.frmSat.setValue(this.frmSat.value);
-            Swal.fire(resp.Mensaje,'Operacion Exitosa');
           break;
         }  
       });
