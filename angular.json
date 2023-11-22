@@ -39,12 +39,12 @@
 
                 "input": "src/theme-lara-light.scss",
                 "bundleName": "lara-light-blue",
-                "inject": true
+                "inject": false
               },
               {
                 "input": "src/theme-lara-dark.scss",
                 "bundleName": "lara-dark-blue",
-                "inject": false   
+                "inject": true   
               }
             ],
             "scripts": [

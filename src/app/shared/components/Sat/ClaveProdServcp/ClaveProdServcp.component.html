@@ -26,9 +26,12 @@
             </div>
         </div>
         <div class="col-sm-3">
-            <label>Descripcion / Codigo:</label>
+            <label>Realizar Busqueda</label>
             <br>
-            <button type="submit" (click)="buscarinfo()" [disabled]="frmSat.invalid" title="Realizar busqueda Buscar"
+            <button type="submit" 
+                pTooltip="Realizar Busqeda." tooltipPosition="bottom"
+                (click)="buscarinfo()" 
+                [disabled]="frmSat.invalid" 
                 class="btn btn-outline-primary">
                 <i class="fa-sharp fa-solid fa-magnifying-glass"></i> Buscar
             </button>

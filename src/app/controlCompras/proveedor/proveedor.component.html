@@ -149,7 +149,7 @@
         </p-divider>
         <div class="row">
             <div class="col-mb-4">
-                <b>{{msjBody.titulo}}</b>
+                {{msjBody.titulo}}
                 <i *ngIf="msjBody.msjTipo == 1" class="fa-solid fa-check fa-2xl" style=" color: green;">
                 </i>
                 <i *ngIf="msjBody.msjTipo == 2" class="fa-solid fa-circle-exclamation fa-2xl"
@@ -157,10 +157,10 @@
                 <i *ngIf="msjBody.msjTipo == 3" class="fa-solid fa-triangle-exclamation fa-2xl"
                     style=" color: red;"></i>
                 <br>
-                <b>{{msjBody.mensaje}}</b>
+                {{msjBody.mensaje}}
             </div>
             <div class="col-mb-4">
-                <b>{{msjBody.detalle}}</b>
+                {{msjBody.detalle}}
             </div>
         </div>
         <br>

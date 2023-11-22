@@ -19,35 +19,50 @@ export class ClaveProdServcpComponent {
   @Input()
   public tabla: String = '';
   @Output() JsonSat = new EventEmitter<any>();
-  
+
   //=================================================================================================================
 
   constructor(
     private fb: FormBuilder,
     private servicio: SatClaveprodservService
     //private datePipe: DatePipe,
-  ) {}
+  ) { }
   //
-  public buscarinfo = () =>{
-      //=======================================================================================
-      this.servicio.BuscarSatClaveprodServicio(this.tabla, this.frmSat.value.descripcion ).subscribe(resp => {
-        console.log(resp);
-        switch (resp.Detalle) {
-          case  null:
-            break;
-          default:
-            this.DataSource = resp.Detalle; 
-            this.DataSourceColumnas = Object.keys(this.DataSource[0]);
-            this.frmSat.setValue(this.frmSat.value);
+  public buscarinfo = () => {
+    //=======================================================================================
+    this.servicio.BuscarSatClaveprodServicio(this.tabla, this.frmSat.value.descripcion).subscribe(resp => {
+      switch (resp.Detalle.length) {
+        //=======================================================================================
+        case 0:
+          this.DataSource = [];
+          this.DataSourceColumnas = [];
           break;
-        }  
-      });
+        //=======================================================================================
+        case null:
+          this.DataSource = [];
+          this.DataSourceColumnas = [];
+          break;
+        //=======================================================================================
+        case undefined:
+          this.DataSource = [];
+          this.DataSourceColumnas = [];
+          break;
+        //=======================================================================================
+        default:
+          this.DataSource = resp.Detalle;
+          this.DataSourceColumnas = Object.keys(this.DataSource[0]);
+          this.frmSat.setValue(this.frmSat.value);
+          break;
+        //=======================================================================================
+
+      }
+    });
   }
   //==============================================================================================================
   // funcionalidad de la tabla:
-  public onSelectionChange( args: any){
+  public onSelectionChange(args: any) {
     this.JsonSat.emit(args[0]);
-    this.DataSource =null;
+    this.DataSource = null;
     this.frmSat.controls['descripcion'].setValue('');
   }
   /**
@@ -55,9 +70,9 @@ export class ClaveProdServcpComponent {
    * @param obj pasamos el json del DataSource => solo obtenemos el valor del atributo eliminando el key del Json. 
    * @returns => retorna valor del atributo sin el key. 
    */
-  public Obtenervalor = (obj: any): any[] => { return Object.values(obj);}
+  public Obtenervalor = (obj: any): any[] => { return Object.values(obj); }
 
-  public onSelectAllChange( args: any){
+  public onSelectAllChange(args: any) {
     this.JsonSat = args;
   }
 }

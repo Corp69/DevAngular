@@ -128,7 +128,6 @@ export class ProveedorComponent implements OnInit {
           this.frmProveedor.setValue(this.frmProveedor.value);
           this.frmProveedor.controls['id'].setValue(parseInt(resp.Id));
           break;
-         
       }
       this.BtnSpinner = false;
     });
@@ -140,6 +139,7 @@ export class ProveedorComponent implements OnInit {
    * @returns NuevoProvedor: Resetea el formulario al valor del modelo.
    */
   public NuevoProvedor = () => {
+    this.visibleMjs = false;
     this.frmProveedor.setValue(this.MdlProveedor);
     this.frmProveedor.controls['id_rh_empleado'].setValue(localStorage.getItem("id"));
     this.frmProveedor.controls['id'].setValue(-1);
