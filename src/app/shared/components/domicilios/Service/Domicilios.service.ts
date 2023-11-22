@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ErroresService } from 'src/app/shared/errores.service';
+import { MdlDomicilio } from '../Models/MdlDomicilio';
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +16,8 @@ export class DomiciliosService {
   /**
    * @method BuscarTB  ==> realiza la busqueda por medio de tabla, por medio de los campos dinamicos
    * 
-   * @param _tabla     ==> Pasamos la tabla para hacer una consulta de tipo busqueda 
-   * @param _columna   ==> pasamos la columna que sera de filtro
-   * @param _ordernar  ==> pasamos la columna que sera de ordenar los resultados
-   * @param _datos     ==> pasamos la columna que sera de filtro en este caso IDS
+   * @param _id       ==> Pasamos id para filtrar 1 estado 2 municipio 3 localidad 
+   * @param _filtro   ==> puede ser 146 para pais mexico o agregar otro id o varios
    * @returns 
    */
   public BuscarTB( _id: number, _filtro: Number ): Observable<any> {
@@ -54,10 +53,18 @@ private _estado( _id: Number, _filtro: Number ){
           "Datos": {"ids": [_filtro]}
         }
     break;
-  case 2:
+  case 3:
         return {
           "Qtabla":"estado",
           "_columna": "id_pais",
+          "_orderBY": "descripcion",
+          "Datos": {"ids": [_filtro]}
+        }
+    break;
+  case 4:
+        return {
+          "Qtabla":"localidad",
+          "_columna": "id_estado",
           "_orderBY": "descripcion",
           "Datos": {"ids": [_filtro]}
         }
@@ -73,6 +80,34 @@ private _estado( _id: Number, _filtro: Number ){
  }
  
 }
+
+  //==================================================================================================
+  //guardar
+  public AlmacenarDomicilio(modelo: MdlDomicilio): Observable<any> {
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    console.log(  {
+      Qtabla: 'rh_empleado_domicilio',
+      Datos: modelo,
+    })
+    return this.http
+      .post(
+        `${environment.baseUrl}clientes/ctr/agregar`,
+        {
+          Qtabla: 'rh_empleado_domicilio',
+          Datos: modelo,
+        },
+        { headers: headers }
+      )
+      .pipe(
+        catchError((error) => {
+          return throwError(this.errores.getErrores(error));
+        })
+      );
+  }
+
+
 
 
   //===================================================================================================

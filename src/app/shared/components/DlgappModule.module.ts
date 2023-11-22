@@ -7,15 +7,18 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 //import { NgChartsConfiguration } from 'ng2-charts';
 //========================================
 //Angular Material
-import { MaterialModule } from 'src/app/material/material.module';
 import { dlgBusquedasModuleRoutingModule } from './DlgappModule-routing.module';
-import { HomeComponent } from './home/home.component';
 import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.component';
 import { TableModule } from 'primeng/table';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
 import { DomiciliosComponent } from './domicilios/domicilios.component';
+import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ConfirmacionComponent } from './msj/confirmacion/confirmacion.component';
+import { PrimeNgModule } from '../Modulos/PrimeNgModule.module';
 
 
 @NgModule({
@@ -23,18 +26,20 @@ import { DomiciliosComponent } from './domicilios/domicilios.component';
     //=================================
     // Importaciones:
     //=================================
-  
-    HomeComponent,
     ClaveProdServcpComponent,
-    DomiciliosComponent
+    DomiciliosComponent,
+    BusquedaComponent,
+    ConfirmacionComponent
   ],
   exports:[
-    ClaveProdServcpComponent
+    ClaveProdServcpComponent,
+    BusquedaComponent,
+    ConfirmacionComponent
   ],
   imports: [
     //========================================
     CommonModule,
-    MaterialModule,
+    PrimeNgModule,
     //========================================
     ReactiveFormsModule,
     dlgBusquedasModuleRoutingModule,
@@ -44,7 +49,10 @@ import { DomiciliosComponent } from './domicilios/domicilios.component';
     TabMenuModule,
     TabViewModule,
     //Cards: Angular PrimeNG 
-    CardModule
+    CardModule,
+    //dialogo o modal: Angular PrimeNG 
+    DialogModule,
+    ConfirmDialogModule
   ],
   providers: [
     DatePipe,

@@ -2,6 +2,7 @@
     <form [formGroup]="frmLstProveedores" autocomplete="off">
         <div class="row">
             <div class="col-sm-4">
+              <!--
                 <mat-form-field color="accent">
                     <input (dateInput)="seleccionarFecha1($event.target)" formControlName="fecha1"
                         placeholder="Seleccionar Fecha" matInput [matDatepicker]="picker1">
@@ -9,6 +10,7 @@
                     <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
                     <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
+                -->
                 <span *ngIf="frmLstProveedores.controls['fecha1'].invalid"><b style=" color: rgb(235, 56, 29);">* Fecha Requerida</b></span> 
             </div>
             <div class="col-sm-4">
@@ -19,6 +21,7 @@
                 </select>
             </div>
             <div class="col-sm-4">
+                <!--
                 <mat-form-field color="accent">
                     <input (dateInput)="seleccionarFecha2($event.target)" placeholder="Seleccionar Fecha"
                         formControlName="fecha12" matInput [matDatepicker]="picker2">
@@ -26,6 +29,7 @@
                     <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
                     <mat-datepicker #picker2 color="primary"></mat-datepicker>
                 </mat-form-field>
+            -->
                 <span *ngIf="frmLstProveedores.controls['fecha12'].invalid"><b style=" color: rgb(235, 56, 29);">* Fecha Requerida</b></span> 
              </div>
         </div>

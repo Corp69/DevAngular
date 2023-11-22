@@ -2,39 +2,49 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { PrincipalComponent } from './principal/principal.component';
-import { MaterialModule } from '../material/material.module';
 import { PrincipalModuleRoutingModule } from './principal-module-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
+//=======================================
+//! modulos personalizados Librerias 
+import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
+import { MaterialModule } from '../shared/Modulos/material/material.module';
+//=======================================
+//? modulos personalizados reutilizar codigo 
 import { DlgappModule } from '../shared/components/DlgappModule.module';
-// PRIME NG
-import { OrganizationChartModule } from 'primeng/organizationchart';
-import { CardModule } from 'primeng/card';
-import { TimelineModule } from 'primeng/timeline';
-import { ChartModule } from 'primeng/chart';
+import { PrimeNgKpisModule } from '../shared/Modulos/PrimeNgKpisModule.module';
+import { ComprasModule } from '../controlCompras/compras.module';
+import { ControlMedicoModule } from '../ControlMedico/ControlMedico.module';
+import { ControlEmpresaModule } from '../ControlEmpresa/ControlEmpresa.module';
+import { VentasModule } from '../ControlVentas/ventas.module';
+import { TesteoFormatosModule } from '../TesteoFormatos/TesteoFormatos.module';
+
+
+
 @NgModule({
   declarations: [
     HomeComponent,
     PrincipalComponent
   ],
   imports: [
+    //? ===================================================== 
+    //? modulos de los aplicativos 
+    ControlEmpresaModule,
+    ComprasModule,
+    ControlMedicoModule,
+    VentasModule,
+    TesteoFormatosModule,
+    //? ======================================================= 
     CommonModule,
-    MaterialModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
     ReactiveFormsModule,
-    PrincipalModuleRoutingModule,
-    //Importamos el modulo de la app
+    //=======================================
+    //? modulos personalizados reutilizar codigo 
     DlgappModule,
-    // prime ng 
-    CardModule,
-    TimelineModule,
-    OrganizationChartModule,
-    ChartModule
-
+    //=======================================
+    //! modulos personalizados Librerias 
+    PrimeNgKpisModule,
+    PrimeNgModule,
+    //=======================================
+    PrincipalModuleRoutingModule,
   ]
 })
 export class PrincipalModule { }

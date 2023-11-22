@@ -1,5 +1,4 @@
-<mat-card>
-    <mat-card-content>
+
         <h1 style="text-align: center;"><b>Domicilio</b></h1>
         <!-- Agregar Informcion del formulario -->
         <form [formGroup]="frmDomiclio" autocomplete="off">
@@ -21,9 +20,6 @@
                     <label><b>Numero Interior:</b></label>
                     <input formControlName="num_int" type="text" class="form-control"
                         placeholder="Ingrese Numero Interior">
-                    <span *ngIf="frmDomiclio.controls['num_int'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
-                            Requerido</b></span>
-
                 </div>
                 <div class="col-sm-3">
                     <label><b>cp:</b></label>
@@ -35,42 +31,95 @@
             <div class="row">
                 <div class="col-sm-3">
                     <label><b>Estado:</b></label>
-                    <select class="form-select" formControlName="id_estado" placeholder="Seleccione Estado"
-                        aria-label="Default select example">
-                        <option *ngFor="let item of lstEstado" (onchange)="hola()" [value]="item.id">{{item.descripcion}}
+                    <select (change)="filtroXestado($event.target)" class="form-select" formControlName="id_estado"
+                        placeholder="Seleccione Estado" aria-label="Default select example">
+                        <option *ngFor="let item of lstEstado" [value]="item.id">{{item.descripcion}}
                         </option>
                     </select>
-
-
+                    <span *ngIf="frmDomiclio.controls['id_estado'].invalid"><b style=" color: rgb(235, 56, 29);">*
+                            campo
+                            Requerido</b></span>
+                </div>
+                <div class="col-sm-3">
+                    <label><b>Municipio:</b></label>
+                    <select class="form-select" formControlName="id_municipio" placeholder="Seleccione Municipio"
+                        aria-label="Default select example">
+                        <option *ngFor="let item of lstMunicipio" [value]="item.id">{{item.descripcion}}
+                        </option>
+                    </select>
                     <span *ngIf="frmDomiclio.controls['id_municipio'].invalid"><b style=" color: rgb(235, 56, 29);">*
                             campo
                             Requerido</b></span>
                 </div>
                 <div class="col-sm-3">
-                    <label><b>id_municipio:</b></label>
-                    <input formControlName="id_municipio" type="text" class="form-control" placeholder="Ingrese Nombre">
-                    <span *ngIf="frmDomiclio.controls['id_municipio'].invalid"><b style=" color: rgb(235, 56, 29);">*
-                            campo
-                            Requerido</b></span>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>id_localidad:</b></label>
-                    <input formControlName="id_localidad" type="text" class="form-control"
-                        placeholder="ingrese numero id_localidad">
+                    <label><b>localidad:</b></label>
+                    <select class="form-select" formControlName="id_localidad" placeholder="Seleccione Localidad"
+                        aria-label="Default select example">
+                        <option *ngFor="let item of lstLocalidad" [value]="item.id">{{item.descripcion}}
+                        </option>
+                    </select>
                     <span *ngIf="frmDomiclio.controls['id_localidad'].invalid"><b style=" color: rgb(235, 56, 29);">*
                             campo
                             Requerido</b></span>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-3">
-                    <label><b>id_colonia:</b></label>
-                    <input formControlName="id_colonia" type="text" class="form-control"
-                        placeholder="Ingrese id_colonia">
-                    <span *ngIf="frmDomiclio.controls['id_colonia'].invalid"><b style=" color: rgb(235, 56, 29);">*
-                            campo
-                            Requerido</b></span>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Colonia:</span>
+                        <input disabled type="text" [value]="valorColonia" class="form-control" placeholder="vacio">
+                        <button type="button" (click)="abrirCP()" title="Selecionar Codigo Postal"
+                            class="btn btn-outline-primary">
+                            <i class="fa-solid fa-plus"></i> Agregar
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Codigo Postal:</span>
+                        <input disabled type="text" [value]="valorCp" class="form-control" placeholder="vacio">
+                        <button type="button" (click)="abrirCP()" title="Selecionar Codigo Postal"
+                            class="btn btn-outline-primary">
+                            <i class="fa-solid fa-plus"></i> Agregar
+                        </button>
+                    </div>
                 </div>
             </div>
+
+            <!-- Colonia  --->
+            <div class="card flex justify-content-center">
+                <p-dialog header="Header" [(visible)]="visible" [modal]="visible" [style]="{ width: '90vw' }"
+                    [draggable]="false" [resizable]="false">
+                    <app-busqueda [tabla]="tabalaBuscar1" (JsonSat)="seleccionarCP($event)"></app-busqueda>
+                </p-dialog>
+            </div>
             <hr>
+            <hr>
+            <div class="col-sm-3">
+                <button type="submit" (click)="Almacenar()" [disabled]="frmDomiclio.invalid"
+                    title="Almacenar Informcion" class="btn btn-outline-primary">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i> Guardar
+                </button>
+            </div>
         </form>
-    </mat-card-content>
-</mat-card>
+
+<!-- MENSAJE GENERICO DE CONFIRMACION  --->
+<p-dialog [(visible)]="mdlMsj" [modal]="true" [style]="{ width: '20vw' }" [draggable]="false"
+  [resizable]="false">
+  <hr>
+  <div class="row">
+    <div class="col-mb-4">
+      <i *ngIf="msjConfirmacion.msjTipo == 1" class="fa-solid fa-check fa-2xl" style=" color: green;"></i>
+      <i *ngIf="msjConfirmacion.msjTipo == 2" class="fa-solid fa-circle-exclamation fa-2xl" style=" color: orange;"></i>
+      <i *ngIf="msjConfirmacion.msjTipo == 3" class="fa-solid fa-triangle-exclamation fa-2xl" style=" color: red;"></i>
+     <b>{{msjConfirmacion.titulo}}</b>
+     <br>
+     <b>{{msjConfirmacion.mensaje}}</b> 
+    </div>
+    <div class="col-mb-4">
+    <b>{{msjConfirmacion.detalle}}</b>
+    </div>
+  </div>
+  <br>
+  <hr>
+</p-dialog>

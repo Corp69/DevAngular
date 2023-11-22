@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SucursalComponent } from './sucursal/sucursal.component';
-import { EmpresaComponent } from './empresa/empresa.component';
+import { DocventaComponent } from './docventa/docventa.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'sucursal', component: SucursalComponent },
-      { path: 'empresa', component: EmpresaComponent },
+      { path: 'venta/:id', component: DocventaComponent },
       { path: '**', redirectTo: '/Control/inicio' }
     ]
   }
@@ -23,4 +21,5 @@ const routes: Routes = [
   ]
 })
 
-export class ControlEmpresaRoutingModule { }
+
+export class ControlVentasRoutingModule { }

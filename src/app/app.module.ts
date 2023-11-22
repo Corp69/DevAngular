@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorPagesComponent } from './shared/error-pages/error-pages.component';
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from './shared/Modulos/material/material.module';
 
 @NgModule({
   declarations: [

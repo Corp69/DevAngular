@@ -6,12 +6,56 @@ import { environment } from 'src/environments/environment';
 import { ErroresService } from 'src/app/shared/errores.service';
 import { MdlProveedor } from '../models/MdlProveedor';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class ProveedorService {
   constructor(private http: HttpClient, private errores: ErroresService) { }
+
+
+  // ? ==================================================================================
+  // resolver obtnemos informacion del registro
+  public Datainfo(id: number): Observable<any> {
+    console.log('serviicio =>', id)
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http.post(`${environment.baseUrl}clientes/ctr/buscar/id/${id}`,
+      {
+        Qtabla: 'proveedor',
+      },
+      { headers: headers }
+    ).pipe(
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
+  }
+
+  public Datacfdi(id: number): Observable<any> {
+    console.log('serviicio =>', id)
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http.post(`${environment.baseUrl}clientes/ctr/schema`,
+      {
+        "ExSchema": "compras",
+        "funcion": "proveedorCfdi",
+        "data": {
+          "_id_": id
+        }
+      }
+      ,
+      { headers: headers }
+    ).pipe(
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
+  }
+  // ? ==================================================================================
+
+
   //==================================================================================================
   //guardar
   public AlmacenarProveedor(modelo: MdlProveedor): Observable<any> {
@@ -44,16 +88,16 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes`,
+    return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
         Qtabla: 'proveedor_clasificacion',
       },
       { headers: headers }
     ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
 
   /**
@@ -64,18 +108,18 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes`,
+    return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
         Qtabla: 'proveedor_estatus',
       },
       { headers: headers }
     ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
-  
+
   /**
    * 
    * @returns Json Array Operacion de proveedor
@@ -84,16 +128,16 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes`,
+    return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
         Qtabla: 'proveedor_operacion',
       },
       { headers: headers }
     ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
 
   /**
@@ -104,16 +148,19 @@ export class ProveedorService {
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    return this.http.post(`${environment.baseUrl}clientes`,
+    return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
         Qtabla: 'proveedor_tipo',
       },
       { headers: headers }
     ).pipe(
-        catchError((error) => {
-          return throwError(this.errores.getErrores(error));
-        })
-      );
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
   //===================================================================================================
+
+
+
 }

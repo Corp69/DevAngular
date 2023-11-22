@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 // modales 
 import { DialogModule } from 'primeng/dialog';
+import { DlgappModule } from '../shared/components/DlgappModule.module';
 @NgModule({
   declarations: [
     LoginComponent
@@ -14,7 +15,8 @@ import { DialogModule } from 'primeng/dialog';
     CommonModule,
     ReactiveFormsModule,
     //modales
-    DialogModule
+    DialogModule,
+    DlgappModule
   ]
 })
 export class AuthModule { }

@@ -3,45 +3,44 @@
   <p class="lead text-muted"><b>Developer APP.</b></p>
 </div>
 
-<main>
+
   <div class="album bg-light">
     <div class="container">
       <div class="col">
-        <div class="card shadow-sm" style="background-color: rgb(173, 221, 237);">
+        <div class="card shadow-sm">
           <div class="text-center container">
             <h1 class="fw-light"><b>INGRESOS SEMESTRAL</b></h1>
             <p class="lead text-muted"><b>Developer APP.</b></p>
           </div>
-          <div class="card shadow-sm" style="background-color: rgb(255, 255, 255);">
+          <div class="card shadow-sm">
             <p-chart type="line" [data]="dataBarra" [options]="options"></p-chart>
           </div>
         </div>
       </div>
     </div>
   </div>
-</main>
 
-<main>
+
+
   <div class="album bg-light">
     <div class="container">
       <div class="col">
-        <div class="card shadow-sm" style="background-color: rgb(157, 213, 232);">
+        <div class="card shadow-sm">
           <div class="text-center container">
             <h1 class="fw-light"><b>INGRESOS SEMESTRAL</b></h1>
             <p class="lead text-muted"><b>Developer APP.</b></p>
           </div>
-          <div class="card shadow-sm" style=" background-color: rgb(255, 255, 255);">
+          <div class="card shadow-sm">
             <p-chart type="line" [data]="data2" [options]="options2"></p-chart>
           </div>
         </div>
       </div>
     </div>
   </div>
-</main>
 
 
-<mat-card>
-  <mat-card-content>
+
+
     <div class="card flex justify-content-center overflow-x-auto">
       <p-organizationChart [value]="data">
         <ng-template let-node pTemplate="person">
@@ -53,11 +52,9 @@
         </ng-template>
       </p-organizationChart>
     </div>
-  </mat-card-content>
-</mat-card>
+
 <hr>
-<mat-card>
-  <mat-card-content>
+
     <div class="card">
       <p-timeline [value]="events" align="alternate" styleClass="customized-timeline">
         <ng-template pTemplate="marker" let-event>
@@ -84,8 +81,6 @@
         </ng-template>
       </p-timeline>
     </div>
-  </mat-card-content>
-</mat-card>
 
 <div class="container-fluid">
   <div class="row pt-4">
