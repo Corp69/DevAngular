@@ -7,9 +7,9 @@
                     <label>Proveedor</label>
                     <input pInputText pTooltip="Ingrese Nombre Completo Persona: Fisica o Moral "
                         tooltipPosition="bottom" type="text" formControlName="nombre" pInputText placeholder="Vacio" />
-                    <small *ngIf="frmProveedor.controls['nombre'].invalid" style=" color: rgb(235, 56, 29);">
-                        * Campo Requerido
-                    </small>
+                    <p-message severity="error" text="Campo Es Obligatorio "
+                        *ngIf="frmProveedor.controls['nombre'].invalid">
+                    </p-message>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -109,9 +109,12 @@
             pTooltip="Nuevo Formulario: Resetear Informcion." tooltipPosition="bottom" class="btn btn-outline-primary">
             Nuevo
         </button>
-        <button *ngIf="BtnSpinner == false" type="button" (click)="Almacenar()" [disabled]="frmProveedor.invalid"
+        <button [disabled]="BtnSpinner" type="button" (click)="Almacenar()" [disabled]="frmProveedor.invalid"
             pTooltip="Almacenar La Informcion Del Formulario." tooltipPosition="bottom" class="btn btn-outline-primary">
             Guardar
+            <p-progressSpinner *ngIf="BtnSpinner" styleClass="w-4rem h-4rem" strokeWidth="8"
+                fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+
         </button>
     </form>
 </p-card>
@@ -125,14 +128,14 @@
 </p-dialog>
 <!-- SAT  --->
 
-<p-dialog header="" position="top" [(visible)]="dlgRegimenvisible" [modal]="true" [style]="{ width: '90vw' }" [draggable]="false"
-    [resizable]="false">
+<p-dialog header="" position="top" [(visible)]="dlgRegimenvisible" [modal]="true" [style]="{ width: '90vw' }"
+    [draggable]="false" [resizable]="false">
     <app-ClaveProdServcp tabla={{tabalaSat2}} (JsonSat)="SatRegimen($event)"></app-ClaveProdServcp>
 </p-dialog>
 
 <!-- SAT DOC COBRO  --->
-<p-dialog header="Header" position="top" [(visible)]="dlgDocCbrovisible" [modal]="true" [style]="{ width: '90vw' }" [draggable]="false"
-    [resizable]="false">
+<p-dialog header="Header" position="top" [(visible)]="dlgDocCbrovisible" [modal]="true" [style]="{ width: '90vw' }"
+    [draggable]="false" [resizable]="false">
     <app-ClaveProdServcp tabla={{tabalaSat1}} (JsonSat)="SatCobro($event)"></app-ClaveProdServcp>
 </p-dialog>
 

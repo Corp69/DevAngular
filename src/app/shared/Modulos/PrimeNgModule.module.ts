@@ -18,6 +18,11 @@ import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
+import { BlockUIModule } from 'primeng/blockui';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
+
+
 @NgModule({
   exports: [
     SidebarModule,
@@ -39,7 +44,10 @@ import { MessagesModule } from 'primeng/messages';
     //menu: Angular PrimeNG 
     BadgeModule,
     PanelModule,
-    PanelMenuModule
+    PanelMenuModule,
+    BlockUIModule,
+    ProgressSpinnerModule
+
   ],
   providers: [
     DatePipe,

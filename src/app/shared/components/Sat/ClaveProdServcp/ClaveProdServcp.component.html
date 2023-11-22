@@ -21,7 +21,8 @@
                     pTooltip="Escribir Codigo O Descripcion 3 Caracteres Minimo Para Buscar" tooltipPosition="bottom"
                     formControlName="descripcion" type="text" [value]="tabla" pInputText placeholder="Vacio" />
                 <p-message severity="error" text="Campo Es Obligatorio "
-                    *ngIf="frmSat.controls['descripcion'].invalid"></p-message>
+                    *ngIf="frmSat.controls['descripcion'].invalid">
+                </p-message>
             </div>
         </div>
         <div class="col-sm-3">
