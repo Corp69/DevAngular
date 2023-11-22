@@ -4,6 +4,9 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ErroresService } from 'src/app/shared/errores.service';
+import { Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,11 @@ export class HomeService {
 
   constructor(
     private http: HttpClient,
-    private errores: ErroresService) { }
+    private errores: ErroresService,
+    
+    @Inject(DOCUMENT) private document: Document
+    
+    ) { }
 
   public lstOpciones(): Observable<any> {
     let headers = new HttpHeaders({
@@ -32,4 +39,27 @@ export class HomeService {
         })
       );
   }
+
+
+
+  switchTheme(theme: string) {
+    let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
+
+    if (themeLink) {
+        themeLink.href = theme + '.css';
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
