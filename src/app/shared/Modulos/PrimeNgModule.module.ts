@@ -20,11 +20,12 @@ import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   exports: [
+    FormsModule,
     SidebarModule,
     DropdownModule,
     ButtonModule,
@@ -46,8 +47,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     PanelModule,
     PanelMenuModule,
     BlockUIModule,
-    ProgressSpinnerModule
-
+    ProgressSpinnerModule,
+    DropdownModule
   ],
   providers: [
     DatePipe,

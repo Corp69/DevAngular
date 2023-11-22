@@ -10,14 +10,14 @@
         <div class="col-sm-3">
             <div class="flex flex-column gap-2">
                 <label>CATALOGO:</label>
-                <input pInputText [disabled]="true" pTooltip="Se Realiza Busqueda. " tooltipPosition="bottom"
+                <input pInputText disabled="true" pTooltip="Se Realiza Busqueda. " tooltipPosition="bottom"
                     type="text" [value]="tabla" pInputText placeholder="Vacio" />
             </div>
         </div>
         <div class="col-sm-3">
             <div class="flex flex-column gap-2">
                 <label>Descripcion / Codigo:</label>
-                <input pInputText [disabled]="true"
+                <input pInputText
                     pTooltip="Escribir Codigo O Descripcion 3 Caracteres Minimo Para Buscar" tooltipPosition="bottom"
                     formControlName="descripcion" type="text" [value]="tabla" pInputText placeholder="Vacio" />
                 <p-message severity="error" text="Campo Es Obligatorio "

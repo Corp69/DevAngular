@@ -67,7 +67,6 @@ export class ProveedorComponent implements OnInit {
       if (+params['id'] > -1) {
         // AGREGAMOS LA INFORMACION AL FORMULARIO
         this.servicio.Datainfo(+params['id']).subscribe(resp => {
-          console.log(resp);
           this.frmProveedor.setValue(resp.Detalle);
         });
         //CARGAMOS CFDI
@@ -145,7 +144,6 @@ export class ProveedorComponent implements OnInit {
     this.frmProveedor.controls['id'].setValue(-1);
     this.usoCFDI = ''
     this.RegimenCFDI = ''
-    console.log(this.frmProveedor.value);
   }
   //==============================================================================================================
   //Modales:
