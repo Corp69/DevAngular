@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InvProductoComponent } from './inv-producto/invproducto.component';
 import { AlmacenesComponent } from './almacenes/almacenes.component';
+import { HomeComponent } from '../ControlPrincipal/home/home.component';
 
 
 const routes: Routes = [
   {
     path: '',
+    component: HomeComponent,
     children: [
       { path: 'producto',     component: InvProductoComponent },
       { path: 'almacenes',    component: AlmacenesComponent },

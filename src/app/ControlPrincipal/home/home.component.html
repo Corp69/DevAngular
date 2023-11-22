@@ -1,29 +1,52 @@
-<div class="card">
-  <div class="flex align-items-center justify-content-center mb-4">
-      <a (click)="changeTheme('saga-blue')" class="mr-3 cursor-pointer">
-          <img src="assets/images/themes/saga-blue.png" width="50">
-      </a>
-      <a (click)="changeTheme('vela-blue')" class="mr-3 cursor-pointer">
-          <img src="assets/images/themes/vela-blue.png" width="50">
-      </a>
-      <a (click)="changeTheme('arya-blue')" class="mr-3 cursor-pointer">
-          <img src="assets/images/themes/arya-blue.png" width="50">
-      </a>
-      <a (click)="changeTheme('md-light-indigo')" class="mr-3 cursor-pointer">
-          <img src="assets/images/themes/md-light-indigo.svg" width="50">
-      </a>
-      <a (click)="changeTheme('md-dark-indigo')" class="mr-3 cursor-pointer">
-          <img src="assets/images/themes/md-dark-indigo.svg" width="50">
-      </a>
-      <a (click)="changeTheme('bootstrap4-light-purple')" class="mr-3 cursor-pointer">
-          <img src="assets/images/themes/bootstrap4-light-purple.svg" width="50">
-      </a>
-      <a (click)="changeTheme('bootstrap4-dark-purple')" class="mr-3 cursor-pointer">
-          <img src="assets/images/themes/bootstrap4-dark-purple.svg" width="50">
-      </a>
-  </div>
-</div>
 
 <div class="container-fluid">
-  <router-outlet></router-outlet>
+    <p-menubar [model]="items">
+        <ng-template pTemplate="start">
+            <img (click)="sidebarVisible = true" src="https://primefaces.org/cdn/primeng/images/primeng.svg" height="40"
+                class="mr-2" />
+        </ng-template>
+        <ng-template pTemplate="end">
+            <input type="text" pInputText placeholder="Search" class="w-full" />
+        </ng-template>
+    </p-menubar>
+
+    <p-sidebar [(visible)]="sidebarVisible">
+        <h3>Menu</h3>
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <i class="pi pi-user mr-2"></i>
+                <b>Accesos</b>
+            </div>
+        </p-divider>
+        <p-panelMenu [model]="items" [style]="{'width':'300px'}" [multiple]="true"></p-panelMenu>
+
+        <div class="card">
+            <div class="flex align-items-center justify-content-center mb-4">
+                <a (click)="changeTheme('saga-blue')" class="mr-3 cursor-pointer">
+                    <img src="assets/images/themes/saga-blue.png" width="50">
+                </a>
+                <a (click)="changeTheme('vela-blue')" class="mr-3 cursor-pointer">
+                    <img src="assets/images/themes/vela-blue.png" width="50">
+                </a>
+                <a (click)="changeTheme('arya-blue')" class="mr-3 cursor-pointer">
+                    <img src="assets/images/themes/arya-blue.png" width="50">
+                </a>
+                <a (click)="changeTheme('md-light-indigo')" class="mr-3 cursor-pointer">
+                    <img src="assets/images/themes/md-light-indigo.svg" width="50">
+                </a>
+                <a (click)="changeTheme('md-dark-indigo')" class="mr-3 cursor-pointer">
+                    <img src="assets/images/themes/md-dark-indigo.svg" width="50">
+                </a>
+                <a (click)="changeTheme('bootstrap4-light-purple')" class="mr-3 cursor-pointer">
+                    <img src="assets/images/themes/bootstrap4-light-purple.svg" width="50">
+                </a>
+                <a (click)="changeTheme('bootstrap4-dark-purple')" class="mr-3 cursor-pointer">
+                    <img src="assets/images/themes/bootstrap4-dark-purple.svg" width="50">
+                </a>
+            </div>
+        </div>
+        
+    </p-sidebar>
+
+    <router-outlet></router-outlet>
 </div>

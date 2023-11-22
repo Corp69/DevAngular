@@ -10,67 +10,146 @@ import { HomeService } from './Services/Home.service';
 export class HomeComponent implements OnInit {
 
   public lstOpciones: any;
-  public items: any;
-
+  public items: any | undefined;
+  public sidebarVisible: boolean = false;
+  public theme = localStorage.getItem("theme");
+    
 
   constructor(private servicio: HomeService) {
-      this.servicio.lstOpciones().subscribe(resp => {
+    this.servicio.lstOpciones().subscribe(resp => {
       this.lstOpciones = resp.Detalle._app_menu_x_empleado;
-        console.log("menu " , this.lstOpciones );
-      });
- 
+    });
   }
 
-  public OcultarBar(){
-    
+ public changeTheme(theme: string) {
+    console.log(theme);
+    localStorage.setItem('theme', theme);
+    this.servicio.switchTheme(theme);
   }
 
   ngOnInit() {
-    
-}
-
-
-public selectedState: any = null;
-
-
-states: any[] = [
-    {name: 'Arizona', code: 'Arizona'},
-    {name: 'California', value: 'California'},
-    {name: 'Florida', code: 'Florida'},
-    {name: 'Ohio', code: 'Ohio'},
-    {name: 'Washington', code: 'Washington'}
-];
-
-cities1: any[] = [];
-
-cities2: any[] = [];
-
-city1:any = null;
-
-city2:any = null;
-
-changeTheme(theme: string) {
-    this.servicio.switchTheme(theme);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    this.items = [
+      {
+        label: 'File',
+        icon: 'pi pi-fw pi-file',
+        items: [
+          {
+            label: 'New',
+            icon: 'pi pi-fw pi-plus',
+            items: [
+              {
+                label: 'Bookmark',
+                icon: 'pi pi-fw pi-bookmark'
+              },
+              {
+                label: 'Video',
+                icon: 'pi pi-fw pi-video'
+              }
+            ]
+          },
+          {
+            label: 'Delete',
+            icon: 'pi pi-fw pi-trash'
+          },
+          {
+            separator: true
+          },
+          {
+            label: 'Export',
+            icon: 'pi pi-fw pi-external-link'
+          }
+        ]
+      },
+      {
+        label: 'Edit',
+        icon: 'pi pi-fw pi-pencil',
+        items: [
+          {
+            label: 'Left',
+            icon: 'pi pi-fw pi-align-left'
+          },
+          {
+            label: 'Right',
+            icon: 'pi pi-fw pi-align-right'
+          },
+          {
+            label: 'Center',
+            icon: 'pi pi-fw pi-align-center'
+          },
+          {
+            label: 'Justify',
+            icon: 'pi pi-fw pi-align-justify'
+          }
+        ]
+      },
+      {
+        label: 'Users',
+        icon: 'pi pi-fw pi-user',
+        items: [
+          {
+            label: 'New',
+            icon: 'pi pi-fw pi-user-plus'
+          },
+          {
+            label: 'Delete',
+            icon: 'pi pi-fw pi-user-minus'
+          },
+          {
+            label: 'Search',
+            icon: 'pi pi-fw pi-users',
+            items: [
+              {
+                label: 'Filter',
+                icon: 'pi pi-fw pi-filter',
+                items: [
+                  {
+                    label: 'Print',
+                    icon: 'pi pi-fw pi-print'
+                  }
+                ]
+              },
+              {
+                icon: 'pi pi-fw pi-bars',
+                label: 'List'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        label: 'Events',
+        icon: 'pi pi-fw pi-calendar',
+        items: [
+          {
+            label: 'Edit',
+            icon: 'pi pi-fw pi-pencil',
+            items: [
+              {
+                label: 'Save',
+                icon: 'pi pi-fw pi-calendar-plus'
+              },
+              {
+                label: 'Delete',
+                icon: 'pi pi-fw pi-calendar-minus'
+              }
+            ]
+          },
+          {
+            label: 'Archieve',
+            icon: 'pi pi-fw pi-calendar-times',
+            items: [
+              {
+                label: 'Remove',
+                icon: 'pi pi-fw pi-calendar-minus'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        label: 'Quit',
+        icon: 'pi pi-fw pi-power-off'
+      }
+    ];
+  }
 }

@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorPagesComponent } from './shared/error-pages/error-pages.component';
 import { MaterialModule } from './shared/Modulos/material/material.module';
+import { PrimeNgModule } from './shared/Modulos/PrimeNgModule.module';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,15 @@ import { MaterialModule } from './shared/Modulos/material/material.module';
     ErrorPagesComponent
   ],
   imports: [
+    PrimeNgModule,
     BrowserModule,
     MaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
