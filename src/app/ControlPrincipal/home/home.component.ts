@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private servicio: HomeService) {
     this.servicio.lstOpciones().subscribe(resp => {
+      console.log();
       this.lstOpciones = resp.Detalle._app_menu_x_empleado;
     });
   }

@@ -26,6 +26,18 @@ const routes: Routes = [
     canMatch:[ AuthGuard] 
   },
   {
+    path: 'ControlGeneral',
+    loadChildren: () => import('./ControlGeneral/GeneralModule.module').then( m => m.GeneralModule ),
+    canActivate:[ AuthGuard ],
+    canMatch:[ AuthGuard] 
+  },
+  {
+    path: 'ControlContable',
+    loadChildren: () => import('./ControlContabilidad/ControlContabilidad.module').then( m => m.ControlContabilidad ),
+    canActivate:[ AuthGuard ],
+    canMatch:[ AuthGuard] 
+  },
+  {
     path: 'ControlRh',
     loadChildren: () => import('./controlRh/ControlRh.module').then( m => m.ControlRh ),
     canActivate:[ AuthGuard ],

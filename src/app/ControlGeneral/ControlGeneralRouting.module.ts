@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlmacenesComponent } from './almacenes/almacenes.component';
 import { HomeComponent } from '../ControlPrincipal/home/home.component';
-
+import { ProductoComponent } from './producto/producto.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
-      { path: 'almacenes',    component: AlmacenesComponent },
       //=====================================================================================
+      { path: 'producto',    component: ProductoComponent },
       { path: '**', redirectTo: '/Control/inicio' }
     ]
   }
@@ -24,4 +23,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class ControlInventariosRoutingModule { }
+export class ControlGeneralRoutingModule { }
