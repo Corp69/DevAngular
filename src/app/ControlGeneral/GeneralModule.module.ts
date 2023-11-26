@@ -4,11 +4,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
 import { ProductoComponent } from './producto/producto.component';
 import { ControlGeneralRoutingModule } from './ControlGeneralRouting.module';
+import { ImpuestosProductoServicioComponent } from './ImpuestosProductoServicio/ImpuestosProductoServicio.component';
 
 
 @NgModule({
   declarations: [
-    ProductoComponent
+    ProductoComponent,
+    ImpuestosProductoServicioComponent
   ],
   imports: [
     CommonModule,

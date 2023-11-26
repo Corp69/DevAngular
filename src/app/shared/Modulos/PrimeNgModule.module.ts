@@ -24,13 +24,14 @@ import { FormsModule } from '@angular/forms';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
+import { PickListModule } from 'primeng/picklist';
 
 @NgModule({
   exports: [
     MegaMenuModule,
     MenuModule,
     MenubarModule,
-
+    PickListModule,
     FormsModule,
     SidebarModule,
     DropdownModule,
