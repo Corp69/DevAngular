@@ -8,7 +8,7 @@ import { ErroresService } from 'src/app/shared/errores.service';
 @Injectable({
   providedIn: 'root',
 })
-export class ImpuestosProductoServicio {
+export class ImpuestosEstatalService {
   constructor(private http: HttpClient, private errores: ErroresService) { }
 
   // ? ==================================================================================

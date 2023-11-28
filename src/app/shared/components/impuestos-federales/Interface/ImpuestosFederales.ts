@@ -1,5 +1,5 @@
 
-export interface impuestos_estatales {
+export interface ImpuestosFederales {
     id?: number;
     descripcion?: string;
 }

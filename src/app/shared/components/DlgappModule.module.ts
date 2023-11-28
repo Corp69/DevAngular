@@ -19,6 +19,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { ConfirmacionComponent } from './msj/confirmacion/confirmacion.component';
 import { PrimeNgModule } from '../Modulos/PrimeNgModule.module';
+import { ImpuestosFederalesComponent } from './impuestos-federales/ImpuestosFederales.component';
+import { ImpuestosEstatalesComponent } from './ImpuestosEstatales/ImpuestosEstatales.component';
 
 
 @NgModule({
@@ -29,12 +31,16 @@ import { PrimeNgModule } from '../Modulos/PrimeNgModule.module';
     ClaveProdServcpComponent,
     DomiciliosComponent,
     BusquedaComponent,
-    ConfirmacionComponent
+    ConfirmacionComponent,
+    ImpuestosFederalesComponent,
+    ImpuestosEstatalesComponent
   ],
   exports:[
     ClaveProdServcpComponent,
     BusquedaComponent,
-    ConfirmacionComponent
+    ConfirmacionComponent,
+    ImpuestosEstatalesComponent,
+    ImpuestosFederalesComponent
   ],
   imports: [
     //========================================

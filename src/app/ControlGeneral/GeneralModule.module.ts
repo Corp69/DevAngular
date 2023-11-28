@@ -5,6 +5,7 @@ import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
 import { ProductoComponent } from './producto/producto.component';
 import { ControlGeneralRoutingModule } from './ControlGeneralRouting.module';
 import { ImpuestosProductoServicioComponent } from './ImpuestosProductoServicio/ImpuestosProductoServicio.component';
+import { DlgappModule } from '../shared/components/DlgappModule.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ImpuestosProductoServicioComponent } from './ImpuestosProductoServicio/
     CommonModule,
     ReactiveFormsModule,
     ControlGeneralRoutingModule,
-    PrimeNgModule
+    PrimeNgModule,
+    DlgappModule
   ],
   providers: [
     DatePipe
