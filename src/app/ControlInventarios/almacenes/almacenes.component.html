@@ -1,51 +1,73 @@
-<mat-card>
-    <mat-card-content>
-        <h1 style="text-align: center;"> <b>Almacenes</b></h1>
-        <!-- Agregar Informcion del formulario -->
-        <form [formGroup]="frmAlmacen" autocomplete="off">
-            <div class="row">
-                <div class="col-sm-3">
-                    <label><b>Descripcion:</b></label>
-                    <input formControlName="descripcion" type="text" class="form-control"
-                        placeholder="Ingrese Descripcion">
-                        <span *ngIf="frmAlmacen.controls['descripcion'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
+<p-card header="Almacenes">
+    <!-- Agregar Informcion del formulario -->
+    <form [formGroup]="frmAlmacen" autocomplete="off">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="flex flex-column gap-2">
+                    <label>Descripcion</label>
+                    <input pInputText pTooltip="Ingrese Descripcion Del Almacen"
+                        tooltipPosition="bottom" type="text" formControlName="nombre" pInputText placeholder="Vacio" />
+                    <p-message severity="error" text="Campo Es Obligatorio "
+                        *ngIf="frmAlmacen.controls['nombre'].invalid">
+                    </p-message>
                 </div>
-                <div class="col-sm-3">
-                    <label><b>Ubicacion:</b></label>
-                    <input formControlName="ubicacion" type="text" class="form-control"
-                        placeholder="Ingrese Ubicacion">
-                        <span *ngIf="frmAlmacen.controls['ubicacion'].invalid"><b style=" color: rgb(235, 56, 29);">* Nombre Requerido</b></span> 
-                
-                    </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="flex flex-column gap-2">
+                    <label>Ubicacion</label>
+                    <input pTooltip="Ingrese Ubicacion Del Almacen" tooltipPosition="bottom" type="text"
+                        formControlName="ubicacion" pInputText placeholder="Vacio" />
+                </div>
             </div>
 
-
-          
-            <hr>
-            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                <button type="button"  (click)="NuevoAlmacen()" [disabled]="BtnSpinner"  title="Resetear Formulario" class="btn btn-outline-primary">
-                    Nuevo
-                </button>
-                <button *ngIf="BtnSpinner == false" type="submit"  (click)="Almacenar()" [disabled]="frmAlmacen.invalid"   title="Guardar Formulario" class="btn btn-outline-primary">
-                    Guardar
-                </button>
+        </div>   
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <i class="pi pi-user mr-2"></i>
+                <b>Funciones Usuario:</b>
             </div>
-        </form>
-         
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-content>
-        <!-- En caso de haber tabla Agregar Aqui -->
-    </mat-card-content>
-</mat-card>
+        </p-divider>
+        <button type="button" (click)="NuevoAlmacen()" [disabled]="BtnSpinner"
+            pTooltip="Nuevo Almacen: Resetear Informcion." tooltipPosition="bottom" class="btn btn-outline-primary">
+            Nuevo
+        </button>
+        <button [disabled]="BtnSpinner" type="button" (click)="Almacenar()" [disabled]="frmAlmacen.invalid"
+            pTooltip="Almacenar La Informcion Del Formulario." tooltipPosition="bottom" class="btn btn-outline-primary">
+            Guardar
+            <p-progressSpinner *ngIf="BtnSpinner" styleClass="w-4rem h-4rem" strokeWidth="8"
+                fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+        </button>
+    </form>
+</p-card>
 
-<div class="container-fluid">
-    <div class="row pt-4">
-        <div class="col-md-12 text-center mb-2" style="text-align: center;">
-            <small> ©2022 CopyRight
-                <span class="text-secondary font-weight-bold">Risega Dev. </span>
-            </small>
+
+
+
+<!-- SAT DOC COBRO  --->
+<div class="card flex flex-column align-items-center gap-2">
+    <p-dialog header="DEVELOPER ©2024" [(visible)]="visibleMjs" position="top">
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <i class="fas fa-info-circle"> Dev info.</i>
+            </div>
+        </p-divider>
+        <div class="row">
+            <div class="col-mb-4">
+                {{msjBody.titulo}}
+                <i *ngIf="msjBody.msjTipo == 1" class="fa-solid fa-check fa-2xl" style=" color: green;">
+                </i>
+                <i *ngIf="msjBody.msjTipo == 2" class="fa-solid fa-circle-exclamation fa-2xl"
+                    style=" color: orange;"></i>
+                <i *ngIf="msjBody.msjTipo == 3" class="fa-solid fa-triangle-exclamation fa-2xl"
+                    style=" color: red;"></i>
+                <br>
+                {{msjBody.mensaje}}
+            </div>
+            <div class="col-mb-4">
+                {{msjBody.detalle}}
+            </div>
         </div>
-    </div>
+        <br>
+        <hr>
+    </p-dialog>
 </div>

@@ -26,6 +26,11 @@ export class AlmacenesComponent {
     
   }
 
+  //==============================================================================================================
+  // Modal: mensaje Confirmacion 
+  public visibleMjs: boolean = false;
+  // variables para mensaje actualizar guardar 
+  public msjBody: any = { msjTipo: 1, titulo: '', mensaje: '', detalle: '' };
 
 //==============================================================================================================
   //modelos:
@@ -37,27 +42,42 @@ export class AlmacenesComponent {
   
   //==============================================================================================================
   // Crud Para Almacen:
-  Almacenar = () =>{
-    this.BtnSpinner = true;
-    console.log("formulario==",this.frmAlmacen.value);
-    setTimeout(() => {
+  public Almacenar = () => {
+      this.BtnSpinner = true;
       //===============================
       this.servicio.GuardarAlmacen(this.frmAlmacen.value).subscribe(resp => {
-        console.log(resp);
         switch (resp.Detalle) {
-          case  null:
-            Swal.fire(resp.Mensaje,'0 registros','warning');
+          case null:
+            this.visibleMjs = true;
+            //============================================================
+            this.msjBody.msjTipo = 3;
+            this.msjBody.titulo = 'Modulo Servicio: Developer®';
+            this.msjBody.mensaje = 'La consulta de manera exitosa !';
+            this.msjBody.detalle = 'Web Service Esta Fallando';
+            break;
+          case undefined:
+            this.visibleMjs = true;
+            //============================================================
+            this.msjBody.msjTipo = 3;
+            this.msjBody.titulo = 'Modulo Servicio: Developer®';
+            this.msjBody.mensaje = 'La consulta de manera exitosa !';
+            this.msjBody.detalle = 'Web Service Esta Fallando';
             break;
           default:
+            this.visibleMjs = true;
+            this.msjBody.msjTipo = 1;
+            //============================================================
+            this.msjBody.titulo = resp.Titulo;
+            this.msjBody.titulo = 'Modulo Servicio: Developer®';
+            this.msjBody.mensaje = resp.Mensaje;
+            this.msjBody.detalle = resp.Detalle;
+            //============================================================
             this.frmAlmacen.setValue(this.frmAlmacen.value);
-            this.frmAlmacen.controls['id'].setValue(parseInt(resp.Detalle));
-            Swal.fire(resp.Mensaje,'Operacion Exitosa');
-          break;
-        }  
+            this.frmAlmacen.controls['id'].setValue(parseInt(resp.Id));
+            break;
+        }
+        this.BtnSpinner = false;
       });
-      //===============================
-      this.BtnSpinner = false;
-    }, 1000);
   }
   
   /**

@@ -80,7 +80,7 @@
               {
                 "input": "src/theme-bootstrap4-dark-purple.scss",
                 "bundleName": "bootstrap4-dark-purple",
-                "inject": false
+                "inject": true
               }
             ],
             "scripts": [
