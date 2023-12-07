@@ -16,21 +16,21 @@ export class HomeService {
   constructor(
     private http: HttpClient,
     private errores: ErroresService,
-    
+
     @Inject(DOCUMENT) private document: Document
-    
-    ) { }
+
+  ) { }
 
   public lstOpciones(): Observable<any> {
     let headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
     return this.http
-      .post(`${environment.baseUrl}clientes/exce/schema`,
+      .post(`${environment.baseUrl}clientes/ctr/schema`,
         {
           "ExSchema": "Config",
           "funcion": "_app_menu_X_empleado",
-          "data": {'_ID_EMPLEADO': `${localStorage.getItem('id')}`}
+          "data": { '_ID_EMPLEADO': `${localStorage.getItem('id')}` }
         },
         { headers: headers })
       .pipe(
@@ -40,26 +40,15 @@ export class HomeService {
       );
   }
 
+  switchTheme(theme: any) {
 
-
-  switchTheme(theme: string) {
-    let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
-
-    if (themeLink) {
-        themeLink.href = theme + '.css';
+    if (theme == null ) {
+      theme =  'vela-blue';
     }
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
+    let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
+    if (themeLink) {
+      themeLink.href = theme + '.css';
+    }
+  }
 }

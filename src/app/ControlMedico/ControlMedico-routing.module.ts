@@ -7,10 +7,12 @@ import { NutripacienteplieguesComponent } from './nutripacientepliegues/nutripac
 import { TbpacientesComponent } from './tbpacientes/tbpacientes.component';
 import { GraficosResultadosComponent } from './GraficosResultados/GraficosResultados.component';
 import { GraficosDetalleComponent } from './GraficosDetalle/GraficosDetalle.component';
+import { HomeComponent } from '../ControlPrincipal/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: HomeComponent,
     children: [
       //=====================================================================================
       { path: 'TbpacientesComponent',    component: TbpacientesComponent },

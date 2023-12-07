@@ -5,10 +5,12 @@ import { ListDcumentosComponent } from './listDocumentos/ListDcumentos.component
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { LstProveedorComponent } from './lstProveedor/lstProveedor.component';
 import { ProveedorDomicilioComponent } from './proveedor-domicilio/ProveedorDomicilio.component';
+import { HomeComponent } from '../ControlPrincipal/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: HomeComponent,
     children: [
       { path: 'lstDocumentos', component: ListDcumentosComponent },
       { path: 'DocCompra', component: DocCompraComponent },
