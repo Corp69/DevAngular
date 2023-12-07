@@ -1,0 +1,30 @@
+<p-card header="Productos Servicios - Impuestos Estatales">
+    <p-pickList [source]="DisponiblesImpuestosEstatales" [target]="AsignadosImpuestosEstatales" sourceHeader="Disponibles" targetHeader="Asignados" [dragdrop]="true" [responsive]="true" [sourceStyle]="{ height: '30rem' }"
+        [targetStyle]="{ height: '30rem' }" 
+        filterBy="descripcion" 
+        sourceFilterPlaceholder="Buscar" 
+        targetFilterPlaceholder="Buscar" 
+        breakpoint="1400px"
+        (onMoveToTarget)="onMoveToTarget($event)"
+        (onMoveToSource)="onMoveToSource($event)"
+        (onMoveAllToTarget)="onMoveAllToTarget($event)"
+        (onMoveAllToSource)="onMoveAllToSource($event)"
+       
+        >
+        
+        <ng-template let-impuestos_estatales pTemplate="item">
+            <div class="flex flex-wrap p-2 align-items-center gap-3">
+                <div class="flex-1 flex flex-column gap-2">
+                    <span class="font-bold">{{ impuestos_estatales.descripcion }}</span>
+                    <div class="flex align-impuestos_estataless-center gap-2">
+                        <i class="pi pi-tag text-sm"></i>
+                        <span>{{ impuestos_estatales.descripcion }}</span>
+                    </div>
+                </div>
+                <span class="font-bold text-900">{{ '$' + impuestos_estatales.descripcion }}</span>
+            </div>
+        </ng-template>
+    </p-pickList>
+</p-card>
+
+

@@ -10,67 +10,23 @@ import { HomeService } from './Services/Home.service';
 export class HomeComponent implements OnInit {
 
   public lstOpciones: any;
-  public items: any;
-
+  public items: any | undefined;
+  public sidebarVisible: boolean = false;
+  public theme = localStorage.getItem("theme");
+    
 
   constructor(private servicio: HomeService) {
-      this.servicio.lstOpciones().subscribe(resp => {
-      this.lstOpciones = resp.Detalle._app_menu_x_empleado;
-        console.log("menu " , this.lstOpciones );
-      });
- 
+    
   }
 
-  public OcultarBar(){
-    
+ public changeTheme(theme: string) {
+    localStorage.setItem('theme', theme);
+    this.servicio.switchTheme(theme);
   }
 
   ngOnInit() {
-    
-}
-
-
-public selectedState: any = null;
-
-
-states: any[] = [
-    {name: 'Arizona', code: 'Arizona'},
-    {name: 'California', value: 'California'},
-    {name: 'Florida', code: 'Florida'},
-    {name: 'Ohio', code: 'Ohio'},
-    {name: 'Washington', code: 'Washington'}
-];
-
-cities1: any[] = [];
-
-cities2: any[] = [];
-
-city1:any = null;
-
-city2:any = null;
-
-changeTheme(theme: string) {
-    this.servicio.switchTheme(theme);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    this.servicio.lstOpciones().subscribe(resp => {
+      this.items = resp.Detalle._app_menu_x_empleado;
+    });
+  }
 }

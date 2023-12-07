@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlmacenesComponent } from './almacenes/almacenes.component';
 import { HomeComponent } from '../ControlPrincipal/home/home.component';
-
+import { DiotComponent } from './diot/diot.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
-      { path: 'almacenes',    component: AlmacenesComponent },
-      //=====================================================================================
+      { path: 'diot', component: DiotComponent },
       { path: '**', redirectTo: '/Control/inicio' }
     ]
   }
 ];
+
 
 @NgModule({
   imports: [
@@ -24,4 +23,6 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class ControlInventariosRoutingModule { }
+
+
+export class ControlContabilidadRoutingModule { }

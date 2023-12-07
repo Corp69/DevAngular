@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 //=======================================
 //! modulos personalizados Librerias 
 import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
-import { MaterialModule } from '../shared/Modulos/material/material.module';
 //=======================================
 //? modulos personalizados reutilizar codigo 
 import { DlgappModule } from '../shared/components/DlgappModule.module';
@@ -17,7 +16,8 @@ import { ControlMedicoModule } from '../ControlMedico/ControlMedico.module';
 import { ControlEmpresaModule } from '../ControlEmpresa/ControlEmpresa.module';
 import { VentasModule } from '../ControlVentas/ventas.module';
 import { TesteoFormatosModule } from '../TesteoFormatos/TesteoFormatos.module';
-
+import { ControlContabilidad } from '../ControlContabilidad/ControlContabilidad.module';
+import { GeneralModule } from '../ControlGeneral/GeneralModule.module';
 
 
 @NgModule({
@@ -33,6 +33,8 @@ import { TesteoFormatosModule } from '../TesteoFormatos/TesteoFormatos.module';
     ControlMedicoModule,
     VentasModule,
     TesteoFormatosModule,
+    ControlContabilidad,
+    GeneralModule,
     //? ======================================================= 
     CommonModule,
     ReactiveFormsModule,

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { InvProductoComponent } from './inv-producto/invproducto.component';
 import { ControlInventariosRoutingModule } from './ControlInventarios-routing.module';
 import { SatprodservComponent } from './satprodserv/satprodserv.component';
 import { AlmacenesComponent } from './almacenes/almacenes.component';
@@ -19,7 +18,6 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
 
 @NgModule({
   declarations: [
-    InvProductoComponent,
     SatprodservComponent,
     AlmacenesComponent,
     CobrosComponent,

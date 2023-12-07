@@ -10,7 +10,6 @@ import { ProveedorDomicilioComponent } from './proveedor-domicilio/ProveedorDomi
 //=======================================
 //! modulos personalizados Librerias 
 import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
-import { MaterialModule } from '../shared/Modulos/material/material.module';
 //=======================================
 //? modulos personalizados reutilizar codigo 
 import { DlgappModule } from '../shared/components/DlgappModule.module';
