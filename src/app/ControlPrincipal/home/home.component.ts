@@ -11,9 +11,10 @@ export class HomeComponent implements OnInit {
 
   public lstOpciones: any;
   public items: any | undefined;
+  public itemMenu: any | undefined;
   public sidebarVisible: boolean = false;
   public theme = localStorage.getItem("theme");
-    
+  
 
   constructor(private servicio: HomeService) {
     
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.servicio.lstOpciones().subscribe(resp => {
-      this.items = resp.Detalle._app_menu_x_empleado;
+      this.items = resp.Detalle._app_menu_modulo;
     });
   }
 }

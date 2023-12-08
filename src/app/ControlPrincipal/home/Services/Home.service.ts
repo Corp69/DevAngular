@@ -29,7 +29,7 @@ export class HomeService {
       .post(`${environment.baseUrl}clientes/ctr/schema`,
         {
           "ExSchema": "Config",
-          "funcion": "_app_menu_X_empleado",
+          "funcion": "_app_menu_modulo",
           "data": { '_ID_EMPLEADO': `${localStorage.getItem('id')}` }
         },
         { headers: headers })
