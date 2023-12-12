@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../ControlPrincipal/home/home.component';
-import { ProductoComponent } from './producto/producto.component';
-import { ImpuestosProductoServicioComponent } from './ImpuestosProductoServicio/ImpuestosProductoServicio.component';
 
 const routes: Routes = [
   {
@@ -10,8 +8,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       //=====================================================================================
-      { path: 'producto/:id',    component: ProductoComponent },
-      { path: 'ImpuestosProducto/:id',    component: ImpuestosProductoServicioComponent },
+      //{ path: 'producto/:id',    component: ProductoComponent },
       { path: '**', redirectTo: '/Control/inicio' }
     ]
   }

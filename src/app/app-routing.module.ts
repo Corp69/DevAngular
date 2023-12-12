@@ -44,6 +44,12 @@ const routes: Routes = [
     canMatch:[ AuthGuard] 
   },
   {
+    path: 'ControlInventarios',
+    loadChildren: () => import('./ControlInventarios/ControlInventarios.module').then( m => m.ControlInventariosModule ),
+    canActivate:[ AuthGuard ],
+    canMatch:[ AuthGuard] 
+  },
+  {
     path: 'ControlEscolar',
     loadChildren: () => import('./ControlEscolar/ControlEscolar.module').then( m => m.ControlEscolarModule ),
     canActivate:[ AuthGuard ],
@@ -58,12 +64,6 @@ const routes: Routes = [
   {
     path: 'ControlMedico',
     loadChildren: () => import('./ControlMedico/ControlMedico.module').then( m => m.ControlMedicoModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  {
-    path: 'ControlInventario',
-    loadChildren: () => import('./ControlInventarios/ControlInventarios.module').then( m => m.ControlInventariosModule ),
     canActivate:[ AuthGuard ],
     canMatch:[ AuthGuard] 
   },
