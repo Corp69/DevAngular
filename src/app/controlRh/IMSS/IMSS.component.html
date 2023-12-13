@@ -1,0 +1,105 @@
+<p-card header="IMSS">
+    <!-- Agregar Informcion del formulario -->
+    <form [formGroup]="frmImss" autocomplete="off">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="flex flex-column gap-2">
+                    <label>NUMERO SEGURO SOCIAL</label>
+                    <input pInputText pTooltip="Ingrese NSS Del Empleado. "
+                        tooltipPosition="bottom" type="number" formControlName="nss" pInputText placeholder="00000000" />
+                    <p-message severity="error" text="Campo Es Obligatorio "
+                        *ngIf="frmImss.controls['nss'].invalid">
+                    </p-message>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="flex flex-column gap-2">
+                    <label>Registro Patronal</label>
+                    <input pInputText pTooltip="Ingrese Registro Patronal: Del Empleado" tooltipPosition="bottom"
+                        type="text" formControlName="registro_patronal" pInputText placeholder="0X0X0X0X0X0X0X0" />
+                    <p-message severity="error" text="Campo Es Obligatorio "
+                    *ngIf="frmImss.controls['registro_patronal'].invalid">
+                    </p-message>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="flex flex-column gap-2">
+                    <label>U.M.F.</label>
+                    <input pTooltip="Ingrese U.M.F. Del Empleado." tooltipPosition="bottom" type="text"
+                        formControlName="UMF" pInputText placeholder="0X0X0X0X0X0" />
+                        <p-message severity="error" text="Campo Es Obligatorio "
+                        *ngIf="frmImss.controls['UMF'].invalid">
+                        </p-message>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="flex flex-column gap-2">
+                    <label>Extranjero</label>
+                    <p-checkbox 
+                     pTooltip="Marque Si Es Empleado: Extranjero"
+                     tooltipPosition="bottom"
+                     formControlName="extranjero">
+                </p-checkbox>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="flex flex-column gap-2">
+                    <label>Estado Civil:</label>
+                    <p-dropdown pTooltip="Seleccione Un Estado: Estado Civil."
+                        tooltipPosition="bottom" formControlName="id_estado_civil" [options]="lstEstadoCivil"
+                        value="id" optionValue="id" optionLabel="descripcion">
+                    </p-dropdown>
+                </div>
+            </div>
+        </div>
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <i class="pi pi-user mr-2"></i>
+                <b>Funciones Usuario:</b>
+            </div>
+        </p-divider>
+        <button type="button" (click)="Nuevo()" [disabled]="BtnSpinner"
+            pTooltip="Nuevo Formulario: Resetear Informcion." tooltipPosition="bottom" class="btn btn-outline-primary">
+            Nuevo
+        </button>
+        <button [disabled]="BtnSpinner" type="button" (click)="Almacenar()" [disabled]="frmImss.invalid"
+            pTooltip="Almacenar La Informcion Del Formulario." tooltipPosition="bottom" class="btn btn-outline-primary">
+            Guardar
+            <p-progressSpinner *ngIf="BtnSpinner" styleClass="w-4rem h-4rem" strokeWidth="8"
+                fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+
+        </button>
+    </form>
+</p-card>
+
+<div class="card flex flex-column align-items-center gap-2">
+    <p-dialog header="DEVELOPER ©2024" [(visible)]="visibleMjs" position="top">
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <i class="fas fa-info-circle"> Dev info.</i>
+            </div>
+        </p-divider>
+        <div class="row">
+            <div class="col-mb-4">
+                {{msjBody.titulo}}
+                <i *ngIf="msjBody.msjTipo == 1" class="fa-solid fa-check fa-2xl" style=" color: green;">
+                </i>
+                <i *ngIf="msjBody.msjTipo == 2" class="fa-solid fa-circle-exclamation fa-2xl"
+                    style=" color: orange;"></i>
+                <i *ngIf="msjBody.msjTipo == 3" class="fa-solid fa-triangle-exclamation fa-2xl"
+                    style=" color: red;"></i>
+                <br>
+                {{msjBody.mensaje}}
+            </div>
+            <div class="col-mb-4">
+                {{msjBody.detalle}}
+            </div>
+        </div>
+        <br>
+        <hr>
+    </p-dialog>
+</div>

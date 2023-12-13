@@ -4,6 +4,7 @@ import { DepartamentoComponent } from './departamento/departamento.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { PuestoComponent } from './puesto/puesto.component';
 import { HomeComponent } from '../ControlPrincipal/home/home.component';
+import { IMSSComponent } from './IMSS/IMSS.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'empleado/:id', component: EmpleadoComponent },
+      { path: 'imss', component: IMSSComponent },
       { path: 'departamento', component: DepartamentoComponent },
       { path: 'departamento/:id', component: DepartamentoComponent },
       { path: 'puesto', component: PuestoComponent },

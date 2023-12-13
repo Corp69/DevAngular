@@ -1,194 +1,164 @@
-<mat-card>
-    <mat-card-content>
-        <h1 style="text-align: center;"> <b>Empleado</b></h1>
-        <!-- Agregar Informcion del formulario -->
-        <form [formGroup]="frmEmpleado" autocomplete="off">
-            <div class="row">
-                <div class="col-sm-3">
-                    <label><b>Nombre:</b></label>
-                    <input formControlName="nombre" type="text" class="form-control" placeholder="Ingrese Nombre">
-                    <span *ngIf="frmEmpleado.controls['nombre'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
-                            Requerido</b></span>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Apellido Paterno:</b></label>
-                    <input formControlName="paterno" type="text" class="form-control"
-                        placeholder="Ingrese Apellido Paterno">
-                    <span *ngIf="frmEmpleado.controls['paterno'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
-                            Requerido</b></span>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Apellido Materno:</b></label>
-                    <input formControlName="materno" type="text" class="form-control"
-                        placeholder="Ingrese Apellido Materno">
-                    <span *ngIf="frmEmpleado.controls['materno'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
-                            Requerido</b></span>
+<h1 style="text-align: center;"> <b>Empleado</b></h1>
+<!-- Agregar Informcion del formulario -->
+<form [formGroup]="frmEmpleado" autocomplete="off">
+    <div class="row">
+        <div class="col-sm-3">
+            <label><b>Nombre:</b></label>
+            <input formControlName="nombre" type="text" class="form-control" placeholder="Ingrese Nombre">
+            <span *ngIf="frmEmpleado.controls['nombre'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                    Requerido</b></span>
+        </div>
+        <div class="col-sm-3">
+            <label><b>Apellido Paterno:</b></label>
+            <input formControlName="paterno" type="text" class="form-control" placeholder="Ingrese Apellido Paterno">
+            <span *ngIf="frmEmpleado.controls['paterno'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                    Requerido</b></span>
+        </div>
+        <div class="col-sm-3">
+            <label><b>Apellido Materno:</b></label>
+            <input formControlName="materno" type="text" class="form-control" placeholder="Ingrese Apellido Materno">
+            <span *ngIf="frmEmpleado.controls['materno'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                    Requerido</b></span>
 
-                </div>
-                <div class="col-sm-3">
-                    <label><b>RFC:</b></label>
-                    <input formControlName="rfc" type="text" class="form-control" placeholder="Ingrese RFC XXX0X0X0X0">
-                    <span *ngIf="frmEmpleado.controls['rfc'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
-                            Requerido</b></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <label><b>Numero Seguro Social:</b></label>
-                    <input formControlName="nss" type="number" class="form-control" placeholder="Ingrese numero">
-                </div>
-                <div class="col-sm-3">
-                    <label><b>CURP:</b></label>
-                    <input formControlName="curp" type="text" class="form-control" placeholder="Ingrese Apellido CURP">
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Cuenta Bancaria:</b></label>
-                    <input formControlName="cuenta_banco" type="text" class="form-control"
-                        placeholder="Ingrese Cuenta de Banco">
-                </div>
-                <div class="col-sm-3">
-                    <label><b>CLABE:</b></label>
-                    <input formControlName="clabe" type="text" class="form-control" placeholder=" XXX0X0X0X0">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <label><b>whatsapp:</b></label>
-                    <input formControlName="whatsapp" type="text" class="form-control" placeholder="Ingrese Nombre">
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Codigo:</b></label>
-                    <input formControlName="codigo" type="text" class="form-control"
-                        placeholder="Ingrese RFC XXX0X0X0X0">
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Correo:</b></label>
-                    <input formControlName="correo" type="text" class="form-control"
-                        placeholder="Ingrese RFC XXX0X0X0X0">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <label><b>Persona/contacto1:</b></label>
-                    <textarea formControlName="contacto1" type="text" class="form-control"
-                        placeholder="Ingrese informacion de algun contacnto"></textarea>
-                </div>
-                <div class="col-sm-4">
-                    <label><b>Persona/contacto1:</b></label>
-                    <textarea formControlName="contacto2" type="text" class="form-control"
-                        placeholder="Ingrese informacion de algun contacnto"></textarea>
-                </div>
-                <div class="col-sm-4">
-                    <label><b>Obeservaciones:</b></label>
-                    <textarea formControlName="observaciones" type="text" class="form-control" placeholder="Observaciones "></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <label><b>Grado Escolar:</b></label>
-                    <select class="form-select" formControlName="id_rh_grado"
-                        placeholder="Seleccione Grado" aria-label="Default select example">
-                        <option *ngFor="let item of lstGrado" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Clasificación:</b></label>
-                    <select class="form-select" formControlName="id_rh_clasificacion"
-                        placeholder="Seleccione Clasificación" aria-label="Default select example">
-                        <option *ngFor="let item of lstclasificacion" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Departamento:</b></label>
-                    <select class="form-select"
-                        placeholder="Seleccione Clasificación" aria-label="Default select example">
-                        <option (change)="DepartamentoFiltro($event.target)" *ngFor="let item of lstDepartamento" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Puesto:</b></label>
-                    <select class="form-select" formControlName="id_rh_puesto"
-                        placeholder="Seleccione un Puesto" aria-label="Default select example">
-                        <option *ngFor="let item of lstPuestos" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <label><b>Estado:</b></label>
-                    <select class="form-select" formControlName="id_rh_estatus"
-                        placeholder="Seleccione Status" aria-label="Default select example">
-                        <option *ngFor="let item of lstestatus" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Sexo:</b></label>
-                    <select class="form-select" formControlName="id_sexo"
-                        placeholder="Seleccione Genero" aria-label="Default select example">
-                        <option *ngFor="let item of lstSexo" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Fecha Nacimiento:</b></label>
-                    <select class="form-select" formControlName="fecha_nacimiento"
-                        placeholder="Seleccione Status" aria-label="Default select example">
-                        <option *ngFor="let item of lstestatus" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label><b>Fecha Ingreso:</b></label>
-                    <select class="form-select" formControlName="fecha_ingreso"
-                        placeholder="Seleccione Genero" aria-label="Default select example">
-                        <option *ngFor="let item of lstSexo" [value]="item.id">{{item.descripcion}}
-                        </option>
-                    </select>
-                </div>
-            </div>
-
-
-
-
-            <hr>
-            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                <button type="button" (click)="NuevoProvedor()"  title="Resetear Formulario"
-                    class="btn btn-outline-primary">
-                    Nuevo
-                </button>
-                
-                <button  type="submit" (click)="Almacenar()"
-                    [disabled]="frmEmpleado.invalid" title="Guardar Formulario" class="btn btn-outline-primary">
-                    Guardar
-                </button>
-            </div>
-        </form>
-
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-content>
-        <!-- En caso de haber tabla Agregar Aqui -->
-    </mat-card-content>
-</mat-card>
-
-
-
-
-
-
-<!-- ========================================================================================================================================================================================= -->
-<div class="container-fluid">
-    <div class="row pt-4">
-        <div class="col-md-12 text-center mb-2" style="text-align: center;">
-            <small> ©2022 CopyRight
-                <span class="text-secondary font-weight-bold">Elizandro Dev. </span>
-            </small>
+        </div>
+        <div class="col-sm-3">
+            <label><b>RFC:</b></label>
+            <input formControlName="rfc" type="text" class="form-control" placeholder="Ingrese RFC XXX0X0X0X0">
+            <span *ngIf="frmEmpleado.controls['rfc'].invalid"><b style=" color: rgb(235, 56, 29);">* campo
+                    Requerido</b></span>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label><b>Numero Seguro Social:</b></label>
+            <input formControlName="nss" type="number" class="form-control" placeholder="Ingrese numero">
+        </div>
+        <div class="col-sm-3">
+            <label><b>CURP:</b></label>
+            <input formControlName="curp" type="text" class="form-control" placeholder="Ingrese Apellido CURP">
+        </div>
+        <div class="col-sm-3">
+            <label><b>Cuenta Bancaria:</b></label>
+            <input formControlName="cuenta_banco" type="text" class="form-control"
+                placeholder="Ingrese Cuenta de Banco">
+        </div>
+        <div class="col-sm-3">
+            <label><b>CLABE:</b></label>
+            <input formControlName="clabe" type="text" class="form-control" placeholder=" XXX0X0X0X0">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label><b>whatsapp:</b></label>
+            <input formControlName="whatsapp" type="text" class="form-control" placeholder="Ingrese Nombre">
+        </div>
+        <div class="col-sm-3">
+            <label><b>Codigo:</b></label>
+            <input formControlName="codigo" type="text" class="form-control" placeholder="Ingrese RFC XXX0X0X0X0">
+        </div>
+        <div class="col-sm-3">
+            <label><b>Correo:</b></label>
+            <input formControlName="correo" type="text" class="form-control" placeholder="Ingrese RFC XXX0X0X0X0">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label><b>Persona/contacto1:</b></label>
+            <textarea formControlName="contacto1" type="text" class="form-control"
+                placeholder="Ingrese informacion de algun contacnto"></textarea>
+        </div>
+        <div class="col-sm-4">
+            <label><b>Persona/contacto1:</b></label>
+            <textarea formControlName="contacto2" type="text" class="form-control"
+                placeholder="Ingrese informacion de algun contacnto"></textarea>
+        </div>
+        <div class="col-sm-4">
+            <label><b>Obeservaciones:</b></label>
+            <textarea formControlName="observaciones" type="text" class="form-control"
+                placeholder="Observaciones "></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label><b>Grado Escolar:</b></label>
+            <select class="form-select" formControlName="id_rh_grado" placeholder="Seleccione Grado"
+                aria-label="Default select example">
+                <option *ngFor="let item of lstGrado" [value]="item.id">{{item.descripcion}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <label><b>Clasificación:</b></label>
+            <select class="form-select" formControlName="id_rh_clasificacion" placeholder="Seleccione Clasificación"
+                aria-label="Default select example">
+                <option *ngFor="let item of lstclasificacion" [value]="item.id">{{item.descripcion}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <label><b>Departamento:</b></label>
+            <select class="form-select" placeholder="Seleccione Clasificación" aria-label="Default select example">
+                <option (change)="DepartamentoFiltro($event.target)" *ngFor="let item of lstDepartamento"
+                    [value]="item.id">{{item.descripcion}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <label><b>Puesto:</b></label>
+            <select class="form-select" formControlName="id_rh_puesto" placeholder="Seleccione un Puesto"
+                aria-label="Default select example">
+                <option *ngFor="let item of lstPuestos" [value]="item.id">{{item.descripcion}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label><b>Estado:</b></label>
+            <select class="form-select" formControlName="id_rh_estatus" placeholder="Seleccione Status"
+                aria-label="Default select example">
+                <option *ngFor="let item of lstestatus" [value]="item.id">{{item.descripcion}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <label><b>Sexo:</b></label>
+            <select class="form-select" formControlName="id_sexo" placeholder="Seleccione Genero"
+                aria-label="Default select example">
+                <option *ngFor="let item of lstSexo" [value]="item.id">{{item.descripcion}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <label><b>Fecha Nacimiento:</b></label>
+            <select class="form-select" formControlName="fecha_nacimiento" placeholder="Seleccione Status"
+                aria-label="Default select example">
+                <option *ngFor="let item of lstestatus" [value]="item.id">{{item.descripcion}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <label><b>Fecha Ingreso:</b></label>
+            <select class="form-select" formControlName="fecha_ingreso" placeholder="Seleccione Genero"
+                aria-label="Default select example">
+                <option *ngFor="let item of lstSexo" [value]="item.id">{{item.descripcion}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+
+
+
+    <hr>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+        <button type="button" (click)="NuevoProvedor()" title="Resetear Formulario" class="btn btn-outline-primary">
+            Nuevo
+        </button>
+
+        <button type="submit" (click)="Almacenar()" [disabled]="frmEmpleado.invalid" title="Guardar Formulario"
+            class="btn btn-outline-primary">
+            Guardar
+        </button>
+    </div>
+</form>
