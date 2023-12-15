@@ -3,7 +3,6 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ControlComprasRoutingModule } from './ControlCompra-routing.module';
 import { ProveedorComponent } from './proveedor/proveedor.component';
-import { LstProveedorComponent } from './lstProveedor/lstProveedor.component';
 import { ListDcumentosComponent } from './listDocumentos/ListDcumentos.component';
 import { DocCompraComponent } from './docCompra/DocCompra.component';
 import { ProveedorDomicilioComponent } from './proveedor-domicilio/ProveedorDomicilio.component';
@@ -13,14 +12,15 @@ import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
 //=======================================
 //? modulos personalizados reutilizar codigo 
 import { DlgappModule } from '../shared/components/DlgappModule.module';
+import { LstproveedoresComponent } from './lstproveedores/lstproveedores.component';
 
 @NgModule({
   declarations: [
     ProveedorComponent,
-    LstProveedorComponent,
     ListDcumentosComponent,
     DocCompraComponent,
-    ProveedorDomicilioComponent
+    ProveedorDomicilioComponent,
+    LstproveedoresComponent
   ],
   imports: [
     CommonModule,
@@ -29,8 +29,6 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
     //=======================================
     //? modulos personalizados reutilizar codigo 
     DlgappModule,
-    //=======================================
-    //! modulos personalizados Librerias 
     PrimeNgModule
   ],
   providers: [

@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorPagesComponent } from './shared/error-pages/error-pages.component';
-import { MaterialModule } from './shared/Modulos/material/material.module';
 import { PrimeNgModule } from './shared/Modulos/PrimeNgModule.module';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { PrimeNgModule } from './shared/Modulos/PrimeNgModule.module';
   imports: [
     PrimeNgModule,
     BrowserModule,
-    MaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,

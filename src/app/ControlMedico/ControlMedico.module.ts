@@ -12,7 +12,6 @@ import { GraficosDetalleComponent } from './GraficosDetalle/GraficosDetalle.comp
 //=======================================
 //! modulos personalizados Librerias 
 import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
-import { MaterialModule } from '../shared/Modulos/material/material.module';
 import { PrimeNgKpisModule } from '../shared/Modulos/PrimeNgKpisModule.module';
 //=======================================
 //? modulos personalizados reutilizar codigo 
@@ -38,7 +37,6 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
     //=======================================
     //! modulos personalizados Librerias 
     PrimeNgModule,
-    MaterialModule,
     PrimeNgKpisModule,
     //=======================================
     // routing

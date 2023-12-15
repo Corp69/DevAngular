@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { DocCompraComponent } from './docCompra/DocCompra.component';
 import { ListDcumentosComponent } from './listDocumentos/ListDcumentos.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
-import { LstProveedorComponent } from './lstProveedor/lstProveedor.component';
 import { ProveedorDomicilioComponent } from './proveedor-domicilio/ProveedorDomicilio.component';
 import { HomeComponent } from '../ControlPrincipal/home/home.component';
+import { LstproveedoresComponent } from './lstproveedores/lstproveedores.component';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'lstDocumentos', component: ListDcumentosComponent },
       { path: 'DocCompra', component: DocCompraComponent },
-      { path: 'lstProveedor', component: LstProveedorComponent },
+      { path: 'lstProveedor', component: LstproveedoresComponent },
       { path: 'Proveedor/:id', component: ProveedorComponent },
      // { path: 'Proveedor/:id', component: ProveedorComponent,  resolve: { data: ProveedorResolver }},
       

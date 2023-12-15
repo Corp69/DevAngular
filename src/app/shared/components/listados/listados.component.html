@@ -1,0 +1,48 @@
+<p-card header="Listado: ">
+    <!-- Agregar Informcion del formulario -->
+
+    <div class="row">
+        <div class="col-mb-4">
+            <label for="icon">Fecha Inicial: </label>
+            <p-calendar 
+                [(ngModel)]="fecha1" 
+                [showIcon]="true" 
+                inputId="icon"
+                pTooltip="Define El Dia Inicial A Realizar La Busqueda." 
+                tooltipPosition="bottom"
+                >
+            </p-calendar>
+        </div>
+        <p-divider></p-divider>
+        <div class="col-mb-4">
+            <label for="icon">Fecha Final: </label>
+            <p-calendar 
+                [(ngModel)]="fecha2" 
+                [showIcon]="true" 
+                inputId="icon"
+                pTooltip="Define El Dia En Que Termina La Busqueda." 
+                tooltipPosition="bottom"
+                >
+            </p-calendar>
+        </div>
+    </div>
+
+    <p-divider align="left">
+        <div class="inline-flex align-items-center">
+            <i class="pi pi-user mr-2"></i>
+            <b>Funciones Usuario:</b>
+        </div>
+    </p-divider>
+    <button type="button" (click)="Nuevo()" [disabled]="BtnSpinner"
+        pTooltip="Realiza Un Reset A Las Fechas Establecidas." tooltipPosition="bottom" class="btn btn-outline-primary">
+        Nuevo
+    </button>
+    <button [disabled]="BtnSpinner" type="button" (click)="Buscar()" [disabled]="frmLst.invalid"
+        pTooltip="Realiza La Busqueda Del Formulario." tooltipPosition="bottom" class="btn btn-outline-primary">
+        Guardar
+        <p-progressSpinner *ngIf="BtnSpinner" styleClass="w-4rem h-4rem" strokeWidth="8"
+            fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+    </button>
+
+
+</p-card>

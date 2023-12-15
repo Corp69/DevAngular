@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 //=======================================
 //! modulos personalizados Librerias 
 import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
-import { MaterialModule } from '../shared/Modulos/material/material.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { MaterialModule } from '../shared/Modulos/material/material.module';
     //=======================================
     //! modulos personalizados Librerias 
     PrimeNgModule,
-    MaterialModule,
     //=======================================
     //routing
     ControlEmpresaRoutingModule

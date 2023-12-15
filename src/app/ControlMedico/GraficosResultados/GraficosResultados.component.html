@@ -3,26 +3,22 @@
   <p class="lead text-muted"><b>Developer node angular.</b></p>
 </div>
 <div *ngFor="let item of data" class="container" id="featured-3">
- <br>
-  <mat-card>
-    <mat-card-content>
-      <div [innerHTML]="item.titulo" [style]="item.styletitulo"></div>
-      <div class="row">
-        <div class="feature col">
-          <div class="feature-icon bg-primary bg-gradient">
-            <svg class="bi" width="1em" height="1em">
-              <use xlink:href="#collection" />
-            </svg>
-          </div>
-          <div [innerHTML]="item.nombre" [style]="item.stylenombre">
-            <a [routerLink]="['/ControlVentas/venta']">ver Informacion</a>
-          </div>
-          <div [innerHTML]="item.observaciones" [style]="item.styleobservaciones"></div>
-          <div [innerHTML]="item.descripcion"   [style]="item.styledescripcion"></div>
-          <div [innerHTML]="item.descripcion2"  [style]="item.styledescripcion2"></div>
-        </div>
+  <br>
+  <div [innerHTML]="item.titulo" [style]="item.styletitulo"></div>
+  <div class="row">
+    <div class="feature col">
+      <div class="feature-icon bg-primary bg-gradient">
+        <svg class="bi" width="1em" height="1em">
+          <use xlink:href="#collection" />
+        </svg>
       </div>
-    </mat-card-content>
-  </mat-card>
-</div>
+      <div [innerHTML]="item.nombre" [style]="item.stylenombre">
+        <a [routerLink]="['/ControlVentas/venta']">ver Informacion</a>
+      </div>
+      <div [innerHTML]="item.observaciones" [style]="item.styleobservaciones"></div>
+      <div [innerHTML]="item.descripcion" [style]="item.styledescripcion"></div>
+      <div [innerHTML]="item.descripcion2" [style]="item.styledescripcion2"></div>
+    </div>
+  </div>
 
+</div>

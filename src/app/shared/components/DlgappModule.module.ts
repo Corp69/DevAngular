@@ -21,6 +21,7 @@ import { ConfirmacionComponent } from './msj/confirmacion/confirmacion.component
 import { PrimeNgModule } from '../Modulos/PrimeNgModule.module';
 import { ImpuestosFederalesComponent } from './impuestos-federales/ImpuestosFederales.component';
 import { ImpuestosEstatalesComponent } from './ImpuestosEstatales/ImpuestosEstatales.component';
+import { ListadosComponent } from './listados/listados.component';
 
 
 @NgModule({
@@ -33,14 +34,16 @@ import { ImpuestosEstatalesComponent } from './ImpuestosEstatales/ImpuestosEstat
     BusquedaComponent,
     ConfirmacionComponent,
     ImpuestosFederalesComponent,
-    ImpuestosEstatalesComponent
+    ImpuestosEstatalesComponent,
+    ListadosComponent
   ],
   exports:[
     ClaveProdServcpComponent,
     BusquedaComponent,
     ConfirmacionComponent,
     ImpuestosEstatalesComponent,
-    ImpuestosFederalesComponent
+    ImpuestosFederalesComponent,
+    ListadosComponent
   ],
   imports: [
     //========================================
@@ -48,17 +51,7 @@ import { ImpuestosEstatalesComponent } from './ImpuestosEstatales/ImpuestosEstat
     PrimeNgModule,
     //========================================
     ReactiveFormsModule,
-    dlgBusquedasModuleRoutingModule,
-    //========================================
-    //Tablas: Angular PrimeNG 
-    TableModule,
-    TabMenuModule,
-    TabViewModule,
-    //Cards: Angular PrimeNG 
-    CardModule,
-    //dialogo o modal: Angular PrimeNG 
-    DialogModule,
-    ConfirmDialogModule
+    dlgBusquedasModuleRoutingModule
   ],
   providers: [
     DatePipe,

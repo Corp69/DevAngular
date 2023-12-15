@@ -26,9 +26,11 @@ import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { PickListModule } from 'primeng/picklist';
 import {CheckboxModule} from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   exports: [
+    CalendarModule,
     CheckboxModule,
     MegaMenuModule,
     MenuModule,

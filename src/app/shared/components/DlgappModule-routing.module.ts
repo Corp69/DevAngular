@@ -8,6 +8,7 @@ const routes: Routes = [
     path: '',
     children: [
      { path: 'domicilio', component: DomiciliosComponent },
+     { path: 'listados', component: DomiciliosComponent },
      { path: 'confirmacion', component: ConfirmacionComponent }
      // { path: '**', redirectTo: '/app/claveServiciocp' }
     ]

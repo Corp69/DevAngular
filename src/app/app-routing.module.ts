@@ -80,12 +80,6 @@ const routes: Routes = [
     canMatch:[ AuthGuard] 
   },
   {
-    path: 'estatus',
-    loadChildren: () => import('./ControlEstatus/estatus.module').then( m => m.EstatusModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  {
     path: 'app',
     loadChildren: () => import('./shared/components/DlgappModule.module').then( m => m.DlgappModule )
   },
