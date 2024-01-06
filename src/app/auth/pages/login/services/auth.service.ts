@@ -24,6 +24,7 @@ export class AuthService {
         .post(`${environment.baseUrl}auth/Tokken`, body)
         .pipe(
           catchError(error => {
+            console.log( error );
             return throwError(this.errores.getErrores(error));
           })
         );
@@ -36,6 +37,9 @@ export class AuthService {
       .post(`${environment.baseUrl}auth/login`, modelo)
       .pipe(
         catchError(error => {
+          
+          console.log( error );
+          
           return throwError(this.errores.getErrores(error));
         })
       );

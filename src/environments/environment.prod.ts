@@ -1,5 +1,5 @@
 
 export const environment = {
     production: true,
-    baseUrl: 'https://localhost/DeveloperElizandro/api'
+    baseUrl: 'http://localhost:3001/api/'
   };
