@@ -1,5 +1,5 @@
 
 export const environment = {
     production: true,
-    baseUrl: 'http://localhost:3001/api/'
+    baseUrl: 'https://apinode-production-9445.up.railway.app/'
   };
