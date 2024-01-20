@@ -12,11 +12,8 @@ import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
 import { DlgappModule } from '../shared/components/DlgappModule.module';
 import { PrimeNgKpisModule } from '../shared/Modulos/PrimeNgKpisModule.module';
 import { ComprasModule } from '../controlCompras/compras.module';
-import { ControlMedicoModule } from '../ControlMedico/ControlMedico.module';
 import { ControlEmpresaModule } from '../ControlEmpresa/ControlEmpresa.module';
-import { VentasModule } from '../ControlVentas/ventas.module';
 import { ControlContabilidad } from '../ControlContabilidad/ControlContabilidad.module';
-import { GeneralModule } from '../ControlGeneral/GeneralModule.module';
 
 
 @NgModule({
@@ -29,10 +26,7 @@ import { GeneralModule } from '../ControlGeneral/GeneralModule.module';
     //? modulos de los aplicativos 
     ControlEmpresaModule,
     ComprasModule,
-    ControlMedicoModule,
-    VentasModule,
     ControlContabilidad,
-    GeneralModule,
     //? ======================================================= 
     CommonModule,
     ReactiveFormsModule,

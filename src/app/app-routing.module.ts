@@ -16,12 +16,6 @@ const routes: Routes = [
     canMatch:[ AuthGuard] 
   },
   {
-    path: 'ControlGeneral',
-    loadChildren: () => import('./ControlGeneral/GeneralModule.module').then( m => m.GeneralModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  {
     path: 'ControlContable',
     loadChildren: () => import('./ControlContabilidad/ControlContabilidad.module').then( m => m.ControlContabilidad ),
     canActivate:[ AuthGuard ],
@@ -40,29 +34,12 @@ const routes: Routes = [
     canMatch:[ AuthGuard] 
   },
   {
-    path: 'ControlEscolar',
-    loadChildren: () => import('./ControlEscolar/ControlEscolar.module').then( m => m.ControlEscolarModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  {
     path: 'ControlEmpresa',
     loadChildren: () => import('./ControlEmpresa/ControlEmpresa.module').then( m => m.ControlEmpresaModule ),
     canActivate:[ AuthGuard ],
     canMatch:[ AuthGuard] 
   },
-  {
-    path: 'ControlMedico',
-    loadChildren: () => import('./ControlMedico/ControlMedico.module').then( m => m.ControlMedicoModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  {
-    path: 'ControlVentas',
-    loadChildren: () => import('./ControlVentas/ventas.module').then( m => m.VentasModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
+  
   {
     path: 'ControlCompras',
     loadChildren: () => import('./controlCompras/compras.module').then( m => m.ComprasModule ),
