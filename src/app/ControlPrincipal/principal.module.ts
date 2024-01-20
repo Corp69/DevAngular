@@ -15,7 +15,6 @@ import { ComprasModule } from '../controlCompras/compras.module';
 import { ControlMedicoModule } from '../ControlMedico/ControlMedico.module';
 import { ControlEmpresaModule } from '../ControlEmpresa/ControlEmpresa.module';
 import { VentasModule } from '../ControlVentas/ventas.module';
-import { TesteoFormatosModule } from '../TesteoFormatos/TesteoFormatos.module';
 import { ControlContabilidad } from '../ControlContabilidad/ControlContabilidad.module';
 import { GeneralModule } from '../ControlGeneral/GeneralModule.module';
 
@@ -32,7 +31,6 @@ import { GeneralModule } from '../ControlGeneral/GeneralModule.module';
     ComprasModule,
     ControlMedicoModule,
     VentasModule,
-    TesteoFormatosModule,
     ControlContabilidad,
     GeneralModule,
     //? ======================================================= 

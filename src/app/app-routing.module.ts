@@ -5,16 +5,6 @@ import { ErrorPagesComponent } from './shared/error-pages/error-pages.component'
 
 const routes: Routes = [
   //=======================================================================================================================================================================================================================================================
-  /**
-   * @TestFormatos => hacemos las pruebas en CSS Y HTML PARA TOMAR LOS COMPONENTES A UTILIZAR A LOS OTROS CONTROLES.
-   */
-  {
-    path: 'test',
-    loadChildren: () => import('./TesteoFormatos/TesteoFormatos.module').then( m => m.TesteoFormatosModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  //=======================================================================================================================================================================================================================================================
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
