@@ -16,37 +16,6 @@ const routes: Routes = [
     canMatch:[ AuthGuard] 
   },
   {
-    path: 'ControlContable',
-    loadChildren: () => import('./ControlContabilidad/ControlContabilidad.module').then( m => m.ControlContabilidad ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  {
-    path: 'ControlRh',
-    loadChildren: () => import('./controlRh/ControlRh.module').then( m => m.ControlRh ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  {
-    path: 'ControlInventarios',
-    loadChildren: () => import('./ControlInventarios/ControlInventarios.module').then( m => m.ControlInventariosModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  {
-    path: 'ControlEmpresa',
-    loadChildren: () => import('./ControlEmpresa/ControlEmpresa.module').then( m => m.ControlEmpresaModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  
-  {
-    path: 'ControlCompras',
-    loadChildren: () => import('./controlCompras/compras.module').then( m => m.ComprasModule ),
-    canActivate:[ AuthGuard ],
-    canMatch:[ AuthGuard] 
-  },
-  {
     path: 'app',
     loadChildren: () => import('./shared/components/DlgappModule.module').then( m => m.DlgappModule )
   },

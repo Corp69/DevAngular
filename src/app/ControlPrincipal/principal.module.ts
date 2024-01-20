@@ -11,9 +11,6 @@ import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
 //? modulos personalizados reutilizar codigo 
 import { DlgappModule } from '../shared/components/DlgappModule.module';
 import { PrimeNgKpisModule } from '../shared/Modulos/PrimeNgKpisModule.module';
-import { ComprasModule } from '../controlCompras/compras.module';
-import { ControlEmpresaModule } from '../ControlEmpresa/ControlEmpresa.module';
-import { ControlContabilidad } from '../ControlContabilidad/ControlContabilidad.module';
 
 
 @NgModule({
@@ -22,12 +19,6 @@ import { ControlContabilidad } from '../ControlContabilidad/ControlContabilidad.
     PrincipalComponent
   ],
   imports: [
-    //? ===================================================== 
-    //? modulos de los aplicativos 
-    ControlEmpresaModule,
-    ComprasModule,
-    ControlContabilidad,
-    //? ======================================================= 
     CommonModule,
     ReactiveFormsModule,
     //=======================================
