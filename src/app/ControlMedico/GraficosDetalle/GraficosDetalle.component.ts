@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
-import Swal from 'sweetalert2';
 import { GraficoDetalleService } from './Services/GraficoDetalle.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class GraficosDetalleComponent {
     this.servicio._tablasServicios().subscribe(resp => {
       switch (resp.Detalle._app_Graficas_Titulo_X_Empleado) {
         case  null:
-          Swal.fire(resp.Mensaje,'0 registros','warning');
           break;
         default:
         //  this.tbDocVenta = resp.Detalle.tb_pacientes_por_fecha_limite;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MdlBasico } from './Models/MdlBasico';
 import { BasicosService } from './Services/Basicos.service';
-import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-nutridatos-basicos',
@@ -54,10 +54,10 @@ export class NutridatosBasicosComponent  implements OnInit {
         console.log(resp);
         switch (resp.Detalle.tb_ventas_por_fecha_limite) {
           case  null:
-            Swal.fire(resp.Mensaje,'0 registros','warning');
+           
             break;
           default:
-            Swal.fire(resp.Mensaje,'success');
+           
           break;
         }  
       });

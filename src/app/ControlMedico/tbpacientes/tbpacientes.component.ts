@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MdlBuscarPacientes } from './Models/MdlBuscarPacientes';
 import { PacientesService } from './Services/Pacientes.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tbpacientes',
@@ -49,7 +48,6 @@ export class TbpacientesComponent {
        this.servicio.PacientesXFecha(this.myForm.value).subscribe(resp => {
          switch (resp.Detalle.tb_pacientes_por_fecha_limite) {
            case  null:
-             Swal.fire(resp.Mensaje,'0 registros','warning');
              break;
            default:
              this.tbDocVenta = resp.Detalle.tb_pacientes_por_fecha_limite;

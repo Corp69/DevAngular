@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MdlPliegues } from './Models/MdlPliegues';
 import { PlieguesService } from './Services/Pliegues.service';
-import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -82,10 +81,8 @@ export class NutripacienteplieguesComponent implements OnInit {
           console.log(resp);
           switch (resp.Detalle) {
             case null:
-              Swal.fire(resp.Mensaje, '0 registros', 'warning');
               break;
             default:
-              Swal.fire(resp.Mensaje, 'success');
               break;
           }
         });

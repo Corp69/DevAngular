@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { BuscarService } from './Service/BuscarService.service';
 
 @Component({
@@ -36,13 +35,11 @@ export class BusquedaComponent {
       this.servicio.buscar(this.tabla.Qtabla, this.tabla._Columna, this.tabla._OrderBY, this.frmSat.value.descripcion).subscribe(resp => {
         switch (resp.Detalle) {
           case  null:
-            Swal.fire(resp.Mensaje,'0 registros','warning');
             break;
           default:
             this.DataSource = resp.Detalle; 
             this.DataSourceColumnas = Object.keys(this.DataSource[0]);
             this.frmSat.setValue(this.frmSat.value);
-            Swal.fire(resp.Mensaje,'Operacion Exitosa');
           break;
         }  
       });

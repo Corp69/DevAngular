@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
 import { MdlDepartamento } from './models/MdlDepartamento';
 import { DepartamentoService } from './services/Departamento.service';
 
@@ -71,12 +70,10 @@ export class DepartamentoComponent {
         console.log(resp);
         switch (resp.Detalle) {
           case  null:
-            Swal.fire(resp.Mensaje,'0 registros','warning');
             break;
           default:
             this.frmDepartamento.setValue(this.frmDepartamento.value);
             this.frmDepartamento.controls['id'].setValue(parseInt(resp.Detalle));
-            Swal.fire(resp.Mensaje,'Operacion Exitosa');
           break;
         }  
       });
