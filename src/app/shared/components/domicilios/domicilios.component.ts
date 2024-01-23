@@ -75,7 +75,7 @@ export class DomiciliosComponent implements OnInit{
   public  seleccionarCP ( jsonRes: any ){
     this.valorCp            = jsonRes.codigopostal;
     this.valorColonia       = jsonRes.descripcion;
-    console.log(jsonRes);
+    
     // asignamos el valor de lo que seleccionamos en el componente busqueda
     this.frmDomiclio.controls['cp'].setValue(jsonRes.codigopostal);
     this.frmDomiclio.controls['id_colonia'].setValue(jsonRes.id);
@@ -89,10 +89,8 @@ export class DomiciliosComponent implements OnInit{
 
   public Almacenar(){
     this.mdlMsj = false;
-    console.log( this.frmDomiclio.value );
     //=======================================================================================
      this.servicio.AlmacenarDomicilio(this.frmDomiclio.value).subscribe(resp => {
-      console.log(resp);
       switch (resp.Detalle) {
         case  null:
           this.msjConfirmacion = { msjTipo: 3, titulo: 'DEVELOPER', mensaje: resp.Mensaje, detalle: resp.detalle};

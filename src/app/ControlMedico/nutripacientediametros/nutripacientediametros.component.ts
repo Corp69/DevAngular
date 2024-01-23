@@ -45,11 +45,9 @@ export class NutripacientediametrosComponent implements OnInit {
 
   public btnAlmacenar() {
     this.BtnSpinner = true;
-    console.log("formulario==",this.frmDiametro.value);
     setTimeout(() => {
       //===============================
       this.servicio.GuardarDiametros(this.frmDiametro.value).subscribe(resp => {
-        console.log(resp);
         switch (resp.Detalle) {
           case  null:
             break;

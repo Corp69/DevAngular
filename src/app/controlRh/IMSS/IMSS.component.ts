@@ -80,7 +80,6 @@ export class IMSSComponent {
     this.BtnSpinner = true;
     //===============================
     this.servicio.AlmacenarImss(this.frmImss.value).subscribe(resp => {
-      console.log( resp.Detalle )
       switch (resp.Detalle) {
         case null:
           this.visibleMjs = true;

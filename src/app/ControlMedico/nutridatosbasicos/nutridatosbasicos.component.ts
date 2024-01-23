@@ -38,7 +38,6 @@ export class NutridatosBasicosComponent  implements OnInit {
     //? ======================================================
     // seteamos los valores al formulario
     this.frmBasico.setValue(this.MdlPaciente);
-    console.log(this.lstSexo);
     //=================================
     //carga del listado
    this.servicio.listSexo().subscribe(resp => {this.lstSexo = resp.Detalle;});
@@ -47,15 +46,12 @@ export class NutridatosBasicosComponent  implements OnInit {
 
   public btnAlmacenar() {
     this.BtnSpinner = true;
-    console.log("formulario==",this.frmBasico.value);
     setTimeout(() => {
       //===============================
       this.servicio.GuardarNtBasicos(this.frmBasico.value).subscribe(resp => {
-        console.log(resp);
         switch (resp.Detalle.tb_ventas_por_fecha_limite) {
           case  null:
-           
-            break;
+           break;
           default:
            
           break;

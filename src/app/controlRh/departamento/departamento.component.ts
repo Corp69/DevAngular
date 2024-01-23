@@ -63,11 +63,9 @@ export class DepartamentoComponent {
   // Crud Para Departamento:
   Almacenar = () =>{
     this.BtnSpinner = true;
-    console.log("formulario==",this.frmDepartamento.value);
     setTimeout(() => {
       //===============================
       this.servicio.GuardarDepartamento(this.frmDepartamento.value).subscribe(resp => {
-        console.log(resp);
         switch (resp.Detalle) {
           case  null:
             break;

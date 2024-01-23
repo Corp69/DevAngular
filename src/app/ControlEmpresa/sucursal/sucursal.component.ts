@@ -54,11 +54,9 @@ export class SucursalComponent {
   // Crud Para Sucursal:
   Almacenar = () =>{
     this.BtnSpinner = true;
-    console.log("formulario==",this.frmSucursal.value);
     setTimeout(() => {
       //===============================
       this.servicio.GuardarSucursal(this.frmSucursal.value).subscribe(resp => {
-        console.log(resp);
         switch (resp.Detalle) {
           case  null:
             break;

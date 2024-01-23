@@ -52,7 +52,6 @@ export class TbpacientesComponent {
            default:
              this.tbDocVenta = resp.Detalle.tb_pacientes_por_fecha_limite;
              this.tbDocVenta_columns = Object.keys(this.tbDocVenta[0]);
-             console.log(this.tbDocVenta_columns);
            break;
          }  
        });

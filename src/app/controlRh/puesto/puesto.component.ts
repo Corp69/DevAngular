@@ -45,11 +45,9 @@ export class PuestoComponent {
   // Crud Para Puesto:
   Almacenar = () =>{
     this.BtnSpinner = true;
-    console.log("formulario==",this.frmPuesto.value);
     setTimeout(() => {
       //===============================
       this.servicio.GuardarPuesto(this.frmPuesto.value).subscribe(resp => {
-        console.log(resp);
         switch (resp.Detalle) {
           case  null:
             break;

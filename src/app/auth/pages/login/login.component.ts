@@ -38,10 +38,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
   public onSave() {
     this.servicio.inicioSesion3(this.myForm.value).subscribe(resp => {
-      console.log('Controller ===> ', resp );
       switch (resp.data) {
         case undefined:
           this.Titulo = resp.Ttitulo;

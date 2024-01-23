@@ -42,7 +42,6 @@ export class NutripacienteplieguesComponent implements OnInit {
   {
     this.route.paramMap.subscribe((params) => {
      this.idURL = params.get('id');
-      console.log(this.idURL);
       if (this.idURL>-1) {
         // Aquí puedes usar el valor del ID como necesites
         this.servicio.InfoDespliegues(this.idURL).subscribe((resp) => {
@@ -72,13 +71,11 @@ export class NutripacienteplieguesComponent implements OnInit {
 
   public btnAlmacenar() {
     this.BtnSpinner = true;
-    console.log('formulario==', this.frmPliegues.value);
     setTimeout(() => {
       //===============================
       this.servicio
         .GuardarPliegues(this.frmPliegues.value)
         .subscribe((resp) => {
-          console.log(resp);
           switch (resp.Detalle) {
             case null:
               break;

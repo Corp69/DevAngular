@@ -31,7 +31,6 @@ export class GraficosResultadosComponent {
         //  this.tbDocVenta = resp.Detalle.tb_pacientes_por_fecha_limite;
         //  this.tbDocVenta_columns = Object.keys(this.tbDocVenta[0]);
         this.data = resp.Detalle._app_graficas_titulo_x_empleado;
-          console.log(this.data);
         break;
       }  
     });

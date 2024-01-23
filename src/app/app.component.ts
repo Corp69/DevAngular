@@ -13,8 +13,8 @@ export class AppComponent {
     constructor(private servicio: HomeService) {
         this.servicio.switchTheme(localStorage.getItem("theme"));
     }
+    
     public changeTheme(theme: string) {
-        console.log(theme);
         localStorage.setItem('theme', theme);
         this.servicio.switchTheme(localStorage.getItem("theme"));
     }

@@ -72,8 +72,7 @@ export class ListadosComponent {
             //Swal.fire(resp.Mensaje,'0 registros','warning');
             break;
           default:
-            this.DataProveedores = resp.Detalle._proveedoresxfecha;   
-            console.log(this.DataProveedores);
+            this.DataProveedores = resp.Detalle._proveedoresxfecha; 
           break;
         }
       });
@@ -88,12 +87,6 @@ export class ListadosComponent {
   }
 
   Buscar(){
-
-
-    console.log("fecha 1 => ", this.fecha1);
-    console.log("fecha 2 => ", this.fecha2);
-    
-
 
 
   }

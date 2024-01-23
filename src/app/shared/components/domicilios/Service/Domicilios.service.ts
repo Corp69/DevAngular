@@ -87,10 +87,6 @@ private _estado( _id: Number, _filtro: Number ){
     let headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
-    console.log(  {
-      Qtabla: 'rh_empleado_domicilio',
-      Datos: modelo,
-    })
     return this.http
       .post(
         `${environment.baseUrl}clientes/ctr/agregar`,

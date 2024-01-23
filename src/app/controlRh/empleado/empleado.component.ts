@@ -63,15 +63,11 @@ export class EmpleadoComponent {
      this.servicio.listDepartamentos().subscribe(resp => {this.lstDepartamento = resp.Detalle;});
     //=========================================================================================================================
     }
-
     public DepartamentoFiltro ( id: any){
-      console.log( id );
       this.servicio.listPuestos(id).subscribe(resp => {this.lstPuestos = resp.Detalle;});
      
     }
-
-
-
+    
   public Almacenar(){
     
   }

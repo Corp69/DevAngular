@@ -38,11 +38,9 @@ export class AlmacenesComponent {
   // Crud Para Almacen:
   Almacenar = () =>{
     this.BtnSpinner = true;
-    console.log("formulario==",this.frmAlmacen.value);
     setTimeout(() => {
       //===============================
       this.servicio.GuardarAlmacen(this.frmAlmacen.value).subscribe(resp => {
-        console.log(resp);
         switch (resp.Detalle) {
           case  null:
            

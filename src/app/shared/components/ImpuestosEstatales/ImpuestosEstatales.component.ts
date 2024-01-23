@@ -37,7 +37,7 @@ export class ImpuestosEstatalesComponent {
     this.route.params.subscribe(params => {
       if (+params['id'] > -1) {
         this.Idproducto = +params['id']; 
-        console.log(this.Idproducto);
+        
         // AGREGAMOS LA INFORMACION AL FORMULARIO
         this.servicio.Datainfo(+params['id']).subscribe(resp => {
           this.DisponiblesImpuestosEstatales = resp.Detalle.app_producto_servicios_impuestos_estatales._impuesto_disponibles;
@@ -56,7 +56,7 @@ export class ImpuestosEstatalesComponent {
     'id_app_impuestos_estatales',
     IdsAgregar
   ).subscribe(resp => {
-   console.log( resp );
+   
   });
 }
 
@@ -70,7 +70,7 @@ onMoveToSource(event: any) {
     'id_app_impuestos_estatales',
     IdsEliminar
   ).subscribe(resp => {
-   console.log( resp );
+   
   });
 
 }
@@ -86,7 +86,7 @@ onMoveAllToTarget(event: any) {
     'id_app_impuestos_estatales',
     IdsAgregar
   ).subscribe(resp => {
-   console.log( resp );
+   
   });
 
 }
@@ -101,7 +101,7 @@ onMoveAllToSource(event: any) {
     'id_app_impuestos_estatales',
     IdsEliminar
   ).subscribe(resp => {
-   console.log( resp );
+   
   });
 
 
