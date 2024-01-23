@@ -27,9 +27,12 @@ import { MenubarModule } from 'primeng/menubar';
 import { PickListModule } from 'primeng/picklist';
 import {CheckboxModule} from 'primeng/checkbox';
 import { CalendarModule } from 'primeng/calendar';
+import { AccordionModule } from 'primeng/accordion';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   exports: [
+    AccordionModule,
     CalendarModule,
     CheckboxModule,
     MegaMenuModule,
@@ -40,6 +43,7 @@ import { CalendarModule } from 'primeng/calendar';
     SidebarModule,
     DropdownModule,
     ButtonModule,
+    RippleModule,
     DividerModule,
     MessageModule,
     MessagesModule,

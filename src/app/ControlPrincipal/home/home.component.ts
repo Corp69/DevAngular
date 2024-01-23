@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './Services/Home.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,25 +9,21 @@ import { HomeService } from './Services/Home.service';
 })
 export class HomeComponent implements OnInit {
 
-  public lstOpciones: any;
-  public items: any | undefined;
-  public itemMenu: any | undefined;
+  public items:   any | undefined;
   public sidebarVisible: boolean = false;
   public theme = localStorage.getItem("theme");
   
+  constructor( private servicio: HomeService, private router: Router) {}
 
-  constructor(private servicio: HomeService) {
-    
-  }
+ public changeTheme(theme: string) { localStorage.setItem('theme', theme); this.servicio.switchTheme(theme);}
 
- public changeTheme(theme: string) {
-    localStorage.setItem('theme', theme);
-    this.servicio.switchTheme(theme);
-  }
+ public navigateToUrl(url: any) { this.router.navigate([url]);}
 
-  ngOnInit() {
+ ngOnInit() {
     this.servicio.lstOpciones().subscribe(resp => {
-      this.items = resp.Detalle._app_menu_modulo;
+      this.items   = resp.Detalle._app_menu_modulo;
+      let items2   = this.items.map(group => group.menu); 
+      this.items = items2;
     });
   }
 }
