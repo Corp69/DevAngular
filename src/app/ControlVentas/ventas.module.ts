@@ -9,10 +9,14 @@ import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
 //=======================================
 //? modulos personalizados reutilizar codigo 
 import { DlgappModule } from '../shared/components/DlgappModule.module';
+import { ClienteComponent } from './cliente/cliente.component';
+import { LstClienteComponent } from './lstcliente/lstcliente.component';
 
 @NgModule({
   declarations: [
-    DocventaComponent
+    DocventaComponent,
+    ClienteComponent,
+    LstClienteComponent
   ],
   imports: [
     CommonModule,

@@ -14,9 +14,9 @@ import { PrimeNgKpisModule } from '../shared/Modulos/PrimeNgKpisModule.module';
 import { ComprasModule } from '../controlCompras/compras.module';
 import { ControlMedicoModule } from '../ControlMedico/ControlMedico.module';
 import { ControlEmpresaModule } from '../ControlEmpresa/ControlEmpresa.module';
-import { VentasModule } from '../ControlVentas/ventas.module';
 import { ControlContabilidad } from '../ControlContabilidad/ControlContabilidad.module';
 import { GeneralModule } from '../ControlGeneral/GeneralModule.module';
+import { VentasModule } from '../ControlVentas/ventas.module';
 
 
 @NgModule({

@@ -2,20 +2,9 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
-//========================================
-//Angular Graficos
-//import { NgChartsConfiguration } from 'ng2-charts';
-//========================================
-//Angular Material
 import { dlgBusquedasModuleRoutingModule } from './DlgappModule-routing.module';
 import { ClaveProdServcpComponent } from './Sat/ClaveProdServcp/ClaveProdServcp.component';
-import { TableModule } from 'primeng/table';
-import { TabMenuModule } from 'primeng/tabmenu';
-import { TabViewModule } from 'primeng/tabview';
-import { CardModule } from 'primeng/card';
 import { DomiciliosComponent } from './domicilios/domicilios.component';
-import { DialogModule } from 'primeng/dialog';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { ConfirmacionComponent } from './msj/confirmacion/confirmacion.component';
 import { PrimeNgModule } from '../Modulos/PrimeNgModule.module';
