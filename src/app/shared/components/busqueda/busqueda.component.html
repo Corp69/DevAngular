@@ -1,59 +1,96 @@
-<p-divider align="left">
-    <div class="inline-flex align-items-center">
-        <i class="pi pi-search" style="font-size: 2rem"></i>
-        <b>Busquedas:</b>
-    </div>
-</p-divider>
-<!-- Agregar Informcion del formulario -->
-<form [formGroup]="frm" autocomplete="off">
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="flex flex-column gap-2">
-                <label>CATALOGO: {{ tablaBusqueda }}</label>
-               
-                <input 
-                    pInputText disabled="true" 
-                    pTooltip="Se Realiza Busqueda." 
-                    tooltipPosition="bottom"
-                    type="text" [value]="tablaBusqueda" pInputText placeholder="Vacio" />
+<p-card header="Catalogo">
+    <p-divider align="left">
+        <div class="inline-flex align-items-center">
+            <i class="pi pi-search"></i>
+            <h3>{{ tablaBusqueda }}:</h3>
+        </div>
+    </p-divider>
+
+    <form [formGroup]="frm" autocomplete="off">
+        <div class="row">
+            <div class="col-md-3">
+                <label>Fecha Inicio:</label>
+                <div class="p-field">
+                    <p-calendar
+                        dateFormat="dd-mm-yy"
+                        pTooltip="Selecciona Una Fecha Inicial A Buscar" 
+                        tooltipPosition="bottom"
+                        formControlName="fechainicia" 
+                        [showIcon]="true" 
+                        inputId="icon"></p-calendar>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>Fecha Fin:</label>
+                <div class="p-field">
+                    <p-calendar
+                        dateFormat="dd-mm-yy"
+                        pTooltip="Selecciona Una Fecha Final A Buscar" 
+                        tooltipPosition="bottom"
+                        formControlName="fechatermina"
+                        [showIcon]="true" 
+                        inputId="icon"></p-calendar>
+                 </div>
+            </div>
+            <div class="col-md-3">
+                <label>Estatus:</label>
+                <div class="p-field">
+                    <p-dropdown 
+                    pTooltip="Filtra a los clientes por Estatus."
+                    tooltipPosition="bottom" 
+                    formControlName="id_estatus" 
+                    [options]="lstestatus"
+                    value="id" 
+                    optionValue="id" 
+                    optionLabel="descripcion">
+                    </p-dropdown>
+                </div>
             </div>
         </div>
-        <div class="col-sm-3">
-            <div class="flex flex-column gap-2">
-                <label>Descripcion / Codigo:</label>
-                <input pInputText
-                    pTooltip="Escribir Codigo O Descripcion 3 Caracteres Minimo Para Buscar" tooltipPosition="bottom"
-                    formControlName="descripcion" type="text" [value]="tabla" pInputText placeholder="Vacio" />
-                <p-message severity="error" text="Campo Es Obligatorio "
-                    *ngIf="frm.controls['descripcion'].invalid">
-                </p-message>
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <i class="pi pi-user mr-2"></i>
+                <b>Funciones Usuario:</b>
             </div>
-        </div>
-        <div class="col-sm-3">
-            <label>Realizar Busqueda</label>
-            <br>
-            <button type="submit" 
-                pTooltip="Realizar Busqeda." tooltipPosition="bottom"
-                (click)="buscarinfo()" 
-                [disabled]="frm.invalid" 
-                class="btn btn-outline-primary">
-                <i class="fa-sharp fa-solid fa-magnifying-glass"></i> Buscar
-            </button>
-        </div>
-    </div>
-</form>
+        </p-divider>
+        <button 
+        pButton 
+        pRipple 
+        pTooltip="Reiniciar Fechas." 
+        tooltipPosition="bottom" 
+        type="button"
+        icon="pi pi-replay"
+        [loading]="isLoading"
+        class="p-button-raised p-button-text"
+        (click)="Nuevainfo()">
+        Nueva Busqueda
+        </button>
+        
+        <button 
+        pButton 
+        pRipple 
+        pTooltip="Realiza La Busqueda." 
+        tooltipPosition="bottom" 
+        type="button"
+        [loading]="isLoading"
+        icon="pi pi-search"
+        class="p-button-raised p-button-text"
+        (click)="buscarinfo()">
+        Realizar Busqueda
+        </button>
+    </form>
+</p-card>
+
 
 <p-card *ngIf="DataSource != null " header="Resultados">
-    <p-table [value]="DataSource" dataKey="id"
-         [tableStyle]="{ 'min-width': '75rem' }"
-        (selectionChange)="onSelectionChange($event)"
-         (selectAllChange)="onSelectAllChange($event)" [paginator]="true"
+    <p-table [value]="DataSource" dataKey="id" [tableStyle]="{ 'min-width': '75rem' }"
+        (selectionChange)="onSelectionChange($event)" (selectAllChange)="onSelectAllChange($event)" [paginator]="true"
         [rows]="10" [rowsPerPageOptions]="[5,10,25]" [paginator]="true">
         <ng-template pTemplate="header">
             <tr>
-                <th style="width: 4rem"></th>
-                <th *ngFor="let column of DataSourceColumnas" 
-                pSortableColumn="{{column}}">{{column}}<p-sortIcon
+                <th pTooltip="Marque Casilla Para Navegar." tooltipPosition="top"> ir a: {{ tablaBusqueda }}</th>
+                <th pTooltip="Clic Para Ordenar." 
+                tooltipPosition="top"  *ngFor="let column of DataSourceColumnas" pSortableColumn="{{column}}">{{column}}<p-sortIcon
                         field="{{column}}"></p-sortIcon></th>
             </tr>
         </ng-template>

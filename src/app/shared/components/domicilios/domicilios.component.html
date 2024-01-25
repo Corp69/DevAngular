@@ -90,7 +90,7 @@
             <div class="card flex justify-content-center">
                 <p-dialog header="Header" [(visible)]="visible" [modal]="visible" [style]="{ width: '90vw' }"
                     [draggable]="false" [resizable]="false">
-                    <app-busqueda [tabla]="tabalaBuscar1" (JsonSat)="seleccionarCP($event)"></app-busqueda>
+                    <app-busqueda [JsonReq]="tabalaBuscar1" (JsonSat)="seleccionarCP($event)"></app-busqueda>
                 </p-dialog>
             </div>
             <hr>

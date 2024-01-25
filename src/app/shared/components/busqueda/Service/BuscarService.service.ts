@@ -11,18 +11,42 @@ import { ErroresService } from 'src/app/shared/errores.service';
 export class BuscarService {
   constructor(private http: HttpClient, private errores: ErroresService) { }
  
-  public buscar(  _tabla: String, _columna: String, _OrderBy: String, _busqueda: String ): Observable<any> {
-    let headers = new HttpHeaders({ 'Authorization': `Bearer ${localStorage.getItem('token')}`});
-    return this.http.post(`${environment.baseUrl}clientes/ctr/columna/buscar`,
-    {"Qtabla": _tabla,"_Columna": _columna,"_OrderBY": _OrderBy,"_busqueda": _busqueda},
-    { headers: headers }).pipe( catchError(error => { return throwError(this.errores.getErrores(error));}));
+  public Buscar( _schema: any, _funcion: any, JsonFrm: any ): Observable<any> {
+    let headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http.post(`${environment.baseUrl}clientes/ctr/schema`,
+      {
+        "ExSchema": _schema,
+        "funcion":  _funcion,
+        "data": {
+          "_fechainicial": JsonFrm.fechainicia,
+          "_fechafinal":   JsonFrm.fechatermina,
+          "_activo":       JsonFrm.id_estatus
+        }
+      }
+      ,
+      { headers: headers }
+    ).pipe(
+      catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
   }
 
-  public BuscarSatClaveprodServicio(  _tabla: String, _item: String ): Observable<any> {
-    let headers = new HttpHeaders({ 'Authorization': `Bearer ${localStorage.getItem('token')}`});
-    return this.http.post(`${environment.baseUrl}clientes/ctr/buscar`,
-        { "Qtabla":_tabla, "_busqueda": _item },
-        { headers: headers }).pipe( catchError(error => { return throwError(this.errores.getErrores(error));}));
-  }
   //===================================================================================================
+  public listEstatus(): Observable<any> {
+    let headers = new HttpHeaders({ Authorization: `Bearer ${localStorage.getItem('token')}`,});
+    return this.http.post(`${environment.baseUrl}clientes/crt/list`,
+      { Qtabla: 'app_estatus', },
+      { headers: headers }
+    ).pipe(catchError((error) => {
+        return throwError(this.errores.getErrores(error));
+      })
+    );
+  }
+
+
+
+
 }
