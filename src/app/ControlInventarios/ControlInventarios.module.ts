@@ -11,12 +11,14 @@ import { DlgappModule } from '../shared/components/DlgappModule.module';
 import { AlmacenesComponent } from './almacenes/almacenes.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ImpuestosProductoServicioComponent } from './ImpuestosProductoServicio/ImpuestosProductoServicio.component';
+import { LstProductosComponent } from './lstproductos/lstproductos.component';
 
 @NgModule({
   declarations: [
     AlmacenesComponent,
     ProductoComponent,
-    ImpuestosProductoServicioComponent
+    ImpuestosProductoServicioComponent,
+    LstProductosComponent
   ],
   imports: [
     CommonModule,

@@ -47,9 +47,8 @@ export class ProveedorComponent implements OnInit {
     correo: [],
     rfc: [],
     curp: [],
-
-    id_proveedor_estatus: [1],
-    id_proveedor_tipo: [1],
+    id_app_estatus: [1],
+    id_app_tipo: [1],
     id_rh_empleado: [localStorage.getItem("id")],
     id_sat_usocfdi: [1],
     //id_sat_doc_cobro:           [1],
@@ -67,7 +66,17 @@ export class ProveedorComponent implements OnInit {
       if (+params['id'] > -1) {
         // AGREGAMOS LA INFORMACION AL FORMULARIO
         this.servicio.Datainfo(+params['id']).subscribe(resp => {
-          this.frmProveedor.setValue(resp.Detalle);
+         // this.frmProveedor.setValue(resp.Detalle);
+         // seteamos la informacion
+         this.frmProveedor.controls['nombre'].setValue(resp.Detalle.nombre);
+         this.frmProveedor.controls['rfc'].setValue(resp.Detalle.rfc);
+         this.frmProveedor.controls['codigo'].setValue(resp.Detalle.rfc);
+         this.frmProveedor.controls['curp'].setValue(resp.Detalle.rfc);
+         this.frmProveedor.controls['correo'].setValue(resp.Detalle.rfc);
+         this.frmProveedor.controls['imagen'].setValue(resp.Detalle.rfc);
+         this.frmProveedor.controls['id_app_estatus'].setValue(resp.Detalle.rfc);
+         this.frmProveedor.controls['id_app_tipo'].setValue(resp.Detalle.rfc);
+         this.frmProveedor.controls['id_rh_empleado'].setValue(resp.Detalle.rfc);
         });
         //CARGAMOS CFDI
         this.servicio.Datacfdi(+params['id']).subscribe(resp => {

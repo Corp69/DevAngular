@@ -11,12 +11,14 @@ import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
 import { DlgappModule } from '../shared/components/DlgappModule.module';
 import { ClienteComponent } from './cliente/cliente.component';
 import { LstClienteComponent } from './lstcliente/lstcliente.component';
+import { LstVentasComponent } from './lstventas/lstventas.component';
 
 @NgModule({
   declarations: [
     DocventaComponent,
     ClienteComponent,
-    LstClienteComponent
+    LstClienteComponent,
+    LstVentasComponent
   ],
   imports: [
     CommonModule,

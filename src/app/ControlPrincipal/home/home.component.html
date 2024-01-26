@@ -17,48 +17,69 @@
             </div>
         </p-divider>
 
-
-        <p-accordion [multiple]="true" [activeIndex]="[]" *ngFor="let grupo of items">
+        <p-accordion [multiple]="true" [activeIndex]="[0]" *ngFor="let grupo of items">
             <p-accordionTab header="{{ grupo[0].label }}">
-                <ol>
+                <ul>
                     <li *ngFor="let item of grupo[0].items">
-                        <button 
-                            pButton pRipple type="button"
-                            class="p-button-raised p-button-text"
+                        <button pButton pRipple type="button" class="p-button-raised p-button-text"
                             (click)="navigateToUrl(item.url)">
-                            <i [class]="item.icon">-</i> {{ item.label }}
+                            <i [class]="item.icon"></i> &nbsp; {{ item.label }}
                         </button>
                         <p-divider></p-divider>
                     </li>
-                </ol>
+                </ul>
             </p-accordionTab>
         </p-accordion>
 
-        <div class="card">
-            <div class="flex align-items-center justify-content-center mb-4">
-                <a (click)="changeTheme('saga-blue')" class="mr-3 cursor-pointer">
-                    <img src="assets/images/themes/saga-blue.png" width="50">
-                </a>
-                <a (click)="changeTheme('vela-blue')" class="mr-3 cursor-pointer">
-                    <img src="assets/images/themes/vela-blue.png" width="50">
-                </a>
-                <a (click)="changeTheme('arya-blue')" class="mr-3 cursor-pointer">
-                    <img src="assets/images/themes/arya-blue.png" width="50">
-                </a>
-                <a (click)="changeTheme('md-light-indigo')" class="mr-3 cursor-pointer">
-                    <img src="assets/images/themes/md-light-indigo.svg" width="50">
-                </a>
-                <a (click)="changeTheme('md-dark-indigo')" class="mr-3 cursor-pointer">
-                    <img src="assets/images/themes/md-dark-indigo.svg" width="50">
-                </a>
-                <a (click)="changeTheme('bootstrap4-light-purple')" class="mr-3 cursor-pointer">
-                    <img src="assets/images/themes/bootstrap4-light-purple.svg" width="50">
-                </a>
-                <a (click)="changeTheme('bootstrap4-dark-purple')" class="mr-3 cursor-pointer">
-                    <img src="assets/images/themes/bootstrap4-dark-purple.svg" width="50">
-                </a>
-            </div>
-        </div>
+        <p-accordion>
+            <p-accordionTab header="Themes" [selected]="true">
+                   <ul>
+                    <li>
+                        <button pButton pRipple type="button" class="p-button-raised p-button-text"
+                            (click)="changeTheme('saga-blue')">
+                            Azul-Saga-Blanco
+                        </button>
+                    </li>
+                    <li>
+                        <button pButton pRipple type="button" class="p-button-raised p-button-text"
+                            (click)="changeTheme('vela-blue')">
+                            Azul-Vela
+                        </button>
+                    </li>
+                    <li>
+                        <button pButton pRipple type="button" class="p-button-raised p-button-text"
+                            (click)="changeTheme('arya-blue')">
+                            Azul-Vela-negro
+                        </button>
+                    </li>
+                    <li>
+                        <button pButton pRipple type="button" class="p-button-raised p-button-text"
+                            (click)="changeTheme('md-light-indigo')">
+                            Indigo-blanco
+                        </button>
+                    </li>
+                    <li>
+                        <button pButton pRipple type="button" class="p-button-raised p-button-text"
+                            (click)="changeTheme('md-dark-indigo')">
+                            Negro-Indigo
+                        </button>
+                    </li>
+                    <li>
+                        <button pButton pRipple type="button" class="p-button-raised p-button-text"
+                            (click)="changeTheme('bootstrap4-light-purple')">
+                            Purpura-Blanco
+                        </button>
+                    </li>
+                    <li>
+                        <button pButton pRipple type="button" class="p-button-raised p-button-text"
+                            (click)="changeTheme('bootstrap4-dark-purple')">
+                            Purpura-Negro
+                        </button>
+                    </li>
+                </ul>
+            </p-accordionTab>
+        </p-accordion>
+
     </p-sidebar>
     <router-outlet></router-outlet>
 </div>

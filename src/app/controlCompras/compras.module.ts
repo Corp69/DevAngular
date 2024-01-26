@@ -13,6 +13,7 @@ import { PrimeNgModule } from '../shared/Modulos/PrimeNgModule.module';
 //? modulos personalizados reutilizar codigo 
 import { DlgappModule } from '../shared/components/DlgappModule.module';
 import { LstproveedoresComponent } from './lstproveedores/lstproveedores.component';
+import { LstComprasComponent } from './lstcompras/lstcompras.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LstproveedoresComponent } from './lstproveedores/lstproveedores.compone
     ListDcumentosComponent,
     DocCompraComponent,
     ProveedorDomicilioComponent,
-    LstproveedoresComponent
+    LstproveedoresComponent,
+    LstComprasComponent
   ],
   imports: [
     CommonModule,

@@ -108,7 +108,7 @@ export class ProveedorService {
     });
     return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
-        Qtabla: 'proveedor_estatus',
+        Qtabla: 'app_estatus',
       },
       { headers: headers }
     ).pipe(
@@ -148,7 +148,7 @@ export class ProveedorService {
     });
     return this.http.post(`${environment.baseUrl}clientes/crt/list`,
       {
-        Qtabla: 'proveedor_tipo',
+        Qtabla: 'app_tipo',
       },
       { headers: headers }
     ).pipe(
