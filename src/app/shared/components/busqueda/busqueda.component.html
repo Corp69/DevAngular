@@ -1,3 +1,9 @@
+<app-MsjEliminar></app-MsjEliminar>
+
+
+
+
+
 <p-card header="Catalogo">
     <p-divider align="left">
         <div class="inline-flex align-items-center">
@@ -83,12 +89,13 @@
 
 
 <p-card *ngIf="DataSource != null " header="Resultados">
-    <p-table [value]="DataSource" dataKey="id" [tableStyle]="{ 'min-width': '75rem' }"
-        (selectionChange)="onSelectionChange($event)" (selectAllChange)="onSelectAllChange($event)" [paginator]="true"
+    <p-table [value]="DataSource" dataKey="id" [tableStyle]="{ 'min-width': '75rem' }" 
+        [paginator]="true"
         [rows]="10" [rowsPerPageOptions]="[5,10,25]" [paginator]="true">
         <ng-template pTemplate="header">
             <tr>
-                <th pTooltip="Marque Casilla Para Navegar." tooltipPosition="top"> ir a: {{ tablaBusqueda }}</th>
+                <th pTooltip="seleccione un registro para modificar." tooltipPosition="top">Modificar: {{ tablaBusqueda }}</th>
+                <th pTooltip="seleccione un registro para Eliminar."  tooltipPosition="top">Eliminar:  {{ tablaBusqueda }}</th>
                 <th pTooltip="Clic Para Ordenar." 
                 tooltipPosition="top"  *ngFor="let column of DataSourceColumnas" pSortableColumn="{{column}}">{{column}}<p-sortIcon
                         field="{{column}}"></p-sortIcon></th>
@@ -97,7 +104,37 @@
         <ng-template pTemplate="body" let-DataSource>
             <tr>
                 <td>
-                    <p-tableCheckbox [value]="DataSource"></p-tableCheckbox>
+                    <button 
+                    pButton 
+                    pRipple 
+                    pTooltip="Realiza Navegacion para modificar la informacion." 
+                    tooltipPosition="bottom" 
+                    type="button"
+                    [loading]="isLoading"
+                    icon="pi pi-file-edit"
+                    class="p-button-raised p-button-text"
+                    (click)="modificar(DataSource)">
+                    &nbsp;Modificar
+                    </button>
+                    
+                </td>
+                <td>
+                    <p-toast></p-toast>
+                    <p-confirmDialog></p-confirmDialog>
+                    <button 
+                    pButton 
+                    pRipple 
+                    pTooltip="Eliminar el Registro." 
+                    tooltipPosition="bottom" 
+                    type="button"
+                    [loading]="isLoading"
+                    icon="pi pi-trash"
+                    class="p-button-raised p-button-text"
+                    (click)="confirm2(DataSource)">
+                    &nbsp;Eliminar
+                    </button>
+
+
                 </td>
                 <td *ngFor="let value of Obtenervalor(DataSource)">{{ value }}</td>
             </tr>

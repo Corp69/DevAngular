@@ -55,7 +55,14 @@ export class ProductoComponent implements OnInit {
       if (+params['id'] > -1) {
         // AGREGAMOS LA INFORMACION AL FORMULARIO
         this.servicio.Datainfo(+params['id']).subscribe(resp => {
-          this.frmProducto.setValue(resp.Detalle);
+         //this.frmProducto.setValue(resp.Detalle);
+         // seteamos la informacion
+         this.frmProducto.controls['id'].setValue(resp.Detalle.id);
+         this.frmProducto.controls['descripcion'].setValue(resp.Detalle.descripcion);
+         this.frmProducto.controls['observaciones'].setValue(resp.Detalle.observaciones);
+         this.frmProducto.controls['importe'].setValue(resp.Detalle.importe);
+         this.frmProducto.controls['id_app_producto_clasificacion'].setValue(resp.Detalle.id_app_producto_clasificacion);
+         this.frmProducto.controls['id_app_producto_estatus'].setValue(resp.Detalle.id_app_producto_estatus);
         });
       }
     });

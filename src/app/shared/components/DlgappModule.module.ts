@@ -11,6 +11,7 @@ import { PrimeNgModule } from '../Modulos/PrimeNgModule.module';
 import { ImpuestosFederalesComponent } from './impuestos-federales/ImpuestosFederales.component';
 import { ImpuestosEstatalesComponent } from './ImpuestosEstatales/ImpuestosEstatales.component';
 import { ListadosComponent } from './listados/listados.component';
+import { MsjEliminarComponent } from './msj-eliminar/MsjEliminar.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ListadosComponent } from './listados/listados.component';
     ConfirmacionComponent,
     ImpuestosFederalesComponent,
     ImpuestosEstatalesComponent,
-    ListadosComponent
+    ListadosComponent,
+    MsjEliminarComponent
   ],
   exports:[
     ClaveProdServcpComponent,
@@ -32,7 +34,8 @@ import { ListadosComponent } from './listados/listados.component';
     ConfirmacionComponent,
     ImpuestosEstatalesComponent,
     ImpuestosFederalesComponent,
-    ListadosComponent
+    ListadosComponent,
+    MsjEliminarComponent
   ],
   imports: [
     //========================================

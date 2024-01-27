@@ -29,6 +29,7 @@ import {CheckboxModule} from 'primeng/checkbox';
 import { CalendarModule } from 'primeng/calendar';
 import { AccordionModule } from 'primeng/accordion';
 import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   exports: [
@@ -52,6 +53,7 @@ import { RippleModule } from 'primeng/ripple';
     TableModule,
     TabMenuModule,
     TabViewModule,
+    ToastModule,
     //Cards: Angular PrimeNG 
     CardModule,
     //dialogo o modal: Angular PrimeNG 

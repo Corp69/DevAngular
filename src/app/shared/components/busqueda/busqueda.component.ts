@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BuscarService } from './Service/BuscarService.service';
 import { DatePipe } from '@angular/common';
-
+import { ConfirmationService, MessageService } from 'primeng/api';
 @Component({
   selector: 'app-busqueda',
   templateUrl: './busqueda.component.html',
-  styleUrls: ['./busqueda.component.scss']
+  styleUrls: ['./busqueda.component.scss'],
+  providers: [ConfirmationService, MessageService]
 })
 export class BusquedaComponent implements OnInit {
   //bloqueo de botones
@@ -33,8 +34,12 @@ export class BusquedaComponent implements OnInit {
   @Output() JsonRes = new EventEmitter<any>();
   //=================================================================================================================
 
-  constructor( private fb: FormBuilder, private servicio: BuscarService,
+  constructor(
+    private fb: FormBuilder, 
+    private servicio: BuscarService,
     private datePipe: DatePipe,
+    private confirmationService: ConfirmationService, 
+    private messageService: MessageService
   ) {
   }
 
@@ -61,12 +66,12 @@ export class BusquedaComponent implements OnInit {
     this.frm.controls['fechatermina'].setValue(this.datePipe.transform(this.frm.value.fechatermina, 'dd-MM-yyyy'));
     // busqueda al servicio
     this.servicio.Buscar(this.JsonReq._schema, this.JsonReq._funcion, this.frm.value).subscribe(resp => {
-      switch (resp["Detalle"][this.JsonReq._funcion]) {
+      switch (resp.Detalle.lstproductos) {
         case  null:
           break;
         default:
           //tomamos los valores para generar la tabla 
-          this.DataSource = resp.Detalle.lstcliente; 
+          this.DataSource = resp.Detalle.lstproductos;
           this.DataSourceColumnas = Object.keys(this.DataSource[0]);
         break;
       }  
@@ -86,12 +91,12 @@ export class BusquedaComponent implements OnInit {
     this.isLoading = false;
   }
   //==============================================================================================================
-  // funcionalidad de la tabla:
-  public onSelectionChange( args: any){
+  // funcionalidad de la tabla: metodo para emitir la seleccion de un registro
+  /*public onSelectionChange( args: any){
     this.DataSource = null;
     this.JsonRes.emit(args[0]);
   }
-
+  */
   //=============================================================================================================
   //obtenemos las columnas
   public Obtenervalor = (obj: any): any[] => { 
@@ -104,5 +109,43 @@ export class BusquedaComponent implements OnInit {
     console.log( args )
     this.JsonRes = args;
   }
+  
+  //==============================================================================================================
+  // obtener todos los registros
+   public eliminar( args: any){
+    console.log( args )
+   // this.JsonRes = args;
+  }
+
+  //==============================================================================================================
+  // obtener todos los registros
+   public modificar ( args: any){
+    this.DataSource = null;
+    this.JsonRes.emit(args);
+  }
+
+  //==============================================================================================================
+  // obtener todos los registros
+  public confirm2(args: any) {
+    console.log(args);
+    this.confirmationService.confirm({
+        target: event.target as EventTarget,
+        message: 'Do you want to delete this record?',
+        header: 'Delete Confirmation',
+        icon: 'pi pi-info-circle',
+        acceptButtonStyleClass:"p-button-danger p-button-text",
+        rejectButtonStyleClass:"p-button-text p-button-text",
+        acceptIcon:"none",
+        rejectIcon:"none",
+
+        accept: () => {
+            this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
+        },
+        reject: () => {
+            this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+        }
+    });
+}
+
 
 }

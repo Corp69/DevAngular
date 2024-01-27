@@ -61,17 +61,34 @@
                 <b>Funciones Usuario:</b>
             </div>
         </p-divider>
-        <button type="button" (click)="Nuevo()" [disabled]="BtnSpinner"
-            pTooltip="Nuevo Formulario: Resetear Informcion." tooltipPosition="bottom" class="btn btn-outline-primary">
-            Nuevo
-        </button>
-        <button [disabled]="BtnSpinner" type="button" (click)="Almacenar()" [disabled]="frmProducto.invalid"
-            pTooltip="Almacenar La Informcion Del Formulario." tooltipPosition="bottom" class="btn btn-outline-primary">
-            Guardar
-            <p-progressSpinner *ngIf="BtnSpinner" styleClass="w-4rem h-4rem" strokeWidth="8"
-            fill="var(--surface-ground)" animationDuration=".5s">
-        </p-progressSpinner>
 
+        <button 
+            pButton 
+            pRipple 
+            pTooltip="Nuevo Formulario: Resetear Informcion."
+            tooltipPosition="bottom"
+            type="button"
+            icon="pi pi-replay"
+            [loading]="BtnSpinner"
+            class="p-button-raised p-button-text"
+            (click)="Nuevo()"
+        >
+        Nueva Busqueda
+        </button>
+    
+        <button 
+            pButton 
+            pRipple 
+            pTooltip="Almacenar La Informcion Del Formulario."
+            tooltipPosition="bottom"
+            type="button"
+            icon="pi pi-save"
+            [loading]="BtnSpinner"
+            class="p-button-raised p-button-text"
+            [disabled]="frmProducto.invalid"
+            (click)="Almacenar()"
+        >
+        Guardar
         </button>
     </form>
 </p-card>
